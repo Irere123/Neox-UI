@@ -3,6 +3,7 @@ import { SearchOutlined as SearchIcon } from '@material-ui/icons';
 
 import '../styles/Home.css';
 import Header from '../components/Header';
+import QuestionSender from '../components/kofta/QuestionSender';
 
 function Home() {
   return (
@@ -18,7 +19,9 @@ function Home() {
               <input placeholder='Search questions and users' />
             </div>
           </div>
-          <div className='asker'>Ask Question</div>
+          <div className='asker'>
+            <QuestionSender />
+          </div>
           <div className='main'>Main</div>
         </div>
         <div className='widgets'>Widgets</div>
