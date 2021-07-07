@@ -1,0 +1,180 @@
+#sign-up > h1 {
+  margin-top: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+}
+
+.input {
+  position: absolute;
+  top: 250px;
+  display: flex;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  width: 50vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: #202124;
+}
+
+.input > input {
+  flex: 1;
+  padding: 10px 20px;
+  margin-top: 3px;
+  border: none;
+  color: #323d4d;
+  outline: none;
+  font-size: 16px;
+  background-color: #202124;
+}
+
+.input__email {
+  position: absolute;
+  top: 320px;
+  display: flex;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  width: 50vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: #202124;
+}
+
+.input__email > input {
+  flex: 1;
+  padding: 10px 20px;
+  margin-top: 3px;
+  border: none;
+  color: #323d4d;
+  outline: none;
+  font-size: 16px;
+  background-color: #202124;
+}
+
+.input__password {
+  position: absolute;
+  top: 390px;
+  display: flex;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  width: 50vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: #202124;
+}
+
+.input__password > input {
+  flex: 1;
+  padding: 10px 20px;
+  margin-top: 3px;
+  border: none;
+  color: #323d4d;
+  outline: none;
+  font-size: 16px;
+  background-color: #202124;
+}
+
+.card {
+  display: flex;
+  height: 400px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  width: 53vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  background: linear-gradient(253.65deg, #424242 2.65%, rgba(66, 66, 66, 0) 99.37%);
+}
+
+.card > h1 {
+  margin: 0 auto;
+  color: #fff;
+  position: absolute;
+  top: 200px;
+  margin-left: 315px;
+}
+
+.button {
+  display: flex;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 23px;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  background-color: #202124;
+}
+
+.button > button {
+  outline: none;
+  color: #fff;
+  flex: 1;
+  border: none;
+  font-size: 20px;
+  background-color: #202124;
+}
+
+.button2 {
+  display: flex;
+  height: 28px;
+  padding: 10px 20px;
+  border-radius: 23px;
+  width: 190px;
+  position: absolute;
+  top: 440px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-left: 250px;
+  border: 2px solid #121212;
+  background-color: #202124;
+}
+
+.button2 > button {
+  outline: none;
+  color: #fff;
+  flex: 1;
+  border: none;
+  font-size: 20px;
+  background-color: #202124;
+}
+
+.icon {
+  margin-top: 3px;
+  color: #fff;
+}
+
+.MuiSvgIcon-root {
+  margin-top: 3px !important;
+  padding: 2px;
+}
+
+.b1,
+.b3,
+.b2 {
+  background: white;
+  background: linear-gradient(140.73deg, rgba(66, 66, 66, 0.19) 12.91%, rgba(92, 103, 100, 0) 75.21%);
+  height: 15rem;
+  width: 15rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.b1 {
+  top: 5%;
+  left: 20%;
+}
+
+.b2 {
+  bottom: 0%;
+  left: 4%;
+}
+
+.b3 {
+  bottom: 0%;
+  left: 70%;
+}

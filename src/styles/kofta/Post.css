@@ -1,0 +1,84 @@
+.post {
+  width: 50%;
+  margin-top: 15px;
+  border: 1px solid #595959 !important;
+  border-radius: 20px;
+  background-color: #202124 !important;
+  box-shadow: 0px 5px 7px -7px white;
+}
+
+.post__top {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 15px;
+}
+
+.post__avatar {
+  margin-right: 10px;
+  border: 3px solid #0c59ef;
+}
+
+.post__topinfo > h3 {
+  font-size: 30px;
+  color: #fff;
+}
+
+.post__topinfo > p {
+  font-size: small;
+  color: #fff !important;
+}
+
+.post__image > img {
+  width: 100%;
+}
+
+.post__bottom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px 25px;
+}
+
+.post__options {
+  padding-top: 10px;
+  border-top: none !important;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: medium;
+  color: gray;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.post__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  flex: 1;
+}
+
+.post__option > p {
+  margin-left: 10px;
+  color: #fff !important;
+}
+
+.post__option:hover {
+  background-color: #121212 !important;
+  border-radius: 10px;
+}
+
+.post__top > .MuiAvatar-colorDefault {
+  color: #fff !important;
+  font-size: 30px !important;
+  background-color: #121212 !important;
+}
+
+.post__top > .post__avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.post__bottom > p {
+  color: #fff;
+}

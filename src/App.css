@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #121212;
+}
+
+.viewteam_layout {
+  display: grid;
+  height: 86vh;
+  position: fixed;
+  grid-template-columns: 100px 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.titlebar__header {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: center;
+}
+
+.titlebar__header > h2 {
+  color: #b2bdcd;
+}

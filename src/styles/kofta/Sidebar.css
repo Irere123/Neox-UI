@@ -1,0 +1,7 @@
+.sidebar {
+  background-color: #202124;
+  border-radius: 11px;
+  height: 460px;
+  padding: 25px 10px;
+  flex: 0.33;
+}

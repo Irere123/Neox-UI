@@ -1,0 +1,80 @@
+.asker {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  background-color: #202124;
+  border: 1px solid #595959;
+  border-radius: 15px;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+  width: 90%;
+}
+
+.asker__top {
+  display: flex;
+  padding-bottom: 15px;
+  padding: 15px;
+}
+
+.asker__top > .MuiAvatar-colorDefault {
+  color: #fff !important;
+  border: 3px solid #0c59ef;
+  font-size: 30px !important;
+  background-color: #121212 !important;
+}
+
+.asker__top > .asker__avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.asker__top > form {
+  margin-top: 7px;
+  width: 40px;
+  height: 40px;
+}
+
+.asker__top > form {
+  flex: 1;
+  display: flex;
+}
+
+.asker__top > form > input {
+  outline-width: 0;
+  border: 1px solid #595959;
+  padding: 5px 20px;
+  margin: 0 10px;
+  border-radius: 11px;
+  background-color: #202124;
+}
+
+.asker__top > form > button {
+  display: none;
+}
+
+.asker__input {
+  flex: 1;
+}
+
+.asker__bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.asker__option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  margin: 5px;
+}
+
+.asker__option > h3 {
+  font-size: medium;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.asker__option:hover {
+  background-color: #eff2f5;
+  border-radius: 20px;
+}

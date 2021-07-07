@@ -1,0 +1,46 @@
+.send_message_wrapper {
+  grid-column: 3;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 50px auto;
+}
+
+.message__input {
+  display: flex;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  width: 53vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: #202124;
+}
+
+.message__input > input {
+  flex: 1;
+  padding: 10px 20px;
+  margin-top: 3px;
+  border: none;
+  color: #323d4d;
+  font-size: 16px;
+  background-color: #202124;
+}
+
+::placeholder {
+  color: #323d4d;
+  font-size: 16px;
+}
+
+.message__input > input:focus {
+  outline-width: 0;
+}
+
+.message__inputIcon {
+  margin-top: 3px;
+  color: #fff;
+}
+
+.MuiSvgIcon-root {
+  margin-top: 3px !important;
+  padding: 2px;
+}

@@ -1,0 +1,66 @@
+.channel__wrapper {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  background: linear-gradient(
+    353.9deg,
+    #424242 -35.54%,
+    rgba(66, 66, 66, 0) 99.04%
+  );
+  color: #958993;
+}
+
+
+.team_name_header {
+  color: #b2bdcd;
+  font-size: 30px;
+}
+
+.username {
+  color: #5d7290;
+  font-size: 18px;
+}
+
+.sidebar_list {
+  width: 100%;
+  list-style: none;
+  padding-left: 0px;
+}
+
+.sidebar_list_item {
+  padding: 2px;
+  padding-left: 10px;
+  color: #5d7290;
+}
+
+.invite-link {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #b2bdcd;
+}
+
+.sidebar_list_item:hover {
+  background: #121212;
+}
+
+.sidebar_list_header {
+  padding-left: 10px;
+  font-size: 25px;
+  color: #b2bdcd;
+}
+
+.greeen {
+  color: #38978d;
+}
+
+.push_left {
+  padding-left: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
