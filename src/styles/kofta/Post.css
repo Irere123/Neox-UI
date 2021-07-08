@@ -1,10 +1,8 @@
 .post {
   width: 56vw;
   margin-top: 15px;
-  border: 1px solid #595959 !important;
   border-radius: 20px;
   background-color: #202124 !important;
-  box-shadow: 0px 5px 7px -7px white;
 }
 
 .post__top {

@@ -1,15 +1,15 @@
 import React from 'react';
 import { SearchOutlined as SearchIcon } from '@material-ui/icons';
-import { ExpandMoreOutlined } from '@material-ui/icons';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags';
 import PeopleIcon from '@material-ui/icons/People';
 import ChatIcon from '@material-ui/icons/Chat';
-import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibaryIcon from '@material-ui/icons/VideoLibrary';
 
 import '../styles/Home.css';
 import logo from '../images/Pixel.jpg';
+import logo2 from '../images/phone.jpg';
+import logo3 from '../images/makeup.jpg';
 import Header from '../components/Header';
 import QuestionSender from '../components/kofta/QuestionSender';
 import Feed from '../components/kofta/Feed';
@@ -23,13 +23,14 @@ function Home() {
       <div className='app__body'>
         <div className='trends'>
           <SidebarRow title='Tim Barners Lee' src={logo} />
+          <hr />
+          <SidebarRow title='#1 Helper on Neox' src={logo2} />
+          <SidebarRow title='#2 Helper on Neox' src={logo3} />
           <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Info Center' />
           <SidebarRow Icon={EmojiFlagsIcon} title='Stages' />
           <SidebarRow Icon={PeopleIcon} title='Teams' />
           <SidebarRow Icon={ChatIcon} title='Messenger' />
-          <SidebarRow Icon={StorefrontIcon} title='Tutor Locator' />
           <SidebarRow Icon={VideoLibaryIcon} title='Videos' />
-          <SidebarRow Icon={ExpandMoreOutlined} title='Malketplace' />
         </div>
         <div className='center'>
           <div className='search'>

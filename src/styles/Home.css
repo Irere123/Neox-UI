@@ -1,3 +1,7 @@
+hr {
+  color: lightgray;
+}
+
 .app__body {
   display: grid;
   color: #fff;
