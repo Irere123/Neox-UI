@@ -6,6 +6,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { Link } from 'react-router-dom';
 
 import logo from '../images/logo.svg';
+import profilepic from '../images/Pixel.jpg';
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ function Header() {
       </div>
       <div className='header__right'>
         <div className='header__info'>
-          <Avatar className='header__avatar'>TL</Avatar>
+          <Avatar className='header__avatar' src={profilepic} />
           <h4>Tim</h4>
         </div>
 
