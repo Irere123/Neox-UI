@@ -23,11 +23,11 @@ function Home() {
       <div className='app__body'>
         <div className='trends'>
           <SidebarRow title='Tim Barners Lee' src={logo} />
-          <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information center' />
-          <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
-          <SidebarRow Icon={PeopleIcon} title='Friends' />
-          <SidebarRow Icon={ChatIcon} title='Messanger' />
-          <SidebarRow Icon={StorefrontIcon} title='Malketplace' />
+          <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Info Center' />
+          <SidebarRow Icon={EmojiFlagsIcon} title='Stages' />
+          <SidebarRow Icon={PeopleIcon} title='Teams' />
+          <SidebarRow Icon={ChatIcon} title='Messenger' />
+          <SidebarRow Icon={StorefrontIcon} title='Tutor Locator' />
           <SidebarRow Icon={VideoLibaryIcon} title='Videos' />
           <SidebarRow Icon={ExpandMoreOutlined} title='Malketplace' />
         </div>
