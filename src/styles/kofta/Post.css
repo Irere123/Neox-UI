@@ -1,5 +1,5 @@
 .post {
-  width: 50%;
+  width: 56vw;
   margin-top: 15px;
   border: 1px solid #595959 !important;
   border-radius: 20px;
@@ -20,7 +20,6 @@
 }
 
 .post__topinfo > h3 {
-  font-size: 30px;
   color: #fff;
 }
 
@@ -70,13 +69,7 @@
 
 .post__top > .MuiAvatar-colorDefault {
   color: #fff !important;
-  font-size: 30px !important;
   background-color: #121212 !important;
-}
-
-.post__top > .post__avatar {
-  width: 50px;
-  height: 50px;
 }
 
 .post__bottom > p {

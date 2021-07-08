@@ -4,6 +4,7 @@ import { SearchOutlined as SearchIcon } from '@material-ui/icons';
 import '../styles/Home.css';
 import Header from '../components/Header';
 import QuestionSender from '../components/kofta/QuestionSender';
+import Feed from '../components/kofta/Feed';
 
 function Home() {
   return (
@@ -16,13 +17,15 @@ function Home() {
             {' '}
             <div className='search__input'>
               <SearchIcon />
-              <input placeholder='Search questions and users' />
+              <input placeholder='Search Questions and Answers' />
             </div>
           </div>
           <div className='asker'>
             <QuestionSender />
           </div>
-          <div className='main'>Main</div>
+          <div className='main'>
+            <Feed />
+          </div>
         </div>
         <div className='widgets'>Widgets</div>
       </div>
