@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SearchOutlined as SearchIcon } from '@material-ui/icons';
 
 import '../styles/Home.css';
@@ -17,7 +18,9 @@ function Home() {
       <Header />
       <div className='app__body'>
         <div className='trends'>
-          <SidebarRow title='Tim Barners Lee' src={logo1} />
+          <Link to='/profile'>
+            <SidebarRow title='Tim Barners Lee' src={logo1} />
+          </Link>
           <h3>People</h3>
           <SidebarRow title='Ben Awad' src={logo2} />
           <SidebarRow title='Denis Ivy' src={logo3} />

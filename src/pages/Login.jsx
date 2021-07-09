@@ -27,11 +27,11 @@ class Login extends React.Component {
             <h2>Sign in to your account</h2>
             <div className='el__input_login'>
               <Email />
-              <input placeholder='Email' />
+              <input type='email' placeholder='Email' />
             </div>
             <div className='el__input_login'>
               <Lock />
-              <input placeholder='Password' />
+              <input type='password' placeholder='Password' />
             </div>
             <div>
               <button type='submit' className='el__btn_login'>
@@ -53,9 +53,6 @@ class Login extends React.Component {
           <Link to='/register'>
             <h4>Create Account</h4>
           </Link>
-          <p>
-            <code>Copyright 2021</code>
-          </p>
         </div>
       </div>
     );

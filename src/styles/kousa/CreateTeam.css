@@ -3,7 +3,7 @@ p {
 }
 
 .create__team__info {
-  color: #fff;
+  color: lightgray;
   text-align: center;
 }
 
@@ -14,10 +14,11 @@ p {
 
 .create__team__info > p {
   font-size: 45px;
-  color: #fff;
+  color: lightgray;
 }
 
 .team__input {
+  border: 1px solid #323d4d;
   display: flex;
   height: 30px;
   padding: 10px 20px;
@@ -26,7 +27,7 @@ p {
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 20px;
-  background-color: #333;
+  background-color: #161b22;
 }
 
 .team__input > input {
@@ -36,7 +37,7 @@ p {
   border: none;
   color: #323d4d;
   font-size: 20px;
-  background-color: #333;
+  background-color: #161b22;
 }
 
 ::placeholder {
@@ -73,11 +74,7 @@ p {
 .circle3,
 .circle2 {
   background: white;
-  background: linear-gradient(
-    140.73deg,
-    rgba(66, 66, 66, 0.19) 12.91%,
-    rgba(92, 103, 100, 0) 75.21%
-  );
+  background: linear-gradient(140.73deg, rgba(66, 66, 66, 0.19) 12.91%, rgba(92, 103, 100, 0) 75.21%);
   height: 15rem;
   width: 15rem;
   position: absolute;

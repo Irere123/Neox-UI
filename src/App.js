@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import ViewTeam from './pages/ViewTeam';
+import Profile from './pages/Profile';
 import CreateTeam from './pages/CreateTeam';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path='/create-team'>
             <CreateTeam />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
           <Route path='/home'>
             <Questa />
