@@ -110,6 +110,7 @@
 
 .el__input_register > input:focus {
   outline-width: 0;
+  background: transparent !important;
 }
 
 .el__btn_register {
@@ -126,6 +127,21 @@
   margin-bottom: 15px;
   margin-top: 10px;
   background-color: transparent;
+}
+
+/* Footer */
+.footer__banner {
+  display: grid;
+  grid-template-columns: 40px 40px 40px 150px 1fr;
+}
+
+.footer__banner > a {
+  color: lightgray;
+}
+
+.footer__banner > a > h4 {
+  margin-top: 3px;
+  color: lightgray;
 }
 
 /* Media Queries */

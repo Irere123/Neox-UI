@@ -1,12 +1,57 @@
 import React from 'react';
+import { Paper } from '@material-ui/core';
 import { Email, Lock, Facebook, YouTube, Instagram, Telegram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 
 import '../styles/Register.css';
 import logoImg from '../images/logo.svg';
 
 class Register extends React.Component {
+  state = {
+    username: '',
+    usernameError: '',
+    email: '',
+    emailError: '',
+    password: '',
+    passwordError: '',
+  };
+
+  onSubmit = async () => {
+    // this.state({
+    //   usernameError: '',
+    //   emailError: '',
+    //   passwordError: '',
+    // });
+
+    const { username, password, email } = this.state;
+    const response = await this.props.mutate({
+      variables: { username, email, password },
+    });
+
+    const { ok, errors } = response.data.register;
+
+    if (ok) {
+      this.props.history.push('/');
+    } else {
+      const err = {};
+      errors.forEach(({ path, message }) => {
+        err[`${path}Error`] = message;
+      });
+
+      this.setState(err);
+    }
+  };
+
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
+    const { username, email, password, usernameError, emailError, passwordError } = this.state;
+
     return (
       <div className='register-layout'>
         <div className='banner'>
@@ -19,7 +64,7 @@ class Register extends React.Component {
               Neox make communucation excellent it provides seemless experience🚀 not only that it helps to get answer to your questions and
               give answer to those in need for answers....
             </p>
-            <h3>#We are Better Than You 😄😄</h3>
+            <h3>#We are Better Than Others 😄😄</h3>
           </div>
         </div>
         <div className='card'>
@@ -27,18 +72,18 @@ class Register extends React.Component {
             <h2>Create new account</h2>
             <div className='el__input_register'>
               <Telegram />
-              <input type='text' placeholder='Username' />
+              <input name='username' onChange={this.onChange} value={username} type='text' placeholder='Username' />
             </div>
             <div className='el__input_register'>
               <Email />
-              <input type='email' placeholder='Email' />
+              <input name='email' onChange={this.onChange} value={email} type='email' placeholder='Email' />
             </div>
             <div className='el__input_register'>
               <Lock />
-              <input type='password' placeholder='Password' />
+              <input name='password' onChange={this.onChange} value={password} type='password' placeholder='Password' />
             </div>
             <div>
-              <button type='submit' className='el__btn_register'>
+              <button type='submit' onClick={this.onSubmit} className='el__btn_register'>
                 Sign Up
               </button>
             </div>
@@ -54,7 +99,7 @@ class Register extends React.Component {
           <Link to='#youtube'>
             <YouTube />
           </Link>
-          <Link to='/'>
+          <Link to='/login'>
             <h4>Sign In</h4>
           </Link>
         </div>
@@ -63,4 +108,20 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+const registerMutation = gql`
+  mutation ($username: String!, $email: String!, $password: String!) {
+    register(username: $username, email: $email, password: $password) {
+      ok
+      errors {
+        path
+        message
+      }
+      user {
+        id
+        username
+      }
+    }
+  }
+`;
+
+export default graphql(registerMutation)(Register);
