@@ -1,6 +1,7 @@
 .team__wrapper {
   grid-column: 1;
   grid-row: 1 / 4;
+  border: 2px solid #161b22;
   background-color: #202124;
   color: #fff;
   border-radius: 5px;

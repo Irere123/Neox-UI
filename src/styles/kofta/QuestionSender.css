@@ -1,7 +1,8 @@
 .asker {
   display: flex;
   flex-direction: column;
-  background-color: #202124;
+  background-color: transparent;
+  border: 1px solid #30363d;
   border-radius: 15px;
   width: 56vw;
   margin: 0 auto;
@@ -55,6 +56,7 @@
   flex: 1;
   color: #323d4d;
   font-size: 20px;
+  border: 1px solid #30363d;
 }
 
 .asker__bottom {

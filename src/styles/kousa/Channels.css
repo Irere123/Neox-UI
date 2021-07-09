@@ -1,6 +1,7 @@
 .channel__wrapper {
   grid-column: 2;
   grid-row: 1 / 4;
+  border-radius: 11px;
   background: linear-gradient(353.9deg, #424242 -35.54%, rgba(66, 66, 66, 0) 99.04%);
   color: #958993;
 }

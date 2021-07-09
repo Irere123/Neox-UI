@@ -1,11 +1,14 @@
-hr {
+.trends > h3 {
   color: lightgray;
+  margin-left: 10px;
+  margin-bottom: 4px;
 }
 
 .app__body {
   display: grid;
   color: #fff;
   grid-gap: 5px;
+  position: sticky;
   grid-template-columns: 250px 1fr 250px;
 }
 
@@ -15,20 +18,17 @@ hr {
   grid-template-rows: 70px 117px 400px;
 }
 
-.asker {
-  background-color: #323d4d38;
-}
-
 .search__input {
   display: flex;
   height: 30px;
   padding: 10px 20px;
   border-radius: 11px;
   width: 53vw;
+  border: 1px solid #30363d;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 20px;
-  background-color: #202124;
+  background-color: transparent;
 }
 
 .search__input > input {
@@ -38,7 +38,7 @@ hr {
   border: none;
   color: #323d4d;
   font-size: 20px;
-  background-color: #202124;
+  background-color: transparent;
 }
 
 ::placeholder {

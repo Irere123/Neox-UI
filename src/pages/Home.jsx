@@ -1,13 +1,8 @@
 import React from 'react';
 import { SearchOutlined as SearchIcon } from '@material-ui/icons';
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags';
-import PeopleIcon from '@material-ui/icons/People';
-import ChatIcon from '@material-ui/icons/Chat';
-import VideoLibaryIcon from '@material-ui/icons/VideoLibrary';
 
 import '../styles/Home.css';
-import logo from '../images/Pixel.jpg';
+import logo1 from '../images/Pixel.jpg';
 import logo2 from '../images/phone.jpg';
 import logo3 from '../images/makeup.jpg';
 import Header from '../components/Header';
@@ -22,15 +17,13 @@ function Home() {
       <Header />
       <div className='app__body'>
         <div className='trends'>
-          <SidebarRow title='Tim Barners Lee' src={logo} />
-          <hr />
-          <SidebarRow title='#1 Helper on Neox' src={logo2} />
-          <SidebarRow title='#2 Helper on Neox' src={logo3} />
-          <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Info Center' />
-          <SidebarRow Icon={EmojiFlagsIcon} title='Stages' />
-          <SidebarRow Icon={PeopleIcon} title='Teams' />
-          <SidebarRow Icon={ChatIcon} title='Messenger' />
-          <SidebarRow Icon={VideoLibaryIcon} title='Videos' />
+          <SidebarRow title='Tim Barners Lee' src={logo1} />
+          <h3>People</h3>
+          <SidebarRow title='Ben Awad' src={logo2} />
+          <SidebarRow title='Denis Ivy' src={logo3} />
+          <SidebarRow title='Neox Bot' src={logo1} />
+          <SidebarRow title='Brad Traversy' src={logo1} />
+          <SidebarRow title='Irere Emmanuel' src={logo1} />
         </div>
         <div className='center'>
           <div className='search'>

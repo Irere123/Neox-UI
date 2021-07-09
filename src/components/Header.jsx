@@ -13,7 +13,7 @@ function Header() {
 
   return (
     <div className='header'>
-      <div className='logo'>
+      <div className='logo__header'>
         <img src={logo} alt='Argon' />
       </div>
       <div className='header__right'>
@@ -23,7 +23,7 @@ function Header() {
         </div>
 
         <IconButton>
-          <Link to='/'>
+          <Link to='/home'>
             <HomeOutlinedIcon />
           </Link>
         </IconButton>

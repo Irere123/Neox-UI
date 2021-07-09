@@ -7,7 +7,7 @@
 }
 
 /* Grobals for The Page */
-.register-layout {
+.login-layout {
   display: grid;
   grid-template-columns: 600px 1fr;
 }
@@ -18,17 +18,17 @@
 }
 
 /* Logo Text: Neox */
-.logo__register {
+.logo__login {
   display: grid;
   grid-template-columns: 120px 1fr;
 }
 
-.logo__register > h1 {
+.logo__login > h1 {
   color: var(--txt-color);
   font-size: 100px;
   margin-top: 100px;
 }
-.logo__register > img {
+.logo__login > img {
   color: var(--txt-color);
   font-size: 100px;
   margin-top: 105px;
@@ -49,7 +49,7 @@
 
 /* Sign In Card */
 .card {
-  height: 410px;
+  height: 400px;
   padding: 10px 20px;
   border-radius: 15px;
   width: 500px;
@@ -71,7 +71,19 @@
 
 .card-content {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.last-logins {
+  height: 200px;
+  padding: 3px 5px;
+  width: 200px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.last-logins > .profile > img {
+  border-radius: 4px;
 }
 
 .about__neox__text {
@@ -80,7 +92,7 @@
   margin-left: 20px;
 }
 
-.el__input_register {
+.el__input_login {
   display: flex;
   height: 30px;
   width: var(--input-size);
@@ -93,7 +105,7 @@
   background-color: transparent;
 }
 
-.el__input_register > input {
+.el__input_login > input {
   flex: 1;
   padding: 10px 20px;
   margin-top: 3px;
@@ -108,11 +120,11 @@
   font-size: 20px;
 }
 
-.el__input_register > input:focus {
+.el__input_login > input:focus {
   outline-width: 0;
 }
 
-.el__btn_register {
+.el__btn_login {
   display: flex;
   height: 40px;
   width: 100px;
@@ -124,8 +136,19 @@
   border: 1px solid var(--border-color);
   margin: 0 auto;
   margin-bottom: 15px;
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: transparent;
+}
+
+/* Footer */
+.footer__banner {
+  display: grid;
+  grid-template-columns: 40px 40px 40px 150px 1fr;
+}
+
+.footer__banner > a > h4 {
+  margin-top: 5px;
+  color: lightgray;
 }
 
 /* Media Queries */
@@ -133,7 +156,7 @@
   .banner {
     display: none;
   }
-  .register-layout {
+  .login-layout {
     display: grid;
     grid-template-columns: 1fr;
   }
