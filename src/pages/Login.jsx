@@ -1,6 +1,7 @@
 import React from 'react';
 import { Email, Lock, Facebook, YouTube, Instagram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { Message } from 'semantic-ui-react';
 import { extendObservable } from 'mobx';
 import { observer } from 'mobx-react';
 import gql from 'graphql-tag';
@@ -15,19 +16,30 @@ class Login extends React.Component {
     extendObservable(this, {
       email: '',
       password: '',
+      errors: {},
     });
   }
 
   onSubmit = async () => {
     const { email, password } = this;
+
     const response = await this.props.mutate({
       variables: { email, password },
     });
 
-    const { ok, token, refreshToken } = response.data.login;
+    const { ok, token, refreshToken, errors } = response.data.login;
+
     if (ok) {
       localStorage.setItem('token', token);
       localStorage.setItem('refreshToken', refreshToken);
+      this.props.history.push('/');
+    } else {
+      const err = {};
+      errors.forEach(({ path, message }) => {
+        err[`${path}Error`] = message;
+      });
+
+      this.errors = err;
     }
   };
 
@@ -37,7 +49,21 @@ class Login extends React.Component {
   };
 
   render() {
-    const { email, password } = this;
+    const {
+      email,
+      password,
+      errors: { emailError, passwordError },
+    } = this;
+
+    const errorsList = [];
+
+    if (passwordError) {
+      errorsList.push(passwordError);
+    }
+
+    if (emailError) {
+      errorsList.push(emailError);
+    }
 
     return (
       <div className='login-layout'>
@@ -54,7 +80,7 @@ class Login extends React.Component {
             <h3>#We are Better Than You 😄😄</h3>
           </div>
         </div>
-        <div className='card'>
+        <div className='card-login'>
           <div className='card-content'>
             <h2>Sign in to your account</h2>
             <div className='el__input_login'>
@@ -70,6 +96,7 @@ class Login extends React.Component {
                 Sign In
               </button>
             </div>
+            {errorsList.length ? <Message header='There was some errors with your submission' error list={errorsList} /> : null}
           </div>
         </div>
         <div className='footer__banner'>

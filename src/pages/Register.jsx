@@ -1,9 +1,9 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
 import { Email, Lock, Facebook, YouTube, Instagram, Telegram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { Message } from 'semantic-ui-react';
 
 import '../styles/Register.css';
 import logoImg from '../images/logo.svg';
@@ -19,11 +19,11 @@ class Register extends React.Component {
   };
 
   onSubmit = async () => {
-    // this.state({
-    //   usernameError: '',
-    //   emailError: '',
-    //   passwordError: '',
-    // });
+    this.setState({
+      usernameError: '',
+      emailError: '',
+      passwordError: '',
+    });
 
     const { username, password, email } = this.state;
     const response = await this.props.mutate({
@@ -51,6 +51,20 @@ class Register extends React.Component {
 
   render() {
     const { username, email, password, usernameError, emailError, passwordError } = this.state;
+
+    const errorList = [];
+
+    if (usernameError) {
+      errorList.push(usernameError);
+    }
+
+    if (passwordError) {
+      errorList.push(passwordError);
+    }
+
+    if (emailError) {
+      errorList.push(emailError);
+    }
 
     return (
       <div className='register-layout'>
@@ -88,6 +102,7 @@ class Register extends React.Component {
               </button>
             </div>
           </div>
+          {errorList.length ? <Message header='There was some errors with your submission' error list={errorList} /> : null}
         </div>
         <div className='footer__banner'>
           <Link to='#instagram'>
@@ -115,10 +130,6 @@ const registerMutation = gql`
       errors {
         path
         message
-      }
-      user {
-        id
-        username
       }
     }
   }
