@@ -52,6 +52,7 @@ export default class Sidebar extends React.Component {
         key='channels-sidebar'
         teamId={team.id}
         teamName={team.name}
+        isOwner={team.admin}
         username={username}
         channels={team.channels}
         users={[

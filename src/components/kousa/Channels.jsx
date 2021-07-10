@@ -16,7 +16,7 @@ const user = ({ id, name }) => (
   </li>
 );
 
-function Channels({ teamName, username, channels, users, onAddChannelClick, teamId, onInvitePeopleClick }) {
+function Channels({ teamName, username, channels, users, onAddChannelClick, teamId, onInvitePeopleClick, isOwner }) {
   return (
     <div className='channel__wrapper'>
       <div className='push_left'>
@@ -24,9 +24,7 @@ function Channels({ teamName, username, channels, users, onAddChannelClick, team
         <h3 className='username'>{username}</h3>
       </div>
       <ul className='sidebar_list'>
-        <li className='sidebar_list_header'>
-          Channels <Icon onClick={onAddChannelClick} />
-        </li>
+        <li className='sidebar_list_header'>Channels {isOwner && <Icon onClick={onAddChannelClick} />}</li>
         {channels.map((c) => channel(c, teamId))}
       </ul>
       <ul className='sidebar_list'>
@@ -35,13 +33,15 @@ function Channels({ teamName, username, channels, users, onAddChannelClick, team
         </li>
         {users.map(user)}
       </ul>
-      <Link to='#invitePeople'>
-        <ul className='sidebar_list'>
-          <li className='invite-link' onClick={onInvitePeopleClick}>
-            + Invite People
-          </li>
-        </ul>
-      </Link>
+      {isOwner && (
+        <Link to='#invitePeople'>
+          <ul className='sidebar_list'>
+            <li className='invite-link' onClick={onInvitePeopleClick}>
+              + Invite People
+            </li>
+          </ul>
+        </Link>
+      )}
     </div>
   );
 }
