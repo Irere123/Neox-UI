@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import '../styles/kousa/CreateTeam.css';
+import { Redirect } from 'react-router-dom';
 
 class CreateTeam extends React.Component {
   constructor(props) {
@@ -19,16 +20,19 @@ class CreateTeam extends React.Component {
 
   onSubmit = async () => {
     const { name } = this;
-
     let response = null;
+
     try {
       response = await this.props.mutate({
         variables: { name },
       });
     } catch (err) {
-      this.props.history.push('/');
+      console.log(err);
+      this.props.history.push('/login');
       return;
     }
+
+    console.log(response);
 
     const { ok, errors, team } = response.data.createTeam;
 

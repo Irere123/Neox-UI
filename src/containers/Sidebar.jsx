@@ -12,24 +12,27 @@ export default class Sidebar extends React.Component {
     openInvitePeopleModal: false,
   };
 
-  handleInvitePeopleClick = () => {
-    this.setState({ openInvitePeopleModal: true });
+  toggleAddChannelModal = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState((state) => ({
+      openAddChannelModal: !state.openAddChannelModal,
+    }));
   };
 
-  handleAddChannnelClick = () => {
-    this.setState({ openAddChannelModal: true });
-  };
-
-  handleCloseAddChannelModal = () => {
-    this.setState({ openAddChannelModal: false });
-  };
-
-  handleCloseInvitePeopleModal = () => {
-    this.setState({ openInvitePeopleModal: false });
+  toggleInvitePeopleModal = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState((state) => ({
+      openInvitePeopleModal: !state.openInvitePeopleModal,
+    }));
   };
 
   render() {
     const { teams, team } = this.props;
+
     const { openInvitePeopleModal, openAddChannelModal } = this.state;
 
     let username = '';
@@ -55,21 +58,11 @@ export default class Sidebar extends React.Component {
           { id: 1, name: 'slackbot' },
           { id: 2, name: 'user1' },
         ]}
-        onAddChannelClick={this.handleAddChannnelClick}
-        onInvitePeopleClick={this.handleInvitePeopleClick}
+        onAddChannelClick={this.toggleAddChannelModal}
+        onInvitePeopleClick={this.toggleInvitePeopleModal}
       />,
-      <AddChannelModal
-        teamId={team.id}
-        onClose={this.handleCloseAddChannelModal}
-        open={openAddChannelModal}
-        key='sidebar-add-channel-modal'
-      />,
-      <InvitePeopleModal
-        teamId={team.id}
-        onClose={this.handleCloseInvitePeopleModal}
-        open={openInvitePeopleModal}
-        key='invite-people-modal'
-      />,
+      <AddChannelModal teamId={team.id} onClose={this.toggleAddChannelModal} open={openAddChannelModal} key='sidebar-add-channel-modal' />,
+      <InvitePeopleModal teamId={team.id} onClose={this.toggleInvitePeopleModal} open={openInvitePeopleModal} key='invite-people-modal' />,
     ];
   }
 }

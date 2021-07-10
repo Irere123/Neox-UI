@@ -19,7 +19,6 @@ const AddChannelModal = ({ open, onClose, values, handleChange, handleBlur, hand
         <FileCopy />
         <input value={values.name} onChange={handleChange} onBlur={handleBlur} name='name' type='text' placeholder='Channel Name' />
       </div>
-      <div></div>
       <div className='buttons__AddChannel'>
         <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
           Create Channel
