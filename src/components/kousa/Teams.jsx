@@ -3,9 +3,9 @@ import '../../styles/kousa/Teams.css';
 import { Link } from 'react-router-dom';
 
 const team = ({ id, letter }) => (
-  <div key={`team-${id}`} className='team__list__item'>
-    {letter}
-  </div>
+  <Link to={`/view-team/${id}`} key={`team-${id}`}>
+    <div className='team__list__item'>{letter}</div>
+  </Link>
 );
 
 function Teams({ teams }) {

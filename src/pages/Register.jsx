@@ -114,7 +114,7 @@ class Register extends React.Component {
           <Link to='#youtube'>
             <YouTube />
           </Link>
-          <Link to='/login'>
+          <Link to='/'>
             <h4>Sign In</h4>
           </Link>
         </div>

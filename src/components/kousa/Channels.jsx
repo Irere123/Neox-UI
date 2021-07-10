@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Add as Icon } from '@material-ui/icons';
+
 import '../../styles/kousa/Channels.css';
 
-const channel = ({ id, name }) => (
-  <li key={`channel-${id}`} className='sidebar_list_item'>
-    # {name}
-  </li>
+const channel = ({ id, name }, teamId) => (
+  <Link key={`channel-${id}`} to={`/view-team/${teamId}/${id}`}>
+    <li className='sidebar_list_item'># {name}</li>
+  </Link>
 );
 
 const user = ({ id, name }) => (
@@ -14,7 +16,7 @@ const user = ({ id, name }) => (
   </li>
 );
 
-function Channels({ teamName, username, channels, users }) {
+function Channels({ teamName, username, channels, users, onAddChannelClick, teamId, onInvitePeopleClick }) {
   return (
     <div className='channel__wrapper'>
       <div className='push_left'>
@@ -23,9 +25,9 @@ function Channels({ teamName, username, channels, users }) {
       </div>
       <ul className='sidebar_list'>
         <li className='sidebar_list_header'>
-          Channels <Icon />
+          Channels <Icon onClick={onAddChannelClick} />
         </li>
-        {channels.map(channel)}
+        {channels.map((c) => channel(c, teamId))}
       </ul>
       <ul className='sidebar_list'>
         <li className='sidebar_list_header'>
@@ -33,9 +35,13 @@ function Channels({ teamName, username, channels, users }) {
         </li>
         {users.map(user)}
       </ul>
-      <ul className='sidebar_list'>
-        <li className='invite-link'>+ Invite People</li>
-      </ul>
+      <Link to='#invitePeople'>
+        <ul className='sidebar_list'>
+          <li className='invite-link' onClick={onInvitePeopleClick}>
+            + Invite People
+          </li>
+        </ul>
+      </Link>
     </div>
   );
 }

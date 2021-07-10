@@ -4,7 +4,7 @@ import Routes from './routes';
 import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:4001/graphql',
+  uri: 'http://localhost:4002/graphql',
 });
 
 networkInterface.use([
