@@ -45,7 +45,7 @@ function ViewTeam({
         />
         {channel && <HeaderBar channelName={channel.name} />}
         {channel && <MessageContainer channelId={channel.id} />}
-        {channel && <SendMessage channelName={channel.name} />}
+        {channel && <SendMessage channelName={channel.name} channelId={channel.id} />}
       </div>
     </div>
   );

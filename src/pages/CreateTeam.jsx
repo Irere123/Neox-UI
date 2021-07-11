@@ -28,7 +28,7 @@ class CreateTeam extends React.Component {
       });
     } catch (err) {
       console.log(err);
-      this.props.history.push('/login');
+      this.props.history.push('/');
       return;
     }
 
@@ -37,7 +37,7 @@ class CreateTeam extends React.Component {
     const { ok, errors, team } = response.data.createTeam;
 
     if (ok) {
-      this.props.history.push(`/view-team/${team.id}/1`);
+      this.props.history.push(`/view-team/${team.id}`);
     } else {
       const err = {};
       errors.forEach(({ path, message }) => {

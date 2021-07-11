@@ -1,31 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
-import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { createHttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloProvider } from 'react-apollo';
+import { setContext } from 'apollo-link-context';
+import { ApolloLink } from 'apollo-link';
 
-const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:8081/graphql',
-});
+const httpLink = createHttpLink({ uri: 'http://localhost:8081/graphql' });
 
-networkInterface.use([
-  {
-    applyMiddleware(req, next) {
-      if (!req.options.headers) {
-        req.options.headers = {};
-      }
-
-      req.options.headers['x-token'] = localStorage.getItem('token');
-      req.options.headers['x-refresh-token'] = localStorage.getItem('refreshToken');
-      next();
-    },
+const middlewareLink = setContext(() => ({
+  headers: {
+    'x-token': localStorage.getItem('token'),
+    'x-refresh-token': localStorage.getItem('refreshToken'),
   },
-]);
+}));
 
-networkInterface.useAfter([
-  {
-    applyAfterware({ response }, next) {
-      const token = response.headers.get('x-token');
-      const refreshToken = response.headers.get('x-refresh-token');
+const afterwareLink = new ApolloLink((operation, forward) =>
+  forward(operation).map((response) => {
+    const {
+      response: { headers },
+    } = operation.getContext();
+    if (headers) {
+      const token = headers.get('x-token');
+      const refreshToken = headers.get('x-refresh-token');
 
       if (token) {
         localStorage.setItem('token', token);
@@ -34,14 +33,17 @@ networkInterface.useAfter([
       if (refreshToken) {
         localStorage.setItem('refreshToken', refreshToken);
       }
+    }
 
-      next();
-    },
-  },
-]);
+    return response;
+  }),
+);
+
+const link = afterwareLink.concat(middlewareLink.concat(httpLink));
 
 const client = new ApolloClient({
-  networkInterface,
+  link,
+  cache: new InMemoryCache(),
 });
 
 const App = (
