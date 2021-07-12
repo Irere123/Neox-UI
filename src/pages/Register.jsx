@@ -1,5 +1,5 @@
 import React from 'react';
-import { Email, Lock, Facebook, YouTube, Instagram, Telegram } from '@material-ui/icons';
+import { Email, Lock, Facebook, YouTube, Instagram, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
@@ -75,17 +75,17 @@ class Register extends React.Component {
           </div>
           <div className='about__neox__text'>
             <p>
-              Neox make communucation excellent it provides seemless experience🚀 not only that it helps to get answer to your questions and
-              give answer to those in need for answers....
+              Neox, Fast Dark Secure Free Better Ask Chat Collaborate all in one amazing place together with Neox, your rocket to the
+              stars....
             </p>
-            <h3>#We are Better Than Others 😄😄</h3>
+            <h3>#Communication to the stars 🚀🚀</h3>
           </div>
         </div>
         <div className='card'>
           <div className='card-content'>
             <h2>Create new account</h2>
             <div className='el__input_register'>
-              <Telegram />
+              <Person />
               <input name='username' onChange={this.onChange} value={username} type='text' placeholder='Username' />
             </div>
             <div className='el__input_register'>

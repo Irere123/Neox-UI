@@ -10,13 +10,15 @@ const channel = ({ id, name }, teamId) => (
   </Link>
 );
 
-const user = ({ id, name }) => (
+const user = ({ id, username }, teamId) => (
   <li key={`user-${id}`} className='sidebar_list_item'>
-    <span className='green'>●</span> {name}
+    <Link to={`/view-team/user/${teamId}/${id}`}>
+      <span className='green'>●</span> {username}
+    </Link>
   </li>
 );
 
-function Channels({ teamName, username, channels, users, onAddChannelClick, teamId, onInvitePeopleClick, isOwner }) {
+function Channels({ teamName, username, channels, users, onAddChannelClick, teamId, onInvitePeopleClick, isOwner, onDirectMessageClick }) {
   return (
     <div className='channel__wrapper'>
       <div className='push_left'>
@@ -29,9 +31,9 @@ function Channels({ teamName, username, channels, users, onAddChannelClick, team
       </ul>
       <ul className='sidebar_list'>
         <li className='sidebar_list_header'>
-          Chats <Icon />
+          Chats <Icon onClick={onDirectMessageClick} />
         </li>
-        {users.map(user)}
+        {users.map((u) => user(u, teamId))}
       </ul>
       {isOwner && (
         <Link to='#invitePeople'>

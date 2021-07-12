@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import CreateTeam from './pages/CreateTeam';
 import ViewTeam from './pages/ViewTeam';
+import DirectMessages from './pages/DirectMessages';
 import Home from './pages/Home';
 import './App.css';
 
@@ -29,6 +30,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: '/' }} />)} />
 );
 
+/* This Route will be used in production */
+
+// const RedirectRoute = ({ component: Component, ...rest }) => (
+//   <Route {...rest} render={(props) => (isAuthenticated() ? <Redirect to={{ pathname: '/view-team' }} /> : <Component {...props} />)} />
+// );
+
 export default () => {
   return (
     <BrowserRouter>
@@ -37,6 +44,7 @@ export default () => {
         <Route path='/register' exact component={Register} />
         <PrivateRoute path='/create-team' exact component={CreateTeam} />
         <PrivateRoute path='/home' exact component={Home} />
+        <PrivateRoute path='/view-team/user/:teamId/:userId' exact component={DirectMessages} />
         <PrivateRoute path='/view-team/:teamId?/:channelId?' exact component={ViewTeam} />
       </Switch>
     </BrowserRouter>

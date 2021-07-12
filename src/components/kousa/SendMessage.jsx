@@ -1,18 +1,17 @@
 import React from 'react';
 import { withFormik } from 'formik';
-import gql from 'graphql-tag';
-import { graphql, compose } from 'react-apollo';
 import {
   MessageOutlined as MessageIcon,
   AttachmentOutlined as AttachmentIcon,
   SentimentSatisfiedOutlined as EmojiIcon,
 } from '@material-ui/icons';
+import FileUpload from '../FileUpload';
 
 import '../../styles/kousa/SendMessage.css';
 
 const ENTER_KEY = 13;
 
-const SendMessage = ({ channelName, values, handleChange, handleBlur, handleSubmit, isSubmitting }) => {
+const SendMessage = ({ placeholder, values, handleChange, handleBlur, handleSubmit, isSubmitting, channelId }) => {
   return (
     <div className='send_message_wrapper'>
       <div className='message__input'>
@@ -27,34 +26,26 @@ const SendMessage = ({ channelName, values, handleChange, handleBlur, handleSubm
           value={values.message}
           onBlur={handleBlur}
           onChange={handleChange}
-          placeholder={`Message #${channelName}`}
+          placeholder={`Message #${placeholder}`}
         />
-        <AttachmentIcon />
+        <FileUpload channelId={channelId}>
+          <AttachmentIcon />
+        </FileUpload>
         <EmojiIcon />
       </div>
     </div>
   );
 };
 
-const createMessageMutation = gql`
-  mutation ($channelId: Int!, $text: String!) {
-    createMessage(channelId: $channelId, text: $text)
-  }
-`;
+export default withFormik({
+  mapPropsToValues: () => ({ message: '' }),
+  handleSubmit: async (values, { props: { onSubmit }, setSubmitting, resetForm }) => {
+    if (!values.message || !values.message.trim()) {
+      setSubmitting(false);
+      return;
+    }
 
-export default compose(
-  graphql(createMessageMutation),
-  withFormik({
-    mapPropsToValues: () => ({ message: '' }),
-    handleSubmit: async (values, { props: { channelId, mutate }, setSubmitting, resetForm }) => {
-      if (!values.message || !values.message.trim()) {
-        setSubmitting(false);
-        return;
-      }
-      await mutate({
-        variables: { channelId, text: values.message },
-      });
-      resetForm();
-    },
-  }),
-)(SendMessage);
+    await onSubmit(values.message);
+    resetForm(false);
+  },
+})(SendMessage);

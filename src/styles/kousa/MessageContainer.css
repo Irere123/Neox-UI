@@ -52,3 +52,32 @@ div {
   font-size: 30px !important;
   background-color: transparent !important;
 }
+
+.card-message {
+  padding: 20px;
+}
+
+.card-message-main {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.card-message-main > img {
+  border-radius: 20px;
+}
+
+.card-description {
+  display: grid;
+  grid-template-rows: 20px 1fr;
+}
+
+.card-description > h3 {
+  color: lightgray;
+}
+.card-description > h3 > span {
+  color: #1264a3;
+}
+
+.card-description > h4 {
+  color: #d3d3d3c2;
+}

@@ -74,10 +74,10 @@ class Login extends React.Component {
           </div>
           <div className='about__neox__text'>
             <p>
-              Neox make communucation excellent it provides seemless experience🚀 not only that it helps to get answer to your questions and
-              give answer to those in need for answers....
+              Neox, Fast Dark Secure Free Better Ask Chat Collaborate all in one amazing place together with Neox, your rocket to the
+              stars....
             </p>
-            <h3>#We are Better Than You 😄😄</h3>
+            <h3>#Communication to the stars 🚀🚀</h3>
           </div>
         </div>
         <div className='card-login'>

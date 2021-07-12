@@ -7,10 +7,16 @@ import { FileCopy } from '@material-ui/icons';
 import findIndex from 'lodash/findIndex';
 
 import '../../styles/kousa/AddChannelModal.css';
-import { allTeamsQuery } from '../../graphql/team';
+import { meQuery } from '../../graphql/team';
 
-const AddChannelModal = ({ open, onClose, values, handleChange, handleBlur, handleSubmit, isSubmitting, teamId }) => (
-  <Modal open={open} onClose={onClose}>
+const AddChannelModal = ({ open, onClose, resetForm, values, handleChange, handleBlur, handleSubmit, isSubmitting, teamId }) => (
+  <Modal
+    open={open}
+    onClose={(e) => {
+      resetForm();
+      onClose(e);
+    }}
+  >
     <div className='card__addChannel'>
       <div className='cardHeader__addChannel'>
         <h1>Add Channel</h1>
@@ -23,7 +29,14 @@ const AddChannelModal = ({ open, onClose, values, handleChange, handleBlur, hand
         <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
           Create Channel
         </button>
-        <button className='btn__addChannel' disabled={isSubmitting} onClick={onClose}>
+        <button
+          className='btn__addChannel'
+          disabled={isSubmitting}
+          onClick={(e) => {
+            resetForm();
+            onClose(e);
+          }}
+        >
           Cancel
         </button>
       </div>
@@ -71,10 +84,10 @@ export default compose(
             return;
           }
 
-          const data = store.readQuery({ query: allTeamsQuery });
-          const teamIdx = findIndex(data.allTeams, ['id', teamId]);
-          data.allTeams[teamIdx].channels.push(channel);
-          store.writeQuery({ query: allTeamsQuery, data });
+          const data = store.readQuery({ query: meQuery });
+          const teamIdx = findIndex(data.me.teams, ['id', teamId]);
+          data.me.teams[teamIdx].channels.push(channel);
+          store.writeQuery({ query: meQuery, data });
         },
       });
       setSubmitting(false);

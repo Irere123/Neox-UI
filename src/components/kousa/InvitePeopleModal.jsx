@@ -28,7 +28,7 @@ const InvitePeopleModal = ({
       </div>
       <div className='input__InvitePeople'>
         <Email />
-        <input value={values.email} onChange={handleChange} onBlur={handleBlur} name='email' type='text' placeholder='Email of the user' />
+        <input value={values.email} onChange={handleChange} onBlur={handleBlur} name='email' type='text' placeholder='name@gmail.com' />
       </div>
       {touched.email && errors.email ? errors.email[0] : null}
       <div className='buttons__InvitePeople'>
