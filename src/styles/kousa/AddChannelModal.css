@@ -13,7 +13,7 @@
 
 .card__addChannel {
   display: grid;
-  grid-template-rows: 60px 100px 100px;
+  grid-template-rows: 60px 80px 40px 1fr;
 }
 
 .cardHeader__addChannel {
@@ -94,4 +94,39 @@
 .buttons__AddChannel {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.checkbox-AddChannel {
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: 5px 60px 50px;
+}
+
+.checkbox-AddChannel > label {
+  color: lightgray;
+  font-size: 20px;
+}
+
+.label {
+  background-color: #111;
+  display: flex;
+  height: 22px;
+  width: 50px;
+  border-radius: 50px;
+}
+
+.checkbox {
+  opacity: 0;
+}
+
+.checkbox-AddChannel:checked .label {
+  background-color: blue;
+}
+
+.ball {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
 }

@@ -43,9 +43,15 @@
 }
 
 .sidebar_list_header {
+  display: grid;
+  grid-template-columns: 100px 1fr;
   padding-left: 10px;
   font-size: 25px;
   color: #b2bdcd;
+}
+
+.sidebar_list_header > .MuiSvgIcon-root {
+  cursor: pointer;
 }
 
 .green {

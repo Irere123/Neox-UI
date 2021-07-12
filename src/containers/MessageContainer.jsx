@@ -31,12 +31,6 @@ const Message = ({ message: { url, text, filetype } }) => {
       return <img src={url} alt='' />;
     } else if (filetype === 'text/plain') {
       return <RenderText url={url} />;
-    } else if (filetype.startsWith('audio/')) {
-      return (
-        <audio controls>
-          <source src={url} />
-        </audio>
-      );
     }
   }
   return <p>{text}</p>;
@@ -92,41 +86,43 @@ class MessageContainer extends React.Component {
       return null;
     }
 
+    if (!messages.length) {
+      return (
+        <div className='card-message'>
+          <div className='card-message-main'>
+            <img src={micIcon} alt='Mic Icon' />
+            <div className='card-description'>
+              <h3>
+                You’re looking at the <span>{`#${channelName}`}</span> channel
+              </h3>
+              <h4>This is the one channel that will always include team members. It’s a great spot for team-wide conversations.</h4>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <React.Fragment>
         <div className='messages'>
-          {messages.length ? (
-            <FileUpload disableClick channelId={channelId}>
-              {messages.map((m) => (
-                <div className='message' key={`message-${m.id}`}>
-                  <Avatar>
-                    {m.user.username.charAt(0).toUpperCase()}
-                    {m.user.username.charAt(Math.floor(m.user.username.length / 3)).toUpperCase()}
-                  </Avatar>
-                  <div className='message__info'>
-                    <h4>
-                      {m.user.username}
-                      <span className='message_timestamp'>{moment(m.created_at).format('MMMM DD YYYY')}</span>
-                    </h4>
+          <FileUpload disableClick channelId={channelId}>
+            {messages.map((m) => (
+              <div className='message' key={`message-${m.id}`}>
+                <Avatar>
+                  {m.user.username.charAt(0).toUpperCase()}
+                  {m.user.username.charAt(Math.floor(m.user.username.length / 3)).toUpperCase()}
+                </Avatar>
+                <div className='message__info'>
+                  <h4>
+                    {m.user.username}
+                    <span className='message_timestamp'>{moment(m.created_at).format('MMMM DD YYYY')}</span>
+                  </h4>
 
-                    <Message message={m} />
-                  </div>
-                </div>
-              ))}
-            </FileUpload>
-          ) : (
-            <div className='card-message'>
-              <div className='card-message-main'>
-                <img src={micIcon} alt='Mic Icon' />
-                <div className='card-description'>
-                  <h3>
-                    You’re looking at the <span>{`#${channelName}`}</span> channel
-                  </h3>
-                  <h4>This is the one channel that will always include team members. It’s a great spot for team-wide conversations.</h4>
+                  <Message message={m} />
                 </div>
               </div>
-            </div>
-          )}
+            ))}
+          </FileUpload>
         </div>
       </React.Fragment>
     );

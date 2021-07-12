@@ -14,6 +14,7 @@ const InvitePeopleModal = ({
   values,
   handleChange,
   setErrors,
+  resetForm,
   handleBlur,
   handleSubmit,
   isSubmitting,
@@ -35,7 +36,14 @@ const InvitePeopleModal = ({
         <button className='btn__InvitePeople' onClick={handleSubmit} disabled={isSubmitting}>
           Invite
         </button>
-        <button className='btn__InvitePeople' disabled={isSubmitting} onClick={onClose}>
+        <button
+          className='btn__InvitePeople'
+          disabled={isSubmitting}
+          onClick={(e) => {
+            resetForm();
+            onClose(e);
+          }}
+        >
           Cancel
         </button>
       </div>
@@ -59,12 +67,13 @@ export default compose(
   graphql(addTeamMemberMutation),
   withFormik({
     mapPropsToValues: () => ({ email: '' }),
-    handleSubmit: async (values, { props: { onClose, teamId, mutate }, setSubmitting, setErrors }) => {
+    handleSubmit: async (values, { props: { onClose, teamId, mutate }, setSubmitting, setErrors, resetForm }) => {
       const response = await mutate({
         variables: { teamId, email: values.email },
       });
       const { ok, errors } = response.data.addTeamMember;
       if (ok) {
+        resetForm();
         onClose();
         setSubmitting(false);
       } else {

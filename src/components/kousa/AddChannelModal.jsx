@@ -3,13 +3,24 @@ import { Modal } from '@material-ui/core';
 import { withFormik } from 'formik';
 import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
-import { FileCopy } from '@material-ui/icons';
+import { Title } from '@material-ui/icons';
 import findIndex from 'lodash/findIndex';
 
 import '../../styles/kousa/AddChannelModal.css';
 import { meQuery } from '../../graphql/team';
 
-const AddChannelModal = ({ open, onClose, resetForm, values, handleChange, handleBlur, handleSubmit, isSubmitting, teamId }) => (
+const AddChannelModal = ({
+  open,
+  onClose,
+  resetForm,
+  setFieldValue,
+  values,
+  handleChange,
+  handleBlur,
+  handleSubmit,
+  isSubmitting,
+  teamId,
+}) => (
   <Modal
     open={open}
     onClose={(e) => {
@@ -22,8 +33,15 @@ const AddChannelModal = ({ open, onClose, resetForm, values, handleChange, handl
         <h1>Add Channel</h1>
       </div>
       <div className='input__addChannel'>
-        <FileCopy />
+        <Title />
         <input value={values.name} onChange={handleChange} onBlur={handleBlur} name='name' type='text' placeholder='Channel Name' />
+      </div>
+      <div className='checkbox-AddChannel'>
+        <input className='checkbox' type='checkbox' id='checkbox' />
+        <label for='checkbox' className='label'>
+          <div className='ball'></div>
+        </label>
+        <label>Private</label>
       </div>
       <div className='buttons__AddChannel'>
         <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
@@ -64,7 +82,7 @@ export default compose(
   graphql(createChannelMutation),
   withFormik({
     mapPropsToValues: () => ({ name: '' }),
-    handleSubmit: async (values, { props: { teamId, mutate, onClose }, setSubmitting }) => {
+    handleSubmit: async (values, { props: { teamId, mutate, onClose }, setSubmitting, resetForm }) => {
       await mutate({
         variables: { teamId, name: values.name },
         optimisticResponse: {
@@ -91,6 +109,7 @@ export default compose(
         },
       });
       setSubmitting(false);
+      resetForm();
       onClose();
     },
   }),

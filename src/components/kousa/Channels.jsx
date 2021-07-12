@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Add as Icon } from '@material-ui/icons';
+import { AddCircle as Icon } from '@material-ui/icons';
 
 import '../../styles/kousa/Channels.css';
 
@@ -26,7 +26,10 @@ function Channels({ teamName, username, channels, users, onAddChannelClick, team
         <h3 className='username'>{username}</h3>
       </div>
       <ul className='sidebar_list'>
-        <li className='sidebar_list_header'>Channels {isOwner && <Icon onClick={onAddChannelClick} />}</li>
+        <li className='sidebar_list_header'>
+          Channels
+          {isOwner && <Icon onClick={onAddChannelClick} />}
+        </li>
         {channels.map((c) => channel(c, teamId))}
       </ul>
       <ul className='sidebar_list'>

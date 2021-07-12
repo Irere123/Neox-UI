@@ -38,6 +38,42 @@
   color: #fff;
 }
 
+.dropdown {
+  position: absolute;
+  margin-top: 15px;
+  top: 58px;
+  right: -130px;
+  height: 300px;
+  width: 260px;
+  transform: translateX(-45%);
+  background-color: var(--bg-color);
+  border: 1px solid #30363d;
+  border-radius: 11px;
+  padding: 1rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  transition: background 500ms;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+}
+
+.menu-item:hover {
+  background-color: #525357;
+}
+
+.menu-item-word > h3 {
+  color: lightgray;
+}
+
 @media (max-width: 450px) {
   .header__info > h4 {
     display: none;
