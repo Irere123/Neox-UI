@@ -116,6 +116,7 @@ const createChannelMutation = gql`
       channel {
         id
         name
+        dm
       }
       errors {
         path
@@ -141,6 +142,7 @@ export default compose(
               __typename: 'Channel',
               id: -1,
               name: values.name,
+              dm: false,
             },
           },
         },

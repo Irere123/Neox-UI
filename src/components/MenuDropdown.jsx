@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MeetingRoom, Settings, Dashboard } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 
-function MenuDropdown() {
+function MenuDropdown({ history }) {
   return (
     <React.Fragment>
       <Link to='#something' className='menu-item'>
@@ -30,7 +30,14 @@ function MenuDropdown() {
           <h3>Settings</h3>
         </div>
       </Link>
-      <Link to='#something' className='menu-item'>
+      <Link
+        to='/'
+        className='menu-item'
+        onClick={() => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('refreshToken');
+        }}
+      >
         <div className='icon-left'>
           <MeetingRoom />
         </div>

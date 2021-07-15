@@ -96,7 +96,7 @@ class Login extends React.Component {
                 Sign In
               </button>
             </div>
-            {errorsList.length ? <Message header='There was some errors with your submission' error list={errorsList} /> : null}
+            {errorsList.length ? <Message error list={errorsList} /> : null}
           </div>
         </div>
         <div className='footer__banner'>

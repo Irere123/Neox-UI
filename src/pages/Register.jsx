@@ -102,7 +102,7 @@ class Register extends React.Component {
               </button>
             </div>
           </div>
-          {errorList.length ? <Message header='There was some errors with your submission' error list={errorList} /> : null}
+          {errorList.length ? <Message error list={errorList} /> : null}
         </div>
         <div className='footer__banner'>
           <Link to='#instagram'>
