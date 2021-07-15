@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { SearchOutlined as SearchIcon } from '@material-ui/icons';
 
 import '../styles/Home.css';
-import logo1 from '../images/Pixel.jpg';
-import logo2 from '../images/phone.jpg';
-import logo3 from '../images/makeup.jpg';
 import Header from '../components/Header';
 import QuestionSender from '../components/kofta/QuestionSender';
 import Feed from '../components/kofta/Feed';
@@ -19,14 +16,14 @@ function Home() {
       <div className='app__body'>
         <div className='trends'>
           <Link to='/profile'>
-            <SidebarRow title='Tim Barners Lee' src={logo1} />
+            <SidebarRow title='Tim Barners Lee' />
           </Link>
           <h3>People</h3>
-          <SidebarRow title='Ben Awad' src={logo2} />
-          <SidebarRow title='Denis Ivy' src={logo3} />
-          <SidebarRow title='Neox Bot' src={logo1} />
-          <SidebarRow title='Brad Traversy' src={logo1} />
-          <SidebarRow title='Irere Emmanuel' src={logo1} />
+          <SidebarRow title='Ben Awad' />
+          <SidebarRow title='Denis Ivy' />
+          <SidebarRow title='Neox Bot' />
+          <SidebarRow title='Brad Traversy' />
+          <SidebarRow title='Irere Emmanuel' />
         </div>
         <div className='center'>
           <div className='search'>

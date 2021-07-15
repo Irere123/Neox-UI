@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LocalGasStation, Settings, Dashboard } from '@material-ui/icons';
+import { MeetingRoom, Settings, Dashboard } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 
 function MenuDropdown() {
@@ -32,7 +32,7 @@ function MenuDropdown() {
       </Link>
       <Link to='#something' className='menu-item'>
         <div className='icon-left'>
-          <LocalGasStation />
+          <MeetingRoom />
         </div>
         <div className='menu-item-word'>
           <h3>Log out</h3>

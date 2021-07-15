@@ -1,70 +1,125 @@
 import React from 'react';
 import { Modal } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
-import Downshift from 'downshift';
-import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
+import { withFormik } from 'formik';
+import { graphql, compose } from 'react-apollo';
+import Select from 'react-select';
 import { withRouter } from 'react-router-dom';
+import gql from 'graphql-tag';
+import findIndex from 'lodash/findIndex';
 
 import '../../styles/kousa/InvitePeopleModal.css';
+import { getTeamMembersQuery } from '../../graphql/team';
+import { meQuery } from '../../graphql/team';
 
-const DirectMessageModal = ({ history, open, onClose, teamId, data: { loading, getTeamMembers } }) => (
-  <Modal open={open} onClose={onClose}>
-    <div className='card__InvitePeople'>
-      <div className='cardHeader__InvitePeople'>
-        <h1>Direct Messaging</h1>
-      </div>
-      <div className='input__InvitePeople'>
-        <Person />
-        {!loading && (
-          <Downshift
-            onChange={(selectedUser) => {
-              history.push(`/view-team/user/${teamId}/${selectedUser.id}`);
-              onClose();
-            }}
-          >
-            {({ getInputProps, getItemProps, isOpen, inputValue, selectedItem, highlightedIndex }) => (
-              <div>
-                <input {...getInputProps({ placeholder: 'Search users?' })} className='input__DMModal' />
-                {isOpen ? (
-                  <div style={{ border: '1px solid #ccc' }}>
-                    {getTeamMembers
-                      .filter((i) => !inputValue || i.username.toLowerCase().includes(inputValue.toLowerCase()))
-                      .map((item, index) => (
-                        <div
-                          {...getItemProps({ item })}
-                          key={item.id}
-                          style={{
-                            backgroundColor: highlightedIndex === index ? 'gray' : 'white',
-                            fontWeight: selectedItem === item ? 'bold' : 'normal',
-                          }}
-                        >
-                          {item.username}
-                        </div>
-                      ))}
-                  </div>
-                ) : null}
-              </div>
-            )}
-          </Downshift>
-        )}
-      </div>
-      <div className='buttons__InvitePeople'>
-        <button className='btn__InvitePeople' onClick={onClose}>
-          Cancel
-        </button>
-      </div>
-    </div>
-  </Modal>
-);
+class DirectMessageModal extends React.Component {
+  state = {
+    selectedOption: [],
+  };
 
-const getTeamMembersQuery = gql`
-  query ($teamId: Int!) {
-    getTeamMembers(teamId: $teamId) {
+  handleSelectChange = (selectedOption) => {
+    const { setFieldValue } = this.props;
+
+    this.setState({ selectedOption }, () => console.log('selected'));
+    const value = selectedOption.map((v) => v.value);
+    setFieldValue('members', value);
+  };
+
+  render() {
+    const {
+      data: { getTeamMembers = [] },
+      open,
+      onClose,
+      resetForm,
+      handleSubmit,
+      isSubmitting,
+      currentUserId,
+    } = this.props;
+
+    return (
+      <Modal
+        open={open}
+        onClose={(e) => {
+          resetForm();
+          onClose(e);
+        }}
+      >
+        <div className='card__DM'>
+          <div className='cardHeader__DM'>
+            <h1>Start a chat</h1>
+          </div>
+
+          <div className='input__InvitePeople'>
+            <Person />
+            <Select
+              className='input__dm'
+              onChange={this.handleSelectChange}
+              isMulti={true}
+              options={getTeamMembers.filter((m) => m.id !== currentUserId).map((m) => ({ label: m.username, value: m.id }))}
+              isSearchable={true}
+              placeholder='Select members to messsage'
+            />
+          </div>
+
+          <div className='buttons__AddChannel'>
+            <button
+              className='btn__addChannel'
+              disabled={isSubmitting}
+              onClick={(e) => {
+                resetForm();
+                onClose(e);
+              }}
+            >
+              Cancel
+            </button>
+            <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
+              Start Messaging
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  }
+}
+const getOrCreateChannelMutation = gql`
+  mutation ($teamId: Int!, $members: [Int!]!) {
+    getOrCreateChannel(teamId: $teamId, members: $members) {
       id
-      username
+      name
     }
   }
 `;
 
-export default withRouter(graphql(getTeamMembersQuery)(DirectMessageModal));
+export default compose(
+  withRouter,
+  graphql(getOrCreateChannelMutation),
+  graphql(getTeamMembersQuery),
+  withFormik({
+    mapPropsToValues: () => ({ members: [] }),
+    handleSubmit: async ({ members }, { props: { history, onClose, teamId, mutate }, resetForm, setSubmitting }) => {
+      const response = await mutate({
+        variables: { members, teamId },
+        update: (store, { data: { getOrCreateChannel } }) => {
+          const { id, name } = getOrCreateChannel;
+
+          const data = store.readQuery({ query: meQuery });
+          const teamIdx = findIndex(data.me.teams, ['id', teamId]);
+          const notInChannelList = data.me.teams[teamIdx].channels.every((c) => c.id !== id);
+
+          if (notInChannelList) {
+            data.me.teams[teamIdx].channels.push({
+              __typename: 'Channel',
+              id,
+              name,
+              dm: true,
+            });
+            store.writeQuery({ query: meQuery, data });
+          }
+          history.push(`/view-team/${teamId}/${id}`);
+        },
+      });
+      onClose();
+      resetForm();
+    },
+  }),
+)(DirectMessageModal);

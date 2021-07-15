@@ -32,6 +32,7 @@
     "react-dropzone": "4.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "2.1.8",
+    "react-select": "^4.3.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "subscriptions-transport-ws": "^0.9.18",

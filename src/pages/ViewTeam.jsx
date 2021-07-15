@@ -22,9 +22,7 @@ function ViewTeam({
     return null;
   }
 
-  const { teams, username } = me;
-
-  console.log(teams);
+  const { id: currentUserId, teams, username } = me;
 
   if (!teams.length) {
     return <Redirect to='/create-team' />;
@@ -49,6 +47,7 @@ function ViewTeam({
           }))}
           team={team}
           username={username}
+          currentUserId={currentUserId}
         />
         {channel && <HeaderBar channelName={channel.name} />}
         {channel && <MessageContainer channelId={channel.id} channelName={channel.name} />}

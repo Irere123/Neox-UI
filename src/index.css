@@ -1,3 +1,17 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
+
+* {
+  font-family: Calibri;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 a {
   text-decoration: none;
 }

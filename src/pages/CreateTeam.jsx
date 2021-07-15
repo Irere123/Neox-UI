@@ -32,8 +32,6 @@ class CreateTeam extends React.Component {
       return;
     }
 
-    console.log(response);
-
     const { ok, errors, team } = response.data.createTeam;
 
     if (ok) {

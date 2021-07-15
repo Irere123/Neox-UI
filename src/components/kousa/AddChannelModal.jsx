@@ -5,66 +5,113 @@ import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
 import { Title } from '@material-ui/icons';
 import findIndex from 'lodash/findIndex';
+import Select from 'react-select';
 
 import '../../styles/kousa/AddChannelModal.css';
 import { meQuery } from '../../graphql/team';
+import { getTeamMembersQuery } from '../../graphql/team';
 
-const AddChannelModal = ({
-  open,
-  onClose,
-  resetForm,
-  setFieldValue,
-  values,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-  teamId,
-}) => (
-  <Modal
-    open={open}
-    onClose={(e) => {
-      resetForm();
-      onClose(e);
-    }}
-  >
-    <div className='card__addChannel'>
-      <div className='cardHeader__addChannel'>
-        <h1>Add Channel</h1>
-      </div>
-      <div className='input__addChannel'>
-        <Title />
-        <input value={values.name} onChange={handleChange} onBlur={handleBlur} name='name' type='text' placeholder='Channel Name' />
-      </div>
-      <div className='checkbox-AddChannel'>
-        <input className='checkbox' type='checkbox' id='checkbox' />
-        <label for='checkbox' className='label'>
-          <div className='ball'></div>
-        </label>
-        <label>Private</label>
-      </div>
-      <div className='buttons__AddChannel'>
-        <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
-          Create Channel
-        </button>
-        <button
-          className='btn__addChannel'
-          disabled={isSubmitting}
-          onClick={(e) => {
-            resetForm();
-            onClose(e);
-          }}
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-  </Modal>
-);
+class AddChannelModal extends React.Component {
+  state = {
+    checked: true,
+    selectedOption: [],
+  };
+
+  handleSelectChange = (selectedOption) => {
+    const { setFieldValue } = this.props;
+
+    this.setState({ selectedOption }, () => console.log('selected'));
+    const value = selectedOption.map((v) => v.value);
+    setFieldValue('members', value);
+  };
+
+  render() {
+    const {
+      data: { getTeamMembers },
+      open,
+      onClose,
+      resetForm,
+      setFieldValue,
+      values,
+      handleChange,
+      handleBlur,
+      handleSubmit,
+      isSubmitting,
+      currentUserId,
+    } = this.props;
+
+    return (
+      <Modal
+        open={open}
+        onClose={(e) => {
+          this.setState({ checked: true });
+          resetForm();
+          onClose(e);
+        }}
+      >
+        <div className='card__addChannel'>
+          <div className='cardHeader__addChannel'>
+            <h1>Add Channel</h1>
+          </div>
+          <div className='input__addChannel'>
+            <Title />
+            <input value={values.name} onChange={handleChange} onBlur={handleBlur} name='name' type='text' placeholder='Channel Name' />
+          </div>
+          <div className='checkbox-AddChannel'>
+            <input
+              type='checkbox'
+              value={!values.public}
+              onChange={() => {
+                this.setState((state) => ({
+                  checked: !state.checked,
+                }));
+                setFieldValue('public', !this.state.checked);
+              }}
+            />
+            <label>Private</label>
+          </div>
+          {!this.state.checked && (
+            <Select
+              onChange={this.handleSelectChange}
+              options={getTeamMembers.filter((tm) => tm.id !== currentUserId).map((tm) => ({ label: tm.username, value: tm.id }))}
+              isMulti={true}
+              isSearchable={true}
+              placeholder='Select members in your team'
+            />
+          )}
+
+          <div className='buttons__AddChannel'>
+            <button
+              className='btn__addChannel'
+              onClick={() => {
+                handleSubmit();
+                this.setState({ checked: true });
+              }}
+              disabled={isSubmitting}
+            >
+              Create Channel
+            </button>
+            <button
+              className='btn__addChannel'
+              disabled={isSubmitting}
+              onClick={(e) => {
+                this.setState({ checked: true });
+                resetForm();
+                onClose(e);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  }
+}
 
 const createChannelMutation = gql`
-  mutation ($name: String!, $teamId: Int!) {
-    createChannel(teamId: $teamId, name: $name) {
+  mutation ($name: String!, $teamId: Int!, $public: Boolean, $members: [Int!]) {
+    createChannel(teamId: $teamId, name: $name, public: $public, members: $members) {
       ok
       channel {
         id
@@ -80,11 +127,12 @@ const createChannelMutation = gql`
 
 export default compose(
   graphql(createChannelMutation),
+  graphql(getTeamMembersQuery),
   withFormik({
-    mapPropsToValues: () => ({ name: '' }),
+    mapPropsToValues: () => ({ public: true, name: '', members: [] }),
     handleSubmit: async (values, { props: { teamId, mutate, onClose }, setSubmitting, resetForm }) => {
       await mutate({
-        variables: { teamId, name: values.name },
+        variables: { teamId, name: values.name, public: values.public, members: values.members },
         optimisticResponse: {
           createChannel: {
             __typename: 'Mutation',
