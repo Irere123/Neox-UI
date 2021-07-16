@@ -3,11 +3,10 @@ import { Avatar } from '@material-ui/core';
 
 import '../../styles/kofta/SidebarRow.css';
 
-function SidebarRow({ title, src, Icon }) {
+function SidebarRow({ title, name }) {
   return (
     <div className='sidebarRow'>
-      {src && <Avatar src={src} />}
-      {Icon && <Icon />}
+      <Avatar>{name}</Avatar>
       <p>{title}</p>
     </div>
   );

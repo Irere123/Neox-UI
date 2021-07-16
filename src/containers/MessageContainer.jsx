@@ -115,7 +115,7 @@ class MessageContainer extends React.Component {
                 <div className='message__info'>
                   <h4>
                     {m.user.username}
-                    <span className='message_timestamp'>{moment(m.created_at).format('MMMM DD YYYY')}</span>
+                    <span className='message_timestamp'>{moment(m.created_at).format('MMMM DD YYYY HH:mm')}</span>
                   </h4>
 
                   <Message message={m} />
