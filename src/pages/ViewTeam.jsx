@@ -10,6 +10,7 @@ import MessageContainer from '../containers/MessageContainer';
 import SendMessage from '../components/kousa/SendMessage';
 import HeaderBar from '../components/kousa/Header';
 import { meQuery } from '../graphql/team';
+import Loader from '../components/Loader';
 
 function ViewTeam({
   mutate,
@@ -19,7 +20,7 @@ function ViewTeam({
   },
 }) {
   if (loading || !me) {
-    return null;
+    return <Loader />;
   }
 
   const { id: currentUserId, teams, username } = me;
@@ -38,7 +39,7 @@ function ViewTeam({
 
   return (
     <div>
-      <Header />
+      <Header username={username} />
       <div className='viewteam_layout'>
         <Sidebar
           teams={teams.map((t) => ({

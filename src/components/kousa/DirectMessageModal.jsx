@@ -49,7 +49,7 @@ class DirectMessageModal extends React.Component {
             <h1>Start a chat</h1>
           </div>
 
-          <div className='input__InvitePeople'>
+          <div className='input__DMModel'>
             <Person />
             <Select
               className='input__dm'

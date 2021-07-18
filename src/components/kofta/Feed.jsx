@@ -1,20 +1,14 @@
 import React from 'react';
-import { graphql } from 'react-apollo';
 
-import { allQuestionsQuery } from '../../graphql/team';
 import '../../styles/kofta/Feed.css';
 import Post from './Post';
 
-function Feed({ data: { loading, allQuestions } }) {
-  if (loading) {
-    return null;
-  }
-
+function Feed({ questions }) {
   return (
     <div className='feed'>
-      <Post questions={allQuestions} />
+      <Post questions={questions} />
     </div>
   );
 }
 
-export default graphql(allQuestionsQuery)(Feed);
+export default Feed;

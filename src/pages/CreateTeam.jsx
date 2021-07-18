@@ -5,6 +5,7 @@ import { extendObservable } from 'mobx';
 import { observer } from 'mobx-react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { Title } from '@material-ui/icons';
 
 import '../styles/kousa/CreateTeam.css';
 
@@ -71,6 +72,7 @@ class CreateTeam extends React.Component {
           <p>Choose a name to use for your team</p>
         </div>
         <div className='team__input'>
+          <Title />
           <input value={name} onChange={this.onChange} name='name' type='text' placeholder='Team name...' />
         </div>
         <div className='button'>

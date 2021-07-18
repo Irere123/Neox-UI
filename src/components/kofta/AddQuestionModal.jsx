@@ -103,11 +103,10 @@ export default compose(
           proxy.writeQuery({
             query: allQuestionsQuery,
             data: {
-              allQuestions: [...data.allQuestions, question],
+              allQuestions: [question, ...data.allQuestions],
             },
           });
         },
-        refetchQueries: [{ query: allQuestionsQuery }],
       });
 
       resetForm();

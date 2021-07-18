@@ -22,14 +22,26 @@
   display: grid;
   grid-template-rows: 70px 50px;
   position: sticky;
+  overflow: hidden;
 }
 
 .trends {
   position: sticky;
+  overflow: hidden;
 }
 
 .widgets {
   position: sticky;
+  overflow: hidden;
+}
+
+.main {
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.main::-webkit-scrollbar {
+  width: 15px;
 }
 
 .search__input {

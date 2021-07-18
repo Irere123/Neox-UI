@@ -40,7 +40,7 @@ const QFeed = ({ questions, username, userId }) => {
         </Modal>
       )}
       <div className='main'>
-        <Feed />
+        <Feed questions={questions} />
       </div>
     </div>
   );

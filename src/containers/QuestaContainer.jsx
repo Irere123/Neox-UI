@@ -1,16 +1,23 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
 
+import { allQuestionsQuery } from '../graphql/team';
 import '../styles/Home.css';
 import QFeed from '../components/kofta/QFeed';
 import WidgetsRow from '../components/kofta/WidgetRow';
 import LeftSidebar from '../components/kofta/LetfSidebar';
+import Loader from '../components/Loader';
 
-function QuestaContainer({ username, userId }) {
+function QuestaContainer({ username, userId, data: { loading, allQuestions } }) {
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div>
       <div className='app__body'>
         <LeftSidebar username={username} />
-        <QFeed username={username} userId={userId} />
+        <QFeed username={username} userId={userId} questions={allQuestions} />
         <div className='widgets'>
           <WidgetsRow
             title='Neox Chat'
@@ -22,4 +29,4 @@ function QuestaContainer({ username, userId }) {
   );
 }
 
-export default QuestaContainer;
+export default graphql(allQuestionsQuery)(QuestaContainer);
