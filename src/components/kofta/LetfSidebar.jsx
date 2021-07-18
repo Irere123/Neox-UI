@@ -2,11 +2,11 @@ import React from 'react';
 import SidebarRow from './SidebarRow';
 import { Link } from 'react-router-dom';
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ username }) => {
   return (
     <div className='trends'>
       <Link to='/profile'>
-        <SidebarRow title='Tim Barners Lee' name='TL' />
+        <SidebarRow title={username} />
       </Link>
       <h3>People</h3>
       <SidebarRow title='Ben Awad' name='BA' />

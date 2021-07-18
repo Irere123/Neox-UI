@@ -31,3 +31,18 @@ export const getTeamMembersQuery = gql`
     }
   }
 `;
+
+export const allQuestionsQuery = gql`
+  {
+    allQuestions {
+      id
+      text
+      user {
+        username
+        email
+        id
+      }
+      created_at
+    }
+  }
+`;

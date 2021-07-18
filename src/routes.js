@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import decode from 'jwt-decode';
 
+import './index.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import CreateTeam from './pages/CreateTeam';
 import ViewTeam from './pages/ViewTeam';
 import Home from './pages/Home';
-import './index.css';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MeetingRoom, Settings, Dashboard } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 
-function MenuDropdown({ history }) {
+function MenuDropdown({ username }) {
   return (
     <React.Fragment>
       <Link to='#something' className='menu-item'>
@@ -11,7 +11,7 @@ function MenuDropdown({ history }) {
           <Avatar />
         </div>
         <div className='menu-item-word'>
-          <h3>Tim Barners Lee</h3>
+          <h3>{username}</h3>
         </div>
       </Link>
       <Link to='#something' className='menu-item'>

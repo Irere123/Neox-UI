@@ -7,7 +7,6 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import '../styles/kousa/CreateTeam.css';
-import { Redirect } from 'react-router-dom';
 
 class CreateTeam extends React.Component {
   constructor(props) {
@@ -32,10 +31,12 @@ class CreateTeam extends React.Component {
       return;
     }
 
+    const { history } = this.props;
+    console.log(history);
     const { ok, errors, team } = response.data.createTeam;
 
     if (ok) {
-      this.props.history.push(`/view-team/${team.id}`);
+      history.push(`/view-team/${team.id}`);
     } else {
       const err = {};
       errors.forEach(({ path, message }) => {

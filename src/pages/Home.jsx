@@ -1,47 +1,24 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 
+import { meQuery } from '../graphql/team';
 import '../styles/Home.css';
 import Header from '../components/Header';
-import QFeed from '../components/kofta/QFeed';
-import WidgetsRow from '../components/kofta/WidgetRow';
-import LeftSidebar from '../components/kofta/LetfSidebar';
+import QuestaContainer from '../containers/QuestaContainer';
 
-function Home({ data: { loading, allQuestions } }) {
+function Home({ data: { loading, me } }) {
   if (loading) {
-    return <h1>Loading...</h1>;
+    return null;
   }
+
+  const { id: userId, username } = me;
+
   return (
     <div>
-      <Header />
-      <div className='app__body'>
-        <LeftSidebar />
-        <QFeed questions={allQuestions} />
-        <div className='widgets'>
-          <WidgetsRow
-            title='Neox Chat'
-            about='The iPhone 12 Pro and iPhone 12 Pro Max are smartphones designed and marketed by Apple Inc. They are the flagship smartphones in the fourteenth generation of the iPhone,'
-          />
-        </div>
-      </div>
+      <Header username={username} />
+      <QuestaContainer userId={userId} username={username} />
     </div>
   );
 }
 
-const allQuestionsQuery = gql`
-  {
-    allQuestions {
-      id
-      text
-      user {
-        username
-        email
-        id
-      }
-      created_at
-    }
-  }
-`;
-
-export default graphql(allQuestionsQuery)(Home);
+export default graphql(meQuery)(Home);

@@ -54,6 +54,10 @@ body {
   color: #b2bdcd;
 }
 
+textarea {
+  font-size: 20px !important;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
