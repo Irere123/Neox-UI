@@ -132,6 +132,12 @@ export default compose(
   withFormik({
     mapPropsToValues: () => ({ public: true, name: '', members: [] }),
     handleSubmit: async (values, { props: { teamId, mutate, onClose }, setSubmitting, resetForm }) => {
+      if (values.name === '') {
+        setSubmitting(false);
+        resetForm();
+        onClose();
+      }
+
       await mutate({
         variables: { teamId, name: values.name, public: values.public, members: values.members },
         optimisticResponse: {

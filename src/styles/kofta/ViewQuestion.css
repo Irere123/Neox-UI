@@ -1,12 +1,15 @@
 .page__question_answer {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-top: 50px;
 }
 
 .question_on_answer_page {
   display: grid;
   grid-template-columns: 110px 1fr;
+  background-color: #161b22;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .question_on_answer_page > img {

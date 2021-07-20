@@ -3,9 +3,10 @@ import { graphql } from 'react-apollo';
 
 import { meQuery } from '../graphql/team';
 import Header from '../components/Header';
-import Question from '../components/kofta/Question';
+import OneQuestion from '../containers/OneQuestion';
 import '../styles/kofta/ViewQuestion.css';
 import Loader from '../components/Loader';
+import { Hidden } from '@material-ui/core';
 
 const ViewQuestion = ({ data: { loading, me }, match: { params: questionId } }) => {
   if (loading) {
@@ -13,11 +14,10 @@ const ViewQuestion = ({ data: { loading, me }, match: { params: questionId } }) 
   }
 
   const { id } = me;
-  const { questionId: qId } = questionId;
+
   return (
-    <div>
-      <Header />
-      <Question userId={id} questionId={parseInt(qId, 10)} />
+    <div style={{ overflowY: Hidden }}>
+      <OneQuestion userId={id} questionId={questionId} />
     </div>
   );
 };

@@ -1,24 +1,32 @@
 import React from 'react';
+import moment from 'moment';
 
-import img from '../../images/mic.svg';
+import { Avatar, Container } from '@material-ui/core';
+import { ArrowBack } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
-const Question = () => {
+const Question = ({ question }) => {
   return (
-    <div className='page__question_answer'>
-      <div>
-        <button>Back</button>
-      </div>
-      <div className='question_on_answer_page'>
-        <img src={img} alt='Microphone' />
-        <div className='question_on_answer_content'>
-          <h1>Bob Asked this</h1>
-          <h3>It was on July 20 2021</h3>
-          <div className='question_text'>
-            <p>When i was learning physics in my class they asked as how to calculate for when there is M1 and M2 anyone knows ???</p>
+    <Container>
+      <div className='comments-card'>
+        <div className='comments-card-top'>
+          <Link to='/home'>
+            <div className='close-icon'>
+              <ArrowBack />
+            </div>
+          </Link>
+
+          <div className='question-card'>
+            <Avatar>{question.user.username.charAt(0).toUpperCase()}</Avatar>
+            <div className='question-card-details'>
+              <h3>{question.user.username} asked</h3>
+              <h4>On {moment(question.created_at).format('MMMM DD YYYY HH:mm')}</h4>
+              <p>{question.text}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

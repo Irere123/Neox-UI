@@ -8,7 +8,7 @@ import { Avatar } from '@material-ui/core';
 import '../styles/kousa/MessageContainer.css';
 import micIcon from '../images/mic.svg';
 import FileUpload from '../components/FileUpload';
-import RenderText from '../components/RenderText';
+import Message from '../components/kousa/Message';
 
 const newChannelMessageSubscription = gql`
   subscription ($channelId: Int!) {
@@ -24,17 +24,6 @@ const newChannelMessageSubscription = gql`
     }
   }
 `;
-
-const Message = ({ message: { url, text, filetype } }) => {
-  if (url) {
-    if (filetype.startsWith('image/')) {
-      return <img src={url} alt='' />;
-    } else if (filetype === 'text/plain') {
-      return <RenderText url={url} />;
-    }
-  }
-  return <p>{text}</p>;
-};
 
 class MessageContainer extends React.Component {
   componentWillMount() {
@@ -108,10 +97,13 @@ class MessageContainer extends React.Component {
           <FileUpload disableClick channelId={channelId}>
             {messages.map((m) => (
               <div className='message' key={`message-${m.id}`}>
-                <Avatar>
-                  {m.user.username.charAt(0).toUpperCase()}
-                  {m.user.username.charAt(Math.floor(m.user.username.length / 3)).toUpperCase()}
-                </Avatar>
+                {m.text && (
+                  <Avatar>
+                    {m.user.username.charAt(0).toUpperCase()}
+                    {m.user.username.charAt(Math.floor(m.user.username.length / 3)).toUpperCase()}
+                  </Avatar>
+                )}
+
                 <div className='message__info'>
                   <h4>
                     {m.user.username}

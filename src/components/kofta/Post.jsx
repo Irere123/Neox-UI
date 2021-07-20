@@ -1,12 +1,15 @@
-import React from 'react';
-import { ThumbUp, ChatBubbleOutlined, Share } from '@material-ui/icons';
-import { Avatar } from '@material-ui/core';
+import React, { useState } from 'react';
+import { ThumbUp, ChatBubbleOutlined, CommentOutlined } from '@material-ui/icons';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { Modal, Avatar } from '@material-ui/core';
 
 import '../../styles/kofta/Post.css';
+import CommentsModal from './CommentsModal';
 
 function Post({ questions }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div>
       {questions.map((q) => (
@@ -29,15 +32,39 @@ function Post({ questions }) {
               <ThumbUp />
               <p>Like</p>
             </div>
+
             <div className='post__option'>
               <ChatBubbleOutlined />
+
+              <Link to={`/question/${q.id}`}>
+                <p style={{ color: '#fff', marginLeft: '3px' }}> Answer</p>
+              </Link>
+            </div>
+
+            <div
+              className='post__option'
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              <CommentOutlined />
               <p>Comment</p>
             </div>
-            <div className='post__option'>
-              <Share />
-              <p>Share</p>
-            </div>
           </div>
+          {open && (
+            <Modal
+              open={open}
+              onClose={() => {
+                setOpen(!open);
+              }}
+            >
+              <CommentsModal
+                onClose={() => {
+                  setOpen(!open);
+                }}
+              />
+            </Modal>
+          )}
         </div>
       ))}
     </div>
