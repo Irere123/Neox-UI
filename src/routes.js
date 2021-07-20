@@ -7,7 +7,6 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import CreateTeam from './pages/CreateTeam';
 import ViewTeam from './pages/ViewTeam';
-import ViewQuestion from './pages/ViewQuestion';
 import Home from './pages/Home';
 
 const isAuthenticated = () => {
@@ -45,7 +44,6 @@ export default () => {
         <PrivateRoute path='/create-team' exact component={CreateTeam} />
         <PrivateRoute path='/home' exact component={Home} />
         <PrivateRoute path='/view-team/:teamId?/:channelId?' exact component={ViewTeam} />
-        <PrivateRoute path='/question/:questionId?' exact component={ViewQuestion} />
       </Switch>
     </BrowserRouter>
   );

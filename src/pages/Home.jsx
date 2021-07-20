@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo';
 import { meQuery } from '../graphql/team';
 import '../styles/Home.css';
 import Header from '../components/Header';
-import QuestaContainer from '../containers/QuestaContainer';
 import Loader from '../components/Loader';
 
 function Home({ data: { loading, me } }) {
@@ -17,7 +16,6 @@ function Home({ data: { loading, me } }) {
   return (
     <div>
       <Header username={username} />
-      <QuestaContainer userId={userId} username={username} />
     </div>
   );
 }
