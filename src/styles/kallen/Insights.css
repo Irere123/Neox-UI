@@ -1,0 +1,35 @@
+.insights-layout {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
+
+.insights-settings {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.teams-list-insights {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+}
+
+.teams-insights {
+  color: #d3d3d3;
+}
+
+.teams-insights > h3 {
+  margin-left: 4px;
+  font-size: 25px;
+}
+
+.teams-insights > p {
+  color: #d3d3d3;
+  font-size: 18px;
+  line-height: 14px;
+}
+
+.members-insights > h3 {
+  font-size: 25px;
+  color: #d3d3d3;
+}

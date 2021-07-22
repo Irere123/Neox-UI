@@ -114,7 +114,7 @@
 
 .hashtag {
   font-size: 30px;
-  color: #d3d3d3;
+  color: #f50057;
 }
 
 .category-issue {
@@ -132,7 +132,7 @@
 
 .category-issue > h4 {
   margin-top: 10px;
-  color: #d3d3d3;
+  color: #f50057;
 }
 
 .issue-card-content {
