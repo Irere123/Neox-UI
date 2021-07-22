@@ -56,6 +56,8 @@ export default class Sidebar extends React.Component {
       }
     });
 
+    console.log(regularChannels);
+
     return [
       <Teams key='team-sidebar' teams={teams} />,
       <Channels

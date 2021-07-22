@@ -6,7 +6,9 @@ import '../../styles/kousa/Channels.css';
 
 const channel = ({ id, name }, teamId) => (
   <Link key={`channel-${id}`} to={`/view-team/${teamId}/${id}`}>
-    <li className='sidebar_list_item'># {name}</li>
+    <li className='sidebar_list_item'>
+      <span style={{ fontSize: '20px' }}>#</span> {name}
+    </li>
   </Link>
 );
 

@@ -44,8 +44,7 @@ function IssueContainer() {
       <Tabs value={value} onChange={handleChange}>
         <Tab label='Finds' {...a11yProps(0)} />
         <Tab label='Discussions' {...a11yProps(1)} />
-        <Tab label='Wiki' {...a11yProps(2)} />
-        <Tab label='Insights' {...a11yProps(3)} />
+        <Tab label='Insights' {...a11yProps(2)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Finds />
@@ -54,9 +53,6 @@ function IssueContainer() {
         <Discussions />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Wiki Tab
-      </TabPanel>
-      <TabPanel value={value} index={3}>
         <Insights />
       </TabPanel>
     </div>

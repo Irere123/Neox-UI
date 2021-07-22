@@ -1,0 +1,74 @@
+.discussions-layout {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.discussion-card {
+  background-color: var(--secondary-bg-color);
+  padding: 14px;
+  width: 55%;
+  border-radius: 11px;
+  box-shadow: var(--paper-shadow);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  color: #d3d3d3;
+}
+
+.discussion-card-header > h4,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.discussion-card-content {
+  display: grid;
+  grid-template-rows: 70px 1fr 50px;
+}
+
+.discussion-card-center > p {
+  color: #d3d3d3;
+  font-size: 18px;
+}
+
+.discussion-card-reply {
+  margin-left: 100px;
+}
+
+.discussion-card-reply-center {
+  width: 50%;
+}
+
+.discussions-header {
+  display: grid;
+  grid-template-columns: 690px 70px;
+  margin-bottom: 30px;
+}
+
+.discussions-header > h2 {
+  color: #d3d3d3;
+  font-size: 30px;
+}
+
+.discussions-header > button {
+  background-color: var(--secondary-bg-color);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 10px;
+  box-shadow: var(--paper-shadow);
+  color: #d3d3d3;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Media Quaries */
+
+@media (max-width: 1000px) {
+  .discussion-card {
+    width: 90%;
+    padding-right: 20px;
+  }
+}
