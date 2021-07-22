@@ -7,6 +7,7 @@ import { observer } from 'mobx-react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
+import { wsLink } from '../apollo';
 import '../styles/Login.css';
 import logoImg from '../images/logo.svg';
 
@@ -32,6 +33,7 @@ class Login extends React.Component {
     if (ok) {
       localStorage.setItem('token', token);
       localStorage.setItem('refreshToken', refreshToken);
+      wsLink.subscriptionClient.tryReconnect();
       this.props.history.push('/view-team');
     } else {
       const err = {};

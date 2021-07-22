@@ -80,6 +80,16 @@ class CreateTeam extends React.Component {
             Create
           </button>
         </div>
+        <div className='did_you_know'>
+          <div className='paper-content'>
+            <h1>Did You Know?</h1>
+            <h4>
+              Did you know why you have to create a team here, at neox everything is based on teams that why you need to create a team
+              inorder to communicate with your team
+            </h4>
+            <h3>-Irere Emmanuel</h3>
+          </div>
+        </div>
         {errorsList.length ? <Message header='There was some errors with your submission' error list={errorsList} /> : null}
 
         <div className='circle1'></div>

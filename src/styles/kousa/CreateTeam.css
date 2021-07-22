@@ -97,3 +97,19 @@ p {
   bottom: 0%;
   left: 70%;
 }
+
+.did_you_know {
+  display: flex;
+  color: #d3d3d3;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-bg-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.paper-content {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+}

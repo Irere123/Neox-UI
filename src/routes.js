@@ -8,6 +8,8 @@ import Login from './pages/Login';
 import CreateTeam from './pages/CreateTeam';
 import ViewTeam from './pages/ViewTeam';
 import Home from './pages/Home';
+import Issue from './pages/Issue.jsx';
+import DashBoard from './pages/Dashboard.jsx';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -43,6 +45,8 @@ export default () => {
         <Route path='/register' exact component={Register} />
         <PrivateRoute path='/create-team' exact component={CreateTeam} />
         <PrivateRoute path='/home' exact component={Home} />
+        <PrivateRoute path='/issue' exact component={Issue} />
+        <PrivateRoute path='/dashboard' exact component={DashBoard} />
         <PrivateRoute path='/view-team/:teamId?/:channelId?' exact component={ViewTeam} />
       </Switch>
     </BrowserRouter>

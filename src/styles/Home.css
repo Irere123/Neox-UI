@@ -54,7 +54,6 @@
 
 .left-layout {
   grid-area: main;
-  overflow-y: auto;
 }
 
 .right-layout {
@@ -98,7 +97,7 @@
   grid-template-rows: 100px 1fr 60px;
 }
 
-.MuiAvatar-root {
+.issue-card-header > .MuiAvatar-root {
   padding: 10px !important;
   width: 40px;
   height: 40px;

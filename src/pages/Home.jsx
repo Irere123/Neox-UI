@@ -20,7 +20,7 @@ function Home({ data: { loading, me } }) {
     <div>
       <Header username={username} />
       <div className='homepage_layout'>
-        <div className='left-layout-header'>
+        <div className='left-layout-header' style={{ overflow: 'hidden', position: 'sticky' }}>
           <HeadBarBottom />
         </div>
         <div className='left-layout'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Avatar } from '@material-ui/core';
 
@@ -13,10 +14,12 @@ function Feed() {
             <h4>10 hours ago</h4>
           </div>
         </div>
-        <div className='issue-card-content'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt ratione
-          officiis quod. Ipsum.
-        </div>
+        <Link to='/issue'>
+          <div className='issue-card-content'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt
+            ratione officiis quod. Ipsum.
+          </div>
+        </Link>
         <div className='issue-card-bottom'>
           <div className='category-issue'>
             <span className='hashtag'>#</span>
@@ -33,10 +36,12 @@ function Feed() {
             <h4>10 hours ago</h4>
           </div>
         </div>
-        <div className='issue-card-content'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt ratione
-          officiis quod. Ipsum.
-        </div>
+        <Link to='/issue'>
+          <div className='issue-card-content'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt
+            ratione officiis quod. Ipsum.
+          </div>
+        </Link>
         <div className='issue-card-bottom'>
           <div className='category-issue'>
             <span className='hashtag'>#</span>
@@ -53,10 +58,12 @@ function Feed() {
             <h4>10 hours ago</h4>
           </div>
         </div>
-        <div className='issue-card-content'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt ratione
-          officiis quod. Ipsum.
-        </div>
+        <Link to='/issue'>
+          <div className='issue-card-content'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt
+            ratione officiis quod. Ipsum.
+          </div>
+        </Link>
         <div className='issue-card-bottom'>
           <div className='category-issue'>
             <span className='hashtag'>#</span>
@@ -73,10 +80,12 @@ function Feed() {
             <h4>10 hours ago</h4>
           </div>
         </div>
-        <div className='issue-card-content'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt ratione
-          officiis quod. Ipsum.
-        </div>
+        <Link to='/issue'>
+          <div className='issue-card-content'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, molestiae delectus? Error sed natus deleniti nesciunt
+            ratione officiis quod. Ipsum.
+          </div>
+        </Link>
         <div className='issue-card-bottom'>
           <div className='category-issue'>
             <span className='hashtag'>#</span>

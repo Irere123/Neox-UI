@@ -39,7 +39,7 @@ class MessageContainer extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     if (this.unsubscribe) {
       this.unsubscribe();
     }

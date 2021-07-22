@@ -1,0 +1,94 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
+
+.top-user {
+  background-color: var(--secondary-bg-color);
+  padding: 10px 20px;
+  margin-left: 30px;
+  margin-top: 50px;
+  width: 300px;
+  height: 400px;
+  box-shadow: -1rem 0 2rem var(--primary-border-color);
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr 40px 40px 110px 60px;
+  color: #d3d3d3;
+}
+
+.top-user > p {
+  font-size: 18px;
+}
+
+.emoji-awards > .cool {
+  background-color: palevioletred;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.emoji-awards > .crown {
+  background-color: palevioletred;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.rare-contributors {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+}
+
+.cards-rare-contrs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.user-card-rare {
+  height: 300px;
+  width: 200px;
+  min-width: 150px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: -1rem 0 3rem #000;
+  display: grid;
+  grid-template-rows: 1fr 40px 120px 40px;
+  color: #d3d3d3;
+}
+
+.user-card-rare > h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.rare-header {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  color: #d3d3d3;
+}
+
+.rare-header > .your-score > .cool {
+  background-color: palevioletred;
+  padding: 5px;
+  margin-right: 10px;
+  width: 100px;
+  border-radius: 20px;
+}
+
+.btn__loadmore {
+  background-color: var(--secondary-bg-color);
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100px;
+  border-radius: 999px;
+  color: #d3d3d3;
+  font-size: 16px;
+  margin-top: 10px;
+}
