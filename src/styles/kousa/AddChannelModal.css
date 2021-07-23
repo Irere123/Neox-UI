@@ -1,0 +1,143 @@
+.card__addChannel {
+  height: 280px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: 500px;
+  outline: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  background-color: #161b22;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.card__addChannel {
+  display: grid;
+  grid-template-rows: 60px 80px 40px 1fr;
+}
+
+.cardHeader__addChannel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cardHeader__addChannel > h1 {
+  color: lightgray;
+}
+
+.input__addChannel {
+  display: flex;
+  height: 30px;
+  width: var(--input-size);
+  padding: 10px 20px;
+  border-radius: 11px;
+  border: 1px solid var(--border-color);
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.input__addChannel > input {
+  flex: 1;
+  padding: 10px 20px;
+  margin-top: 3px;
+  border: none;
+  color: #323d4d;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+::placeholder {
+  color: #323d4d;
+  font-size: 20px;
+}
+
+.input__addChannel > input:focus {
+  outline-width: 0;
+  background: transparent !important;
+}
+
+.input__DMModal {
+  flex: 1;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  border: none;
+  color: #323d4d;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.input__DMModal:focus {
+  outline-width: 0;
+  background: transparent !important;
+}
+
+.btn__addChannel {
+  display: flex;
+  height: 40px;
+  width: 150px;
+  color: lightgray;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 11px;
+  border: 1px solid var(--border-color);
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: transparent;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.checkbox-AddChannel {
+  display: grid;
+  grid-template-columns: 65px 90px;
+}
+
+.checkbox-AddChannel > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  font-size: 20px;
+}
+
+.buttons__AddChannel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+input[type='checkbox'] {
+  margin-top: 8px;
+  position: relative;
+  width: 60px;
+  height: 25px;
+  -webkit-appearance: none;
+  background: #323d4d;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 500ms;
+}
+
+input:checked[type='checkbox'] {
+  background-color: #03a9f4;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  background-color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 500ms;
+}
+
+input:checked[type='checkbox']::before {
+  left: 35px;
+}

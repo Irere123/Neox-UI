@@ -15,7 +15,33 @@
 .center {
   display: grid;
   grid-gap: 10px;
-  grid-template-rows: 70px 117px 400px;
+  grid-template-rows: 130px 400px;
+}
+
+.top__center {
+  display: grid;
+  grid-template-rows: 70px 50px;
+  position: sticky;
+  overflow: hidden;
+}
+
+.trends {
+  position: sticky;
+  overflow: hidden;
+}
+
+.widgets {
+  position: sticky;
+  overflow: hidden;
+}
+
+.main {
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.main::-webkit-scrollbar {
+  width: 15px;
 }
 
 .search__input {
@@ -48,6 +74,22 @@
 
 .search__input > input:focus {
   outline-width: 0;
+}
+
+.btn__askQuestion {
+  display: flex;
+  height: 40px;
+  width: 150px;
+  color: lightgray;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 11px;
+  border: 1px solid var(--border-color);
+  margin-top: 10px;
+  margin-left: 30px;
+  background-color: transparent;
+  justify-content: center;
+  font-size: 15px;
 }
 
 @media (max-width: 900px) {

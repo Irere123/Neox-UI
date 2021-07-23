@@ -1,0 +1,23 @@
+.image-message {
+  margin-top: 10px;
+}
+
+.image-message > img {
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+}
+
+.video-message {
+  margin-top: 10px;
+}
+
+.video-message > video {
+  width: 400px;
+  height: 190px;
+  border-radius: 10px;
+}
+
+.audio-message {
+  margin-top: 10px;
+}

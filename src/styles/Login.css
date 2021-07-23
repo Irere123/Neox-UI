@@ -48,8 +48,8 @@
 }
 
 /* Sign In Card */
-.card {
-  height: 400px;
+.card-login {
+  height: 330px;
   padding: 10px 20px;
   border-radius: 15px;
   width: 500px;
@@ -60,12 +60,12 @@
   background: linear-gradient(253.65deg, var(--bg-color) 2.65%, rgba(66, 66, 66, 0) 99.37%);
 }
 
-.card > .card-content > h2 {
+.card-login > .card-content > h2 {
   margin-left: 115px;
   color: #fff;
 }
 
-.card > .card-content > input {
+.card-login > .card-content > input {
   margin-left: 100px !important;
 }
 
@@ -102,7 +102,7 @@
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 20px;
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .el__input_login > input {
@@ -110,7 +110,7 @@
   padding: 10px 20px;
   margin-top: 3px;
   border: none;
-  color: #323d4d;
+  color: #323d4d !important;
   font-size: 20px;
   background-color: transparent;
 }

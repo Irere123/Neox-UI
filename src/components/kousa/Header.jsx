@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-function Header() {
+function Header({ channelName }) {
   return (
-    <div className="titlebar__header">
-      <h2># general</h2>
+    <div className='titlebar__header'>
+      <h2># {channelName}</h2>
     </div>
   );
 }

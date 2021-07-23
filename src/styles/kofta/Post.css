@@ -35,6 +35,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 15px 25px;
+  cursor: pointer;
+}
+
+.post__bottom > a {
+  color: #fff;
+  text-decoration: none !important;
 }
 
 .post__options {
@@ -62,7 +68,7 @@
 }
 
 .post__option:hover {
-  background-color: #121212 !important;
+  background-color: #30363d !important;
   border-radius: 10px;
 }
 

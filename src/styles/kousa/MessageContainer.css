@@ -4,10 +4,8 @@
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
-  position: relative;
   flex-direction: column-reverse;
   overflow-y: auto;
-  z-index: 2;
 }
 
 .name {
@@ -20,26 +18,6 @@ p {
 
 div {
   margin: 0;
-}
-
-.bubble1,
-.bubble2 {
-  background: white;
-  background: linear-gradient(140.73deg, rgba(66, 66, 66, 0.19) 12.91%, rgba(92, 103, 100, 0) 75.21%);
-  height: 15rem;
-  width: 15rem;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.bubble1 {
-  top: 5%;
-  right: -20%;
-}
-
-.bubble2 {
-  bottom: 5%;
-  left: 130%;
 }
 
 .message {
@@ -61,6 +39,7 @@ div {
 .message_timestamp {
   color: #5d7290;
   margin-left: 20px;
+  font-size: 18px;
 }
 
 .message__info > h4 {
@@ -72,4 +51,33 @@ div {
   color: #5d7290 !important;
   font-size: 30px !important;
   background-color: transparent !important;
+}
+
+.card-message {
+  padding: 20px;
+}
+
+.card-message-main {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.card-message-main > img {
+  border-radius: 20px;
+}
+
+.card-description {
+  display: grid;
+  grid-template-rows: 20px 1fr;
+}
+
+.card-description > h3 {
+  color: lightgray;
+}
+.card-description > h3 > span {
+  color: #1264a3;
+}
+
+.card-description > h4 {
+  color: #d3d3d3c2;
 }

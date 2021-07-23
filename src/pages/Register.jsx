@@ -1,9 +1,9 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
-import { Email, Lock, Facebook, YouTube, Instagram, Telegram } from '@material-ui/icons';
+import { Email, Lock, Facebook, YouTube, Instagram, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { Message } from 'semantic-ui-react';
 
 import '../styles/Register.css';
 import logoImg from '../images/logo.svg';
@@ -19,11 +19,11 @@ class Register extends React.Component {
   };
 
   onSubmit = async () => {
-    // this.state({
-    //   usernameError: '',
-    //   emailError: '',
-    //   passwordError: '',
-    // });
+    this.setState({
+      usernameError: '',
+      emailError: '',
+      passwordError: '',
+    });
 
     const { username, password, email } = this.state;
     const response = await this.props.mutate({
@@ -52,6 +52,20 @@ class Register extends React.Component {
   render() {
     const { username, email, password, usernameError, emailError, passwordError } = this.state;
 
+    const errorList = [];
+
+    if (usernameError) {
+      errorList.push(usernameError);
+    }
+
+    if (passwordError) {
+      errorList.push(passwordError);
+    }
+
+    if (emailError) {
+      errorList.push(emailError);
+    }
+
     return (
       <div className='register-layout'>
         <div className='banner'>
@@ -61,17 +75,17 @@ class Register extends React.Component {
           </div>
           <div className='about__neox__text'>
             <p>
-              Neox make communucation excellent it provides seemless experience🚀 not only that it helps to get answer to your questions and
-              give answer to those in need for answers....
+              Neox, Fast Dark Secure Free Better Ask Chat Collaborate all in one amazing place together with Neox, your rocket to the
+              stars....
             </p>
-            <h3>#We are Better Than Others 😄😄</h3>
+            <h3>#Collaborative Communication🚀🚀</h3>
           </div>
         </div>
         <div className='card'>
           <div className='card-content'>
             <h2>Create new account</h2>
             <div className='el__input_register'>
-              <Telegram />
+              <Person />
               <input name='username' onChange={this.onChange} value={username} type='text' placeholder='Username' />
             </div>
             <div className='el__input_register'>
@@ -88,6 +102,7 @@ class Register extends React.Component {
               </button>
             </div>
           </div>
+          {errorList.length ? <Message error list={errorList} /> : null}
         </div>
         <div className='footer__banner'>
           <Link to='#instagram'>
@@ -99,7 +114,7 @@ class Register extends React.Component {
           <Link to='#youtube'>
             <YouTube />
           </Link>
-          <Link to='/login'>
+          <Link to='/'>
             <h4>Sign In</h4>
           </Link>
         </div>
@@ -115,10 +130,6 @@ const registerMutation = gql`
       errors {
         path
         message
-      }
-      user {
-        id
-        username
       }
     }
   }

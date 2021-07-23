@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
-import { Avatar, IconButton } from '@material-ui/core';
-import { ExpandMore, Notifications, ForumOutlined } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
+import { ExpandMore, Notifications, ForumOutlined, ExpandLess } from '@material-ui/icons';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { Link } from 'react-router-dom';
 
 import logo from '../images/logo.svg';
-import profilepic from '../images/Pixel.jpg';
+import MenuDropdown from './MenuDropdown';
 
-function Header() {
+function Header({ username }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,11 +17,6 @@ function Header() {
         <img src={logo} alt='Argon' />
       </div>
       <div className='header__right'>
-        <div className='header__info'>
-          <Avatar className='header__avatar' src={profilepic} />
-          <h4>Tim</h4>
-        </div>
-
         <IconButton>
           <Link to='/home'>
             <HomeOutlinedIcon />
@@ -35,9 +30,14 @@ function Header() {
         <IconButton>
           <Notifications />
         </IconButton>
-        <IconButton>
-          <ExpandMore onClick={() => setOpen(!open)} />
+        <IconButton onClick={() => setOpen(!open)}>
+          {open ? <ExpandLess onClick={() => setOpen(!open)} /> : <ExpandMore onClick={() => setOpen(!open)} />}
         </IconButton>
+        {open && (
+          <div className='dropdown'>
+            <MenuDropdown username={username} />
+          </div>
+        )}
       </div>
     </div>
   );

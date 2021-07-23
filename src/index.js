@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes/routes';
-import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 
-const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:4000/graphql',
-});
+import Routes from './routes';
+import client from './apollo';
 
-const client = new ApolloClient({
-  networkInterface,
-});
 const App = (
   <ApolloProvider client={client}>
     <Routes />

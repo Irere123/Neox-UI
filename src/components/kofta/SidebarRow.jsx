@@ -3,11 +3,13 @@ import { Avatar } from '@material-ui/core';
 
 import '../../styles/kofta/SidebarRow.css';
 
-function SidebarRow({ title, src, Icon }) {
+function SidebarRow({ title }) {
   return (
     <div className='sidebarRow'>
-      {src && <Avatar src={src} />}
-      {Icon && <Icon />}
+      <Avatar>
+        {title.charAt(0).toUpperCase()}
+        {title.charAt(Math.floor(title.length / 3)).toUpperCase()}
+      </Avatar>
       <p>{title}</p>
     </div>
   );
