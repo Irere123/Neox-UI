@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { Add } from '@material-ui/icons';
 import { Modal } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import AddIssueModal from './AddIssueModal';
 
-function HeadBarBottom() {
+const team = ({ id, letter }) => (
+  <Link to={`/view-team/${id}`} key={`team-${id}`}>
+    <div className='home_team_list_item'>{letter}</div>
+  </Link>
+);
+
+function HeadBarBottom({ teams, teamsName }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -12,10 +18,10 @@ function HeadBarBottom() {
       <h2>Your Teams</h2>
       <div className='header-items'>
         <div className='homepage_team_list'>
-          <div className='home_team_list_item'>M</div>
-          <div className='home_team_list_item'>F</div>
-          <div className='home_team_list_item'>N</div>
-          <div className='home_team_list_item'>+</div>
+          {teams.map(team)}
+          <Link key='add-team' to='/create-team'>
+            <div className='home_team_list_item'>+</div>
+          </Link>
         </div>
         <div onClick={() => setOpen(!open)}>
           <button className='btn__newIssue'>New +</button>
@@ -23,7 +29,7 @@ function HeadBarBottom() {
       </div>
       {open && (
         <Modal open={open} onClose={() => setOpen(!open)}>
-          <AddIssueModal />
+          <AddIssueModal teamsName={teamsName} onClose={() => setOpen(!open)} />
         </Modal>
       )}
     </div>

@@ -14,17 +14,27 @@ function Home({ data: { loading, me } }) {
     return <Loader />;
   }
 
-  const { id: userId, username } = me;
+  const { id: userId, username, teams } = me;
+
+  const teamIds = teams.map((t) => ({
+    id: t.id,
+  }));
 
   return (
     <div>
       <Header username={username} />
       <div className='homepage_layout'>
         <div className='left-layout-header' style={{ overflow: 'hidden', position: 'sticky' }}>
-          <HeadBarBottom />
+          <HeadBarBottom
+            teams={teams.map((t) => ({
+              id: t.id,
+              letter: t.name.charAt(0).toUpperCase(),
+            }))}
+            teamsName={teams}
+          />
         </div>
         <div className='left-layout'>
-          <Feed />
+          <Feed teams={teamIds.map(({ id }) => id)} />
         </div>
         <div className='right-layout'>
           <AdsWidget />

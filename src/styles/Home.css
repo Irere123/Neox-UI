@@ -28,6 +28,7 @@
 .homepage_team_list {
   width: 250px;
   display: flex;
+  gap: 10px;
   margin-right: 10px;
   padding-left: 0px;
   list-style: none;
@@ -114,7 +115,7 @@
 
 .hashtag {
   font-size: 30px;
-  color: #f50057;
+  color: #d3d3d3;
 }
 
 .category-issue {
@@ -128,6 +129,10 @@
   display: grid;
   grid-template-columns: 70px 1fr;
   color: #d3d3d3;
+}
+
+.issue-card-info > h2 {
+  text-transform: capitalize;
 }
 
 .category-issue > h4 {
@@ -167,8 +172,10 @@
   font-size: 18px;
 }
 
+/* Add Issue Modal */
+
 .addIssueModal {
-  height: 400px;
+  height: 420px;
   padding: 10px 20px;
   border-radius: 12px;
   width: 500px;
@@ -183,6 +190,106 @@
   color: #d3d3d3;
   display: flex;
   justify-content: center;
+}
+
+.addIssueModal__header {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-bottom: 30px;
+}
+
+.addIssueModal__header > .close-icon > .MuiSvgIcon-root {
+  margin-left: 4px;
+}
+
+.addIssueModal__header > .close-icon:hover {
+  background-color: var(--primary-border-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.addIssueModal__header > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addIssueModal__center {
+  display: grid;
+  grid-template-rows: 100px 110px 100px;
+}
+
+.description__input,
+.category__input,
+.team__input_issue {
+  display: flex;
+  flex-direction: column;
+}
+
+.description__input > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-bottom: 7px;
+}
+
+.description__input > input {
+  background-color: transparent;
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 11px;
+  outline: none;
+  color: #323d4d;
+  font-size: 16px;
+  padding: 5px;
+}
+
+::placeholder {
+  padding: 20px;
+}
+
+.category__input > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.category__input > .chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category__input > .chips > * {
+  margin: 5px;
+}
+
+.addIssueModal__btn {
+  display: flex;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addIssueModal__btn > button {
+  background-color: #323d4d;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 90px;
+  color: #d3d3d3;
+  font-size: 16px;
+  border-radius: 999px;
+  box-shadow: var(--secondary-paper-shadow);
+}
+
+.team__input_issue > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Media Queries */

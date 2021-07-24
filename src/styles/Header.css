@@ -73,6 +73,7 @@
 
 .menu-item-word > h3 {
   color: lightgray;
+  text-transform: capitalize;
 }
 
 @media (max-width: 450px) {

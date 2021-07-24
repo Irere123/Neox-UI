@@ -45,7 +45,7 @@ export default () => {
         <Route path='/register' exact component={Register} />
         <PrivateRoute path='/create-team' exact component={CreateTeam} />
         <PrivateRoute path='/home' exact component={Home} />
-        <PrivateRoute path='/issue' exact component={Issue} />
+        <PrivateRoute path='/issue/:issueId' exact component={Issue} />
         <PrivateRoute path='/dashboard' exact component={DashBoard} />
         <PrivateRoute path='/view-team/:teamId?/:channelId?' exact component={ViewTeam} />
       </Switch>

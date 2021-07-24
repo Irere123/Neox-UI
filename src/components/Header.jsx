@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Badge } from '@material-ui/core';
 import { ExpandMore, Notifications, ForumOutlined, ExpandLess } from '@material-ui/icons';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { Link } from 'react-router-dom';
@@ -28,7 +28,9 @@ function Header({ username }) {
           </Link>
         </IconButton>
         <IconButton>
-          <Notifications />
+          <Badge badgeContent={12} color='primary'>
+            <Notifications />
+          </Badge>
         </IconButton>
         <IconButton onClick={() => setOpen(!open)}>
           {open ? <ExpandLess onClick={() => setOpen(!open)} /> : <ExpandMore onClick={() => setOpen(!open)} />}
