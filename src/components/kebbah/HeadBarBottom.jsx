@@ -24,7 +24,7 @@ function HeadBarBottom({ teams, teamsName, userId, teamIds }) {
           </Link>
         </div>
         <div onClick={() => setOpen(!open)}>
-          <button className="btn__newIssue">New +</button>
+          <button className="btn__newIssue">New issue</button>
         </div>
       </div>
       {open && (
