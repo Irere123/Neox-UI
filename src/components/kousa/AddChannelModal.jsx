@@ -18,7 +18,7 @@ class AddChannelModal extends React.Component {
   };
 
   handleSelectChange = (selectedOption) => {
-    const { setFieldValue } = this.props;
+    const { setFieldValue, values } = this.props;
 
     this.setState({ selectedOption }, () => console.log('selected'));
     const value = selectedOption.map((v) => v.value);

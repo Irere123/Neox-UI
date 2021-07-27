@@ -1,101 +1,101 @@
-import React from 'react';
-import { Avatar } from '@material-ui/core';
+import React, { useState } from "react";
+import moment from "moment";
+import { Avatar, Modal } from "@material-ui/core";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
-import '../../styles/kallen/Finds.css';
+import "../../styles/kallen/Finds.css";
+import Loader from "../Loader";
+import PublishModal from "./PublishModal";
+import { allFindsQuery } from "../../graphql/issue";
 
-function Finds() {
+function Finds({ data: { loading, allFinds }, issueId, userId }) {
+  const [open, setOpen] = useState(false);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!allFinds.length) {
+    return (
+      <div className="issue-finds-layout">
+        <div className="header-finds">
+          <h2>People Finds</h2>
+          <div
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <button className="btn_publish">Publish</button>
+          </div>
+        </div>
+        <div className="no-issues">
+          <h2>There are no findings for this issue yet..</h2>
+        </div>
+        {open && (
+          <Modal open={open} onClose={() => setOpen(!open)}>
+            <PublishModal
+              onClose={() => setOpen(!open)}
+              issueId={issueId}
+              userId={userId}
+            />
+          </Modal>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className='issue-finds-layout'>
-      <div className='header-finds'>
+    <div className="issue-finds-layout">
+      <div className="header-finds">
         <h2>People Finds</h2>
-        <div>
-          <button className='btn_publish'>Publish</button>
+        <div
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <button className="btn_publish">Publish</button>
         </div>
       </div>
-      <div className='content-finds'>
-        <div className='discovery-card'>
-          <div className='discovery-card-header'>
-            <Avatar />
-            <div className='user-details-card-header'>
-              <h2>Tyler Perry</h2>
-              <h3>a few seconds ago</h3>
+      <div className="content-finds">
+        {allFinds.map((f) => (
+          <div className="discovery-card">
+            <div className="discovery-card-header">
+              <Avatar />
+              <div className="user-details-card-header">
+                <h2>{f.user.username}</h2>
+                <h3>{moment(f.created_at).fromNow()}</h3>
+              </div>
+            </div>
+            <div className="discovery-card-content">
+              <p>{f.description}</p>
+            </div>
+            <div className="discovery-card-footer">
+              <span>True 12</span>
+
+              <span>False 5</span>
             </div>
           </div>
-          <div className='discovery-card-content'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quos voluptates vel suscipit perferendis aperiam voluptatem
-              modi sapiente repellat quas perspiciatis doloremque, placeat, eveniet architecto autem similique, est officia itaque.
-            </p>
-          </div>
-          <div className='discovery-card-footer'>
-            <span>True 12</span>
-
-            <span>False 5</span>
-          </div>
-        </div>
-        <div className='discovery-card'>
-          <div className='discovery-card-header'>
-            <Avatar />
-            <div className='user-details-card-header'>
-              <h2>Doja cat</h2>
-              <h3>2 hours ago</h3>
-            </div>
-          </div>
-          <div className='discovery-card-content'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quos voluptates vel suscipit perferendis aperiam voluptatem
-              modi sapiente repellat quas perspiciatis doloremque, placeat, eveniet architecto autem similique, est officia itaque.
-            </p>
-          </div>
-          <div className='discovery-card-footer'>
-            <span>True 10</span>
-
-            <span>False 50</span>
-          </div>
-        </div>
-        <div className='discovery-card'>
-          <div className='discovery-card-header'>
-            <Avatar />
-            <div className='user-details-card-header'>
-              <h2>Niyo Bosco</h2>
-              <h3>4 days ago</h3>
-            </div>
-          </div>
-          <div className='discovery-card-content'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quos voluptates vel suscipit perferendis aperiam voluptatem
-              modi sapiente repellat quas perspiciatis doloremque, placeat, eveniet architecto autem similique, est officia itaque.
-            </p>
-          </div>
-          <div className='discovery-card-footer'>
-            <span>True 39</span>
-
-            <span>False 12</span>
-          </div>
-        </div>
-        <div className='discovery-card'>
-          <div className='discovery-card-header'>
-            <Avatar />
-            <div className='user-details-card-header'>
-              <h2>Nel Ngabo</h2>
-              <h3>5 days ago</h3>
-            </div>
-          </div>
-          <div className='discovery-card-content'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quos voluptates vel suscipit perferendis aperiam voluptatem
-              modi sapiente repellat quas perspiciatis doloremque, placeat, eveniet architecto autem similique, est officia itaque.
-            </p>
-          </div>
-          <div className='discovery-card-footer'>
-            <span>True 20</span>
-
-            <span>False 10</span>
-          </div>
-        </div>
+        ))}
       </div>
+      {open && (
+        <Modal open={open} onClose={() => setOpen(!open)}>
+          <PublishModal
+            onClose={() => setOpen(!open)}
+            issueId={issueId}
+            userId={userId}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
 
-export default Finds;
+export default graphql(allFindsQuery, {
+  options: (props) => ({
+    variables: {
+      issueId: props.issueId,
+    },
+    fetchPolicy: "network-only",
+  }),
+})(Finds);

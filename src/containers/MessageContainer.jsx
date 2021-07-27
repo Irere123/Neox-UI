@@ -1,14 +1,13 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
-import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
-import { Avatar } from '@material-ui/core';
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
+import { Avatar } from "@material-ui/core";
 
-import '../styles/kousa/MessageContainer.css';
-import micIcon from '../images/mic.svg';
-import FileUpload from '../components/FileUpload';
-import Message from '../components/kousa/Message';
+import "../styles/kousa/MessageContainer.css";
+import micIcon from "../images/mic.svg";
+import Message from "../components/kousa/Message";
 
 const newChannelMessageSubscription = gql`
   subscription ($channelId: Int!) {
@@ -77,14 +76,17 @@ class MessageContainer extends React.Component {
 
     if (!messages.length) {
       return (
-        <div className='card-message'>
-          <div className='card-message-main'>
-            <img src={micIcon} alt='Mic Icon' />
-            <div className='card-description'>
+        <div className="card-message">
+          <div className="card-message-main">
+            <img src={micIcon} alt="Mic Icon" />
+            <div className="card-description">
               <h3>
                 You’re looking at the <span>{`#${channelName}`}</span> channel
               </h3>
-              <h4>This is the one channel that will always include team members. It’s a great spot for team-wide conversations.</h4>
+              <h4>
+                This is the one channel that will always include team members.
+                It’s a great spot for team-wide conversations.
+              </h4>
             </div>
           </div>
         </div>
@@ -93,28 +95,30 @@ class MessageContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <div className='messages'>
-          <FileUpload disableClick channelId={channelId}>
-            {messages.map((m) => (
-              <div className='message' key={`message-${m.id}`}>
-                {m.text && (
-                  <Avatar>
-                    {m.user.username.charAt(0).toUpperCase()}
-                    {m.user.username.charAt(Math.floor(m.user.username.length / 3)).toUpperCase()}
-                  </Avatar>
-                )}
+        <div className="messages">
+          {messages.map((m) => (
+            <div className="message" key={`message-${m.id}`}>
+              {m.text && (
+                <Avatar>
+                  {m.user.username.charAt(0).toUpperCase()}
+                  {m.user.username
+                    .charAt(Math.floor(m.user.username.length / 3))
+                    .toUpperCase()}
+                </Avatar>
+              )}
 
-                <div className='message__info'>
-                  <h4>
-                    {m.user.username}
-                    <span className='message_timestamp'>{moment(m.created_at).format('MMMM DD YYYY HH:mm')}</span>
-                  </h4>
+              <div className="message__info">
+                <h4>
+                  {m.user.username}
+                  <span className="message_timestamp">
+                    {moment(m.created_at).format("MMMM DD YYYY HH:mm")}
+                  </span>
+                </h4>
 
-                  <Message message={m} />
-                </div>
+                <Message message={m} />
               </div>
-            ))}
-          </FileUpload>
+            </div>
+          ))}
         </div>
       </React.Fragment>
     );
@@ -141,6 +145,6 @@ export default graphql(messagesQuery, {
     variables: {
       channelId: props.channelId,
     },
-    fetchPolicy: 'network-only',
+    fetchPolicy: "network-only",
   }),
 })(MessageContainer);

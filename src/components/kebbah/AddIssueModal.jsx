@@ -1,120 +1,178 @@
-import React, { useState } from 'react';
-import Select from 'react-select';
-import gql from 'graphql-tag';
+import React, { useState } from "react";
+import Select from "react-select";
 
-import { graphql } from 'react-apollo';
-import { Close, School, MusicNote, Movie, Work, Assignment, Face, Favorite, Subject, Terrain } from '@material-ui/icons';
-import { Chip } from '@material-ui/core';
+import { withFormik } from "formik";
+import { graphql, compose } from "react-apollo";
+import {
+  Close,
+  School,
+  MusicNote,
+  Movie,
+  Work,
+  Assignment,
+  Face,
+  Favorite,
+  Subject,
+  Terrain,
+} from "@material-ui/icons";
+import { Chip } from "@material-ui/core";
+import {
+  allIssuesQuery as issuesQuery,
+  createIssueMutation,
+} from "../../graphql/issue";
 
-function AddIssueModal({ onClose, teamsName }) {
-  const [category, setCategory] = useState('');
-  const [selectedOption, setOption] = useState(0);
+function AddIssueModal({
+  onClose,
+  teamsName,
+  resetForm,
+  setFieldValue,
+  values,
+  handleSubmit,
+  isSubmitting,
+  handleBlur,
+  handleChange,
+}) {
+  const [category, setCategory] = useState("");
+  const [selectedOption, setOption] = useState();
 
-  console.log(category);
-  console.log(selectedOption);
+  const handleSelectChange = (selectedOption) => {
+    setOption(selectedOption);
+    const value = selectedOption.value;
+    setFieldValue("teamId", value);
+  };
 
   return (
-    <div className='addIssueModal'>
-      <div className='addIssueModal_content'>
-        <div className='addIssueModal__header'>
-          <div className='close-icon' onClick={onClose}>
+    <div className="addIssueModal">
+      <div className="addIssueModal_content">
+        <div className="addIssueModal__header">
+          <div
+            className="close-icon"
+            onClick={(e) => {
+              resetForm();
+              onClose(e);
+            }}
+          >
             <Close />
           </div>
           <h1>Add new Issue</h1>
         </div>
-        <div className='addIssueModal__center'>
-          <div className='description__input'>
+        <div className="addIssueModal__center">
+          <div className="description__input">
             <label>Description</label>
-            <input type='text' placeholder='Write your long issue description' />
+            <textarea
+              value={values.description}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              name="description"
+              type="text"
+              placeholder="Write your long issue description"
+              cols="30"
+              rows="6"
+            />
           </div>
-          <div className='category__input'>
-            <label>Category</label>
-            <div className='chips'>
+          <div className="category__input">
+            <label>
+              Category
+              <span className="selectedCategory">{category}</span>
+            </label>
+            <div className="chips">
               <Chip
                 icon={<MusicNote />}
                 onClick={() => {
-                  setCategory('Music');
+                  setCategory("Music");
+                  setFieldValue("category", "Music");
                 }}
-                label='Music'
-                color='secondary'
+                label="Music"
+                color="secondary"
               />
               <Chip
                 icon={<School />}
                 onClick={() => {
-                  setCategory('School');
+                  setCategory("School");
+                  setFieldValue("category", "School");
                 }}
-                label='School'
-                color='secondary'
+                label="School"
+                color="secondary"
               />
               <Chip
                 icon={<Movie />}
                 onClick={() => {
-                  setCategory('Cinema');
+                  setCategory("Cinema");
+                  setFieldValue("category", "Cinema");
                 }}
-                label='Cinema'
-                color='secondary'
+                label="Cinema"
+                color="secondary"
               />
               <Chip
                 icon={<Work />}
                 onClick={() => {
-                  setCategory('Work');
+                  setCategory("Work");
+                  setFieldValue("category", "Work");
                 }}
-                label='Work'
-                color='secondary'
+                label="Work"
+                color="secondary"
               />
               <Chip
                 icon={<Terrain />}
                 onClick={() => {
-                  setCategory('Earth');
+                  setCategory("Earth");
+                  setFieldValue("category", "Earth");
                 }}
-                label='Earth'
-                color='secondary'
+                label="Earth"
+                color="secondary"
               />
               <Chip
                 icon={<Assignment />}
                 onClick={() => {
-                  setCategory('Assignment');
+                  setCategory("Assignment");
+                  setFieldValue("category", "Assignment");
                 }}
-                label='Assignment'
-                color='secondary'
+                label="Assignment"
+                color="secondary"
               />
               <Chip
                 icon={<Subject />}
                 onClick={() => {
-                  setCategory('Lesson');
+                  setCategory("Lesson");
+                  setFieldValue("category", "Lesson");
                 }}
-                label='Lesson'
-                color='secondary'
+                label="Lesson"
+                color="secondary"
               />
               <Chip
                 icon={<Face />}
                 onClick={() => {
-                  setCategory('Family');
+                  setCategory("Family");
+                  setFieldValue("category", "Family");
                 }}
-                label='Family'
-                color='secondary'
+                label="Family"
+                color="secondary"
               />
               <Chip
                 icon={<Favorite />}
                 onClick={() => {
-                  setCategory('Love');
+                  setCategory("Love");
+                  setFieldValue("category", "Love");
                 }}
-                label='Love'
-                color='secondary'
+                label="Love"
+                color="secondary"
               />
             </div>
           </div>
-          <div className='team__input_issue'>
+          <div className="team__input_issue">
             <label>Team</label>
             <Select
+              onChange={handleSelectChange}
               options={teamsName.map((t) => ({ label: t.name, value: t.id }))}
-              placeholder='Select one of your teams'
+              placeholder="Select one of your teams"
               isMulti={false}
               isSearchable={true}
             />
           </div>
-          <div className='addIssueModal__btn'>
-            <button>Submit</button>
+          <div className="addIssueModal__btn">
+            <button disabled={isSubmitting} onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
@@ -122,4 +180,41 @@ function AddIssueModal({ onClose, teamsName }) {
   );
 }
 
-export default AddIssueModal;
+export default compose(
+  graphql(createIssueMutation),
+  withFormik({
+    mapPropsToValues: () => ({ category: "", description: "", teamId: "" }),
+    handleSubmit: async (
+      values,
+      { props: { mutate, onClose, userId, teamIds }, setSubmitting, resetForm }
+    ) => {
+      await mutate({
+        variables: {
+          userId,
+          teamId: values.teamId,
+          category: values.category,
+          description: values.description,
+        },
+        update: (store, { data: { createIssue } }) => {
+          const { issue } = createIssue;
+
+          const data = store.readQuery({
+            query: issuesQuery,
+            variables: { teamIds },
+          });
+          store.writeQuery({
+            query: issuesQuery,
+            variables: { teamIds },
+            data: {
+              ...data,
+              allIssues: [issue, ...data.allIssues],
+            },
+          });
+        },
+      });
+      setSubmitting(false);
+      resetForm();
+      onClose();
+    },
+  })
+)(AddIssueModal);

@@ -1,16 +1,16 @@
-import React from 'react';
-import { Modal } from '@material-ui/core';
-import { Person } from '@material-ui/icons';
-import { withFormik } from 'formik';
-import { graphql, compose } from 'react-apollo';
-import Select from 'react-select';
-import { withRouter } from 'react-router-dom';
-import gql from 'graphql-tag';
-import findIndex from 'lodash/findIndex';
+import React from "react";
+import { Modal } from "@material-ui/core";
+import { Person } from "@material-ui/icons";
+import { withFormik } from "formik";
+import { graphql, compose } from "react-apollo";
+import Select from "react-select";
+import { withRouter } from "react-router-dom";
+import gql from "graphql-tag";
+import findIndex from "lodash/findIndex";
 
-import '../../styles/kousa/InvitePeopleModal.css';
-import { getTeamMembersQuery } from '../../graphql/team';
-import { meQuery } from '../../graphql/team';
+import "../../styles/kousa/InvitePeopleModal.css";
+import { getTeamMembersQuery } from "../../graphql/team";
+import { meQuery } from "../../graphql/team";
 
 class DirectMessageModal extends React.Component {
   state = {
@@ -20,9 +20,9 @@ class DirectMessageModal extends React.Component {
   handleSelectChange = (selectedOption) => {
     const { setFieldValue } = this.props;
 
-    this.setState({ selectedOption }, () => console.log('selected'));
+    this.setState({ selectedOption }, () => console.log("selected"));
     const value = selectedOption.map((v) => v.value);
-    setFieldValue('members', value);
+    setFieldValue("members", value);
   };
 
   render() {
@@ -44,26 +44,28 @@ class DirectMessageModal extends React.Component {
           onClose(e);
         }}
       >
-        <div className='card__DM'>
-          <div className='cardHeader__DM'>
+        <div className="card__DM">
+          <div className="cardHeader__DM">
             <h1>Start a chat</h1>
           </div>
 
-          <div className='input__DMModel'>
+          <div className="input__DMModel">
             <Person />
             <Select
-              className='input__dm'
+              className="input__dm"
               onChange={this.handleSelectChange}
               isMulti={true}
-              options={getTeamMembers.filter((m) => m.id !== currentUserId).map((m) => ({ label: m.username, value: m.id }))}
+              options={getTeamMembers
+                .filter((m) => m.id !== currentUserId)
+                .map((m) => ({ label: m.username, value: m.id }))}
               isSearchable={true}
-              placeholder='Select members to messsage'
+              placeholder="Select members to messsage"
             />
           </div>
 
-          <div className='buttons__AddChannel'>
+          <div className="buttons__AddChannel">
             <button
-              className='btn__addChannel'
+              className="btn__addChannel"
               disabled={isSubmitting}
               onClick={(e) => {
                 resetForm();
@@ -72,7 +74,11 @@ class DirectMessageModal extends React.Component {
             >
               Cancel
             </button>
-            <button className='btn__addChannel' onClick={handleSubmit} disabled={isSubmitting}>
+            <button
+              className="btn__addChannel"
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+            >
               Start Messaging
             </button>
           </div>
@@ -96,19 +102,24 @@ export default compose(
   graphql(getTeamMembersQuery),
   withFormik({
     mapPropsToValues: () => ({ members: [] }),
-    handleSubmit: async ({ members }, { props: { history, onClose, teamId, mutate }, resetForm, setSubmitting }) => {
+    handleSubmit: async (
+      { members },
+      { props: { history, onClose, teamId, mutate }, resetForm, setSubmitting }
+    ) => {
       await mutate({
         variables: { members, teamId },
         update: (store, { data: { getOrCreateChannel } }) => {
           const { id, name } = getOrCreateChannel;
 
           const data = store.readQuery({ query: meQuery });
-          const teamIdx = findIndex(data.me.teams, ['id', teamId]);
-          const notInChannelList = data.me.teams[teamIdx].channels.every((c) => c.id !== id);
+          const teamIdx = findIndex(data.me.teams, ["id", teamId]);
+          const notInChannelList = data.me.teams[teamIdx].channels.every(
+            (c) => c.id !== id
+          );
 
           if (notInChannelList) {
             data.me.teams[teamIdx].channels.push({
-              __typename: 'Channel',
+              __typename: "Channel",
               id,
               name,
               dm: true,
@@ -121,5 +132,5 @@ export default compose(
       onClose();
       resetForm();
     },
-  }),
+  })
 )(DirectMessageModal);

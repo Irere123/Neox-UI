@@ -1,44 +1,91 @@
-import React from 'react';
-import { Avatar } from '@material-ui/core';
-import { SearchOutlined as SearchIcon } from '@material-ui/icons';
+import React from "react";
+import { Avatar } from "@material-ui/core";
+import { Check, Close } from "@material-ui/icons";
 
-import '../../styles/kallen/Discussions.css';
+import "../../styles/kallen/Discussions.css";
 
 function Discussions() {
   return (
-    <div className='discussions-layout'>
-      <div className='discussions-header'>
+    <div className="discussions-layout">
+      <div className="discussions-header">
         <h2>Discussions</h2>
         <button>Start</button>
       </div>
-      <div className='discussion-card'>
-        <Avatar />
-        <div className='discussion-card-content'>
-          <div className='discussion-card-header'>
-            <h2>Jenny Carly</h2>
-            <h4>a few seconds ago</h4>
+      <div className="discussion-card">
+        <div className="discussion-card-header">
+          <h2>
+            OctoArcade Invader <span className="discussion-id">#1</span>
+          </h2>
+          <div className="discussion-card-status">
+            <div className="status-button">
+              <Check />
+              <button>Open</button>
+            </div>
+            <div className="discussed-people">
+              <h3>3 People</h3>
+            </div>
+            <h3>
+              <span className="discussion-username">mariorod</span> opened this
+              discussion 2 days ago
+            </h3>
           </div>
-          <div className='discussion-card-center'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minima unde distinctio numquam accusamus odit esse, omnis quidem
-              deleniti veniam.
-            </p>
+          <div className="discussion-card-content">
+            <Avatar />
+            <div className="discussion-card-main-content">
+              <div className="discussion-card-content-info">
+                <h3>
+                  <span className="discussion-username">mariorod</span>
+                  discussed 2 days ago
+                </h3>
+              </div>
+              <div className="discussion-card-center">
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Quidem numquam nulla aut vel sint assumenda rem, debitis
+                  mollitia est vitae?
+                </p>
+              </div>
+            </div>
           </div>
-          <div className='discussion-card-footer'></div>
         </div>
       </div>
-      <div className='discussion-card-reply'>
-        <div className='discussion-card-header'>
-          <h2>John Kelly</h2>
-          <h4>a few seconds ago</h4>
+      <div className="discussion-card">
+        <div className="discussion-card-header">
+          <h2>
+            Missing money <span className="discussion-id">#2</span>
+          </h2>
+          <div className="discussion-card-status">
+            <div className="status-button-closed">
+              <Close />
+              <button>Closed</button>
+            </div>
+            <div className="discussed-people">
+              <h3>15 People</h3>
+            </div>
+            <h3>
+              <span className="discussion-username">irere123</span> opened this
+              discussion 10 days ago
+            </h3>
+          </div>
+          <div className="discussion-card-content">
+            <Avatar />
+            <div className="discussion-card-main-content">
+              <div className="discussion-card-content-info">
+                <h3>
+                  <span className="discussion-username">irere123</span>
+                  discussed 2 days ago
+                </h3>
+              </div>
+              <div className="discussion-card-center">
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Quidem numquam nulla aut vel sint assumenda rem, debitis
+                  mollitia est vitae?
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='discussion-card-reply-center'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minima unde distinctio numquam accusamus odit esse, omnis quidem
-            deleniti veniam.
-          </p>
-        </div>
-        <div className='discussion-card-footer'></div>
       </div>
     </div>
   );

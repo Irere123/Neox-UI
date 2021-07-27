@@ -3,40 +3,18 @@
   margin-left: 20px;
 }
 
-.discussion-card {
+.discussions-header > button {
   background-color: var(--secondary-bg-color);
-  padding: 14px;
-  width: 55%;
-  border-radius: 11px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 10px;
   box-shadow: var(--paper-shadow);
-  display: grid;
-  grid-template-columns: 60px 1fr;
   color: #d3d3d3;
-}
-
-.discussion-card-header > h4,
-h2,
-h3 {
-  margin: 0;
-  padding: 0;
-}
-
-.discussion-card-content {
-  display: grid;
-  grid-template-rows: 70px 1fr 50px;
-}
-
-.discussion-card-center > p {
-  color: #d3d3d3;
-  font-size: 18px;
-}
-
-.discussion-card-reply {
-  margin-left: 100px;
-}
-
-.discussion-card-reply-center {
-  width: 50%;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .discussions-header {
@@ -50,18 +28,124 @@ h3 {
   font-size: 30px;
 }
 
-.discussions-header > button {
+/* Card */
+
+.discussion-card {
   background-color: var(--secondary-bg-color);
-  border: none;
-  outline: none;
   padding: 10px 20px;
-  width: 120px;
-  border-radius: 10px;
-  box-shadow: var(--paper-shadow);
+  width: 50%;
+  border-radius: 5px;
+  box-shadow: var(--secondary-paper-shadow);
+  margin-top: 20px;
+}
+
+.discussion-card-header > h2 {
   color: #d3d3d3;
-  font-size: 17px;
+  font-size: 30px;
+}
+
+.discussion-id {
+  color: #d3d3d348;
+  font-size: 30px;
+}
+
+.discussion-card-status {
+  display: flex;
+}
+
+.discussion-card-status > * {
+  margin: 5px;
+}
+
+.status-button {
+  display: flex;
+  background-color: #008000;
+  width: 90px;
+  height: 33px;
+  outline: none;
+  border: none;
+  color: #d3d3d3;
+  font-size: 18px;
+  border-radius: 999px;
+}
+
+.status-button > .MuiSvgIcon-root {
+  margin-left: 3px;
+}
+
+.status-button > button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #d3d3d3;
+  font-size: 18px;
+  border-radius: 999px;
+}
+
+.status-button-closed {
+  display: flex;
+  background-color: #f50057;
+  width: 93px;
+  height: 33px;
+  outline: none;
+  border: none;
+  color: #d3d3d3;
+  font-size: 18px;
+  border-radius: 999px;
+}
+
+.status-button-closed > button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #d3d3d3;
+  font-size: 18px;
+  border-radius: 999px;
+}
+
+.discussion-card-status > .discussed-people {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 999px;
+  color: #d3d3d394;
+}
+
+.discussion-username {
+  color: #d3d3d3;
+  margin-right: 5px;
+}
+
+.discussion-card-status > h3 {
+  color: #d3d3d394;
+}
+
+.discussion-card-content {
+  display: flex;
+  padding: 10px;
+}
+
+.discussion-card-content > .MuiAvatar-root {
   margin-top: 10px;
-  margin-left: 10px;
+}
+
+.discussion-card-content > * {
+  margin: 5px;
+}
+
+.discussion-card-main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion-card-content-info > h3 {
+  color: #d3d3d394;
+}
+
+.discussion-card-center > p {
+  color: #d3d3d3;
+  font-size: 18px;
 }
 
 /* Media Quaries */
