@@ -62,36 +62,6 @@ body {
   grid-template-rows: 50px 1fr 100px;
 }
 
-.titlebar__header {
-  grid-column: 3;
-  grid-row: 1;
-  margin-left: 10px;
-}
-
-.title__hashTag {
-  font-size: 30px;
-  color: #b2bdcd;
-}
-
-.titlebar__headerContent {
-  display: flex;
-  flex-direction: row;
-  padding-left: 5px;
-  padding-top: 5px;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.titlebar__headerContent > h2 {
-  color: #dee3ea;
-  font-family: "Inter";
-  font-size: 20px;
-}
-
-.titlebar__headerContent > * {
-  margin: 3px;
-}
-
 textarea {
   font-size: 20px !important;
 }

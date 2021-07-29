@@ -1,7 +1,11 @@
 .channel__wrapper {
   grid-column: 2;
   grid-row: 1 / 4;
-  box-shadow: inset 0 0 10px #000;
+  background: linear-gradient(
+    353.9deg,
+    #161b22 -35.54%,
+    rgba(66, 66, 66, 0) 99.04%
+  );
 }
 
 .image-channel {
@@ -12,8 +16,6 @@
 .team_name_header {
   padding-top: 20px;
   color: #dee3ea;
-  font-size: 30px;
-  font-family: "Inter";
 }
 
 .username {
@@ -70,13 +72,4 @@ h4,
 h5,
 h6 {
   margin: 0;
-}
-
-.sidebarLeft__content {
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebarLeft__bottom {
-  margin-top: 100px;
 }
