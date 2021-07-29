@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "@material-ui/core";
-import { Person } from "@material-ui/icons";
+import { Close } from "@material-ui/icons";
 import { withFormik } from "formik";
 import { graphql, compose } from "react-apollo";
 import Select from "react-select";
@@ -46,39 +46,23 @@ class DirectMessageModal extends React.Component {
       >
         <div className="card__DM">
           <div className="cardHeader__DM">
+            <div className="close-icon" onClick={onClose}>
+              <Close />
+            </div>
             <h1>Start a chat</h1>
           </div>
 
-          <div className="input__DMModel">
-            <Person />
-            <Select
-              className="input__dm"
-              onChange={this.handleSelectChange}
-              isMulti={true}
-              options={getTeamMembers
-                .filter((m) => m.id !== currentUserId)
-                .map((m) => ({ label: m.username, value: m.id }))}
-              isSearchable={true}
-              placeholder="Select members to messsage"
-            />
-          </div>
-
-          <div className="buttons__AddChannel">
-            <button
-              className="btn__addChannel"
-              disabled={isSubmitting}
-              onClick={(e) => {
-                resetForm();
-                onClose(e);
-              }}
-            >
-              Cancel
-            </button>
-            <button
-              className="btn__addChannel"
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-            >
+          <Select
+            onChange={this.handleSelectChange}
+            isMulti={true}
+            options={getTeamMembers
+              .filter((m) => m.id !== currentUserId)
+              .map((m) => ({ label: m.username, value: m.id }))}
+            isSearchable={true}
+            placeholder="Select members to messsage"
+          />
+          <div className="btn__startMessaging">
+            <button onClick={handleSubmit} disabled={isSubmitting}>
               Start Messaging
             </button>
           </div>

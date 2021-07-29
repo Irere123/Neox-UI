@@ -79,6 +79,7 @@
   background-color: #161b22;
   justify-content: center;
   font-size: 17px;
+  box-shadow: var(--secondary-paper-shadow);
 }
 
 .issue-cards-home {

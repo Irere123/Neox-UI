@@ -1,14 +1,19 @@
 .channel__wrapper {
   grid-column: 2;
   grid-row: 1 / 4;
-  border-radius: 11px;
-  background: linear-gradient(353.9deg, #161b22 -35.54%, rgba(66, 66, 66, 0) 99.04%);
-  color: #958993;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.image-channel {
+  z-index: 2;
+  margin-top: 2px;
 }
 
 .team_name_header {
-  color: #b2bdcd;
+  padding-top: 20px;
+  color: #dee3ea;
   font-size: 30px;
+  font-family: "Inter";
 }
 
 .username {
@@ -38,16 +43,12 @@
   color: #b2bdcd;
 }
 
-.sidebar_list_item:hover {
-  background: #0d1117;
-}
-
 .sidebar_list_header {
   display: grid;
   grid-template-columns: 100px 1fr;
   padding-left: 10px;
   font-size: 25px;
-  color: #b2bdcd;
+  color: #dee3ea;
 }
 
 .sidebar_list_header > .MuiSvgIcon-root {
@@ -69,4 +70,13 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+.sidebarLeft__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarLeft__bottom {
+  margin-top: 100px;
 }

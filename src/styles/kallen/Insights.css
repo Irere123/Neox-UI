@@ -1,35 +1,107 @@
 .insights-layout {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 400px 700px;
 }
 
-.insights-settings {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+.top-card-insights > .MuiAvatar-root {
+  width: 60px;
+  height: 60px;
 }
 
-.teams-list-insights {
-  display: grid;
-  grid-template-columns: repeat(3, 60px);
+.top-card-insights {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
-.teams-insights {
+.top-card-insights-left > h3 {
   color: #d3d3d3;
 }
 
-.teams-insights > h3 {
-  margin-left: 4px;
-  font-size: 25px;
+.top-card-insights-left > button {
+  outline: none;
+  border: none;
+  background-color: #f50057;
+  padding: 8px;
+  width: 80px;
+  color: #d3d3d3;
+  border-radius: 999px;
+  font-size: 16px;
 }
 
-.teams-insights > p {
-  color: #d3d3d3;
-  font-size: 18px;
-  line-height: 14px;
+.avatar-instights {
+  display: flex;
+  justify-content: center;
 }
 
-.members-insights > h3 {
-  font-size: 25px;
+.card-insights {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 230px;
+  height: 300px;
+  margin-left: 50px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: var(--secondary-paper-shadow);
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.teams_list_insights {
+  width: 190px;
+  display: flex;
+  gap: 5px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.teams_list_insights > .team_insights {
+  background-color: var(--primary-color);
+  padding: 7px;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 11px;
+}
+
+.teams_list_insights > div > h3 {
+  text-transform: capitalize;
   color: #d3d3d3;
+  font-size: 20px;
+  margin-top: 10px !important;
+}
+
+.insights-panel-header > h1 {
+  color: #c9d1d9;
+}
+
+.insights-panel-header > hr {
+  color: #21262d !important;
+  margin: 0;
+}
+
+.insights-panel-content {
+  border: 1px solid #30363d;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.insights-panel-content > h3 {
+  padding: 10px;
+  border-bottom: 1px solid #30363d;
+}
+
+.stats-panel-insights {
+  padding: 10px 20px;
+}
+
+@media (max-width: 1115px) {
+  .insights-layout {
+    grid-template-columns: 400px 1fr;
+  }
 }

@@ -1,5 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
 /* Grobal variables */
 
 :root {
@@ -11,6 +10,8 @@
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --secondary-paper-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  --deep-paper-shadow: 0px 5px 5px -2px rgb(0 0 0 / 20%),
+    0px 3px 4px -2px rgb(0 0 0 / 14%), 0px 1px 8px -2px rgb(0 0 0 / 18%);
 }
 
 .MuiTab-wrapper {
@@ -57,20 +58,38 @@ body {
   height: 88vh;
   width: 99vw;
   position: fixed;
-  grid-template-columns: 100px 250px 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 90px 200px 1fr;
+  grid-template-rows: 50px 1fr 100px;
 }
 
 .titlebar__header {
   grid-column: 3;
   grid-row: 1;
-
-  text-align: center;
-  border-bottom: 1px solid var(--primary-border-color);
+  margin-left: 10px;
 }
 
-.titlebar__header > h2 {
+.title__hashTag {
+  font-size: 30px;
   color: #b2bdcd;
+}
+
+.titlebar__headerContent {
+  display: flex;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-top: 5px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.titlebar__headerContent > h2 {
+  color: #dee3ea;
+  font-family: "Inter";
+  font-size: 20px;
+}
+
+.titlebar__headerContent > * {
+  margin: 3px;
 }
 
 textarea {

@@ -1,0 +1,6 @@
+.right-sidebar-container {
+  height: 100vh;
+  margin-left: 10px;
+  grid-column: 4;
+  box-shadow: -3px 4px 14px rgba(0, 0, 0, 0.7);
+}

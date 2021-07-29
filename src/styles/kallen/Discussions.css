@@ -7,8 +7,8 @@
   background-color: var(--secondary-bg-color);
   border: none;
   outline: none;
-  padding: 10px 20px;
-  width: 120px;
+  padding: 10px;
+  width: 130px;
   border-radius: 10px;
   box-shadow: var(--paper-shadow);
   color: #d3d3d3;

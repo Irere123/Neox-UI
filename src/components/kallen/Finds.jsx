@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import moment from "moment";
-import { Avatar, Modal } from "@material-ui/core";
-import gql from "graphql-tag";
+import { Modal } from "@material-ui/core";
 import { graphql } from "react-apollo";
 
 import "../../styles/kallen/Finds.css";
 import Loader from "../Loader";
 import PublishModal from "./PublishModal";
 import { allFindsQuery } from "../../graphql/issue";
+import FindCard from "./FindCard";
 
 function Finds({ data: { loading, allFinds }, issueId, userId }) {
   const [open, setOpen] = useState(false);
@@ -59,23 +58,7 @@ function Finds({ data: { loading, allFinds }, issueId, userId }) {
       </div>
       <div className="content-finds">
         {allFinds.map((f) => (
-          <div className="discovery-card">
-            <div className="discovery-card-header">
-              <Avatar />
-              <div className="user-details-card-header">
-                <h2>{f.user.username}</h2>
-                <h3>{moment(f.created_at).fromNow()}</h3>
-              </div>
-            </div>
-            <div className="discovery-card-content">
-              <p>{f.description}</p>
-            </div>
-            <div className="discovery-card-footer">
-              <span>True 12</span>
-
-              <span>False 5</span>
-            </div>
-          </div>
+          <FindCard key={f.id} find={f} userId={userId} />
         ))}
       </div>
       {open && (

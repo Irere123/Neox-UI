@@ -8,7 +8,8 @@
   margin-bottom: 15px;
   margin-top: 100px;
   background-color: #161b22;
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 .card__InvitePeople {
@@ -81,52 +82,74 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.input__DMModel {
-  display: flex;
-  height: 37px;
-  width: var(--input-size);
-  padding: 10px 20px;
-  border-radius: 11px;
-  border: 1px solid var(--border-color);
-  margin: 0 auto;
-  margin-bottom: 15px;
-  margin-top: 20px;
-  background-color: transparent;
-}
-
-.input__dm {
-  width: var(--input-size);
-  margin-bottom: 20px;
-}
-
-.input__dm > input {
-  height: 20px;
-}
-
 .card__DM {
-  height: 200px;
+  height: 180px;
   padding: 10px 20px;
   border-radius: 12px;
-  width: 500px;
+  width: 350px;
   outline: none;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 100px;
   background-color: #161b22;
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-}
-
-.card__DM {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  box-shadow: var(--paper-shadow);
+  display: flex;
+  flex-direction: column;
 }
 
 .cardHeader__DM {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-bottom: 30px;
+}
+
+.cardHeader__DM > .close-icon {
+  margin-top: 8px;
+}
+
+.cardHeader__DM > .close-icon > .MuiSvgIcon-root {
+  margin-left: 4px;
+}
+
+.cardHeader__DM > .close-icon:hover {
+  background-color: var(--primary-border-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 .cardHeader__DM > h1 {
-  color: lightgray;
+  color: #d3d3d3;
+  display: flex;
+  font-family: "Inter";
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__DM > label {
+  color: #d3d3d3;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn__startMessaging {
+  display: flex;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.btn__startMessaging > button {
+  background-color: #323d4d;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 130px;
+  color: #d3d3d3;
+  font-size: 16px;
+  border-radius: 999px;
+  box-shadow: var(--secondary-paper-shadow);
 }

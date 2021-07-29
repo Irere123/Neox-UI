@@ -31,6 +31,18 @@ export const allFindsQuery = gql`
   }
 `;
 
+export const likesQuery = gql`
+  query ($findId: Int!) {
+    likeCount(findId: $findId)
+  }
+`;
+
+export const unlikesQuery = gql`
+  query ($findId: Int!) {
+    unlikeCount(findId: $findId)
+  }
+`;
+
 export const createIssueMutation = gql`
   mutation (
     $teamId: Int!

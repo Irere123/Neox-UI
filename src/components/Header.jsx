@@ -19,7 +19,7 @@ function Header({ username }) {
   return (
     <div className="header">
       <div className="logo__header">
-        <img src={logo} alt="Argon" />
+        <img src={logo} alt="Neox" />
       </div>
       <div className="header__right">
         <Link to="/home">

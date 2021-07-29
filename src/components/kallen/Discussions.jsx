@@ -1,15 +1,19 @@
-import React from "react";
-import { Avatar } from "@material-ui/core";
+import React, { useState } from "react";
+import { Avatar, Modal } from "@material-ui/core";
 import { Check, Close } from "@material-ui/icons";
 
 import "../../styles/kallen/Discussions.css";
 
 function Discussions() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="discussions-layout">
       <div className="discussions-header">
         <h2>Discussions</h2>
-        <button>Start</button>
+        <button type="button" onClick={() => setOpen(!open)}>
+          New discussion
+        </button>
       </div>
       <div className="discussion-card">
         <div className="discussion-card-header">
@@ -85,6 +89,11 @@ function Discussions() {
               </div>
             </div>
           </div>
+          {open && (
+            <Modal open={open} onClose={() => setOpen(!open)}>
+              <h1>Hello world</h1>
+            </Modal>
+          )}
         </div>
       </div>
     </div>

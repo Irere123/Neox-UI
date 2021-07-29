@@ -74,25 +74,6 @@ class MessageContainer extends React.Component {
       return null;
     }
 
-    if (!messages.length) {
-      return (
-        <div className="card-message">
-          <div className="card-message-main">
-            <img src={micIcon} alt="Mic Icon" />
-            <div className="card-description">
-              <h3>
-                You’re looking at the <span>{`#${channelName}`}</span> channel
-              </h3>
-              <h4>
-                This is the one channel that will always include team members.
-                It’s a great spot for team-wide conversations.
-              </h4>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
     return (
       <React.Fragment>
         <div className="messages">
