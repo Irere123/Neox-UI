@@ -1,9 +1,9 @@
-import React from 'react';
-import { FileCopy } from '@material-ui/icons';
+import React from "react";
+import { FileCopy } from "@material-ui/icons";
 
 export default class RenderText extends React.Component {
   state = {
-    text: '',
+    text: "",
   };
 
   componentWillMount = async () => {
@@ -15,7 +15,7 @@ export default class RenderText extends React.Component {
   render() {
     const { text } = this.state;
     return (
-      <div style={{ display: 'grid', gridTemplateColumns: '30px 200px' }}>
+      <div style={{ display: "grid", gridTemplateColumns: "30px 200px" }}>
         <FileCopy />
         <p>{text}</p>
       </div>

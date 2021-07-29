@@ -38,34 +38,30 @@ function Channels({
         <h1 className="team_name_header">{teamName}</h1>
         <h3 className="username">{username}</h3>
       </div>
-      <div className="sidebarLeft__content">
-        <div className="sidebarLeft__top">
+
+      <ul className="sidebar_list">
+        <li className="sidebar_list_header">
+          Channels
+          {isOwner && <Icon onClick={onAddChannelClick} />}
+        </li>
+        {channels.map((c) => channel(c, teamId))}
+      </ul>
+      <ul className="sidebar_list">
+        <li className="sidebar_list_header">
+          Chats <Icon onClick={onDirectMessageClick} />
+        </li>
+        {dmChannels.map((dmC) => dmChannel(dmC, teamId))}
+      </ul>
+
+      {isOwner && (
+        <Link to="#invitePeople">
           <ul className="sidebar_list">
-            <li className="sidebar_list_header">
-              Channels
-              {isOwner && <Icon onClick={onAddChannelClick} />}
+            <li className="invite-link" onClick={onInvitePeopleClick}>
+              + Invite People
             </li>
-            {channels.map((c) => channel(c, teamId))}
           </ul>
-          <ul className="sidebar_list">
-            <li className="sidebar_list_header">
-              Chats <Icon onClick={onDirectMessageClick} />
-            </li>
-            {dmChannels.map((dmC) => dmChannel(dmC, teamId))}
-          </ul>
-        </div>
-        <div className="sidebarLeft__bottom">
-          {isOwner && (
-            <Link to="#invitePeople">
-              <ul className="sidebar_list">
-                <li className="invite-link" onClick={onInvitePeopleClick}>
-                  + Invite People
-                </li>
-              </ul>
-            </Link>
-          )}
-        </div>
-      </div>
+        </Link>
+      )}
     </div>
   );
 }
