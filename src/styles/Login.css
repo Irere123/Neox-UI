@@ -57,7 +57,11 @@
   margin-bottom: 15px;
   border: 1px solid var(--border-color);
   margin-top: 100px;
-  background: linear-gradient(253.65deg, var(--bg-color) 2.65%, rgba(66, 66, 66, 0) 99.37%);
+  background: linear-gradient(
+    253.65deg,
+    var(--bg-color) 2.65%,
+    rgba(66, 66, 66, 0) 99.37%
+  );
 }
 
 .card-login > .card-content > h2 {
@@ -129,7 +133,9 @@
   height: 40px;
   width: 100px;
   color: lightgray;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 11px;
@@ -141,14 +147,17 @@
 }
 
 /* Footer */
-.footer__banner {
-  display: grid;
-  grid-template-columns: 40px 40px 40px 150px 1fr;
+.footer__banner__login {
+  display: flex;
+  margin-top: 100px;
 }
 
-.footer__banner > a > h4 {
-  margin-top: 5px;
-  color: lightgray;
+.footer__banner__login > * {
+  margin: 7px;
+}
+
+.footer__banner__login > a > h4 {
+  color: #f50057;
 }
 
 /* Media Queries */

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
-import { IconButton, Badge, ClickAwayListener } from "@material-ui/core";
+import { IconButton, ClickAwayListener } from "@material-ui/core";
 import {
   ExpandMore,
   Explore,
@@ -10,7 +10,6 @@ import {
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { Link } from "react-router-dom";
 
-import logo from "../images/logo.svg";
 import MenuDropdown from "./MenuDropdown";
 
 function Header({ username }) {
@@ -23,9 +22,8 @@ function Header({ username }) {
   return (
     <div className="header">
       <div className="logo__header">
-        <img src={logo} alt="Neox" />
         <h3>
-          NEOX <span className="neox-version">V.0.1 Alpha</span>
+          NEOX <span className="neox-version">V.0.1 Beta</span>
         </h3>
       </div>
       <div className="header__right">
