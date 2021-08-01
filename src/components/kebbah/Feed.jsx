@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Avatar } from "@material-ui/core";
 import Loader from "../Loader";
 import { allIssuesQuery } from "../../graphql/issue";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 function Feed({ data: { loading, allIssues } }) {
   if (loading) {
@@ -44,7 +46,7 @@ function Feed({ data: { loading, allIssues } }) {
               </Avatar>
               <div className="issue-card-info" style={{ marginLeft: "5px" }}>
                 <h2>{i.user.username}</h2>
-                <h4>{moment(i.created_at).fromNow()}</h4>
+                <h4>{dayjs(i.created_at).fromNow()}</h4>
               </div>
             </div>
             <Link to={`/issue/${i.id}`}>

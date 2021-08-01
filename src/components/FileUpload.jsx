@@ -1,11 +1,11 @@
-import React from 'react';
-import DropZone from 'react-dropzone';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+import React from "react";
+import DropZone from "react-dropzone";
+import { graphql } from "react-apollo";
+import gql from "graphql-tag";
 
 const FileUpload = ({ children, disableClick, mutate, channelId }) => (
   <DropZone
-    className='ignore'
+    className="ignore"
     onDrop={async ([file]) => {
       const response = await mutate({ variables: { file, channelId } });
       console.log(response);

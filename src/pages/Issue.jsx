@@ -17,13 +17,13 @@ function Issue({
     return <Loader />;
   }
 
-  const { id } = me;
+  const { id, username } = me;
 
   return (
     <div>
-      <Header />
+      <Header username={username} />
       <div className="issue-layout">
-        <IssueContainer issueId={issueId} userId={id} />
+        <IssueContainer issueId={issueId} userId={id} username={username} />
       </div>
     </div>
   );

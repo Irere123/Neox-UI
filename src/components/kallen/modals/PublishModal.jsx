@@ -4,7 +4,8 @@ import { withFormik } from "formik";
 import { graphql, compose } from "react-apollo";
 import gql from "graphql-tag";
 
-import { allFindsQuery } from "../../graphql/issue";
+import { allFindsQuery } from "../../../graphql/issue";
+import "../../../styles/kallen/Modals.css";
 
 function PublishModal({
   onClose,
@@ -52,7 +53,7 @@ function PublishModal({
 }
 
 const createFindMutation = gql`
-  mutation ($description: String!, $userId: Int!, $issueId: Int!) {
+  mutation ($description: String!, $userId: Int!, $issueId: ID!) {
     createFind(description: $description, userId: $userId, issueId: $issueId) {
       ok
       find {

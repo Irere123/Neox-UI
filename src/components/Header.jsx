@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
-import { IconButton, Badge } from "@material-ui/core";
+import { IconButton, Badge, ClickAwayListener } from "@material-ui/core";
 import {
   ExpandMore,
-  Notifications,
+  Explore,
   ForumOutlined,
   ExpandLess,
 } from "@material-ui/icons";
@@ -16,10 +16,17 @@ import MenuDropdown from "./MenuDropdown";
 function Header({ username }) {
   const [open, setOpen] = useState(false);
 
+  const handleClickAway = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="header">
       <div className="logo__header">
         <img src={logo} alt="Neox" />
+        <h3>
+          NEOX <span className="neox-version">V.0.1 Alpha</span>
+        </h3>
       </div>
       <div className="header__right">
         <Link to="/home">
@@ -33,9 +40,7 @@ function Header({ username }) {
           </IconButton>
         </Link>
         <IconButton>
-          <Badge badgeContent={12} color="primary">
-            <Notifications />
-          </Badge>
+          <Explore />
         </IconButton>
         <IconButton onClick={() => setOpen(!open)}>
           {open ? (
@@ -45,9 +50,11 @@ function Header({ username }) {
           )}
         </IconButton>
         {open && (
-          <div className="dropdown">
-            <MenuDropdown username={username} />
-          </div>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <div className="dropdown" onBlur={() => setOpen(!open)}>
+              <MenuDropdown username={username} />
+            </div>
+          </ClickAwayListener>
         )}
       </div>
     </div>

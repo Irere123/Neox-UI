@@ -65,13 +65,29 @@ body {
 .titlebar__header {
   grid-column: 3;
   grid-row: 1;
-
-  text-align: center;
-  border-bottom: 1px solid #30363d;
+  margin-left: 30px;
 }
 
-.titlebar__header > h2 {
+.titlebar__header > * {
   color: #b2bdcd;
+}
+
+.titlebar__header__content {
+  display: flex;
+}
+
+.titlebar__header__content > .members-btn {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1;
+  margin-right: 50px;
+}
+
+#root > div > div.viewteam_layout > div.titlebar__header > div > div > div {
+  width: 64px;
+  height: 25px;
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
 }
 
 textarea {

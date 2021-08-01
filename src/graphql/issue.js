@@ -19,7 +19,7 @@ export const allIssuesQuery = gql`
 `;
 
 export const allFindsQuery = gql`
-  query ($issueId: Int!) {
+  query ($issueId: ID!) {
     allFinds(issueId: $issueId) {
       id
       description
@@ -28,18 +28,6 @@ export const allFindsQuery = gql`
       }
       created_at
     }
-  }
-`;
-
-export const likesQuery = gql`
-  query ($findId: Int!) {
-    likeCount(findId: $findId)
-  }
-`;
-
-export const unlikesQuery = gql`
-  query ($findId: Int!) {
-    unlikeCount(findId: $findId)
   }
 `;
 
@@ -69,6 +57,33 @@ export const createIssueMutation = gql`
           username
         }
         created_at
+      }
+    }
+  }
+`;
+
+export const allDiscussionsQuery = gql`
+  query ($issueId: ID!) {
+    allDiscussions(issueId: $issueId) {
+      id
+      name
+      discussion
+      created_at
+      user {
+        username
+      }
+    }
+  }
+`;
+
+export const allRepliesQuery = gql`
+  query ($discussionId: ID!) {
+    allReplies(discussionId: $discussionId) {
+      id
+      reply
+      created_at
+      user {
+        username
       }
     }
   }

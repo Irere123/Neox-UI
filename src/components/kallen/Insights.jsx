@@ -1,63 +1,70 @@
 import React from "react";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 import { Avatar } from "@material-ui/core";
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
+import dayjs from "dayjs";
 
 import "../../styles/kallen/Insights.css";
 
-function Insights() {
+const timeNow = dayjs();
+
+function Insights({ data: { loading, getIssue }, username }) {
+  if (loading) {
+    return null;
+  }
+
+  console.log(getIssue);
+
   return (
     <div className="insights-layout">
       <div className="card-insights">
         <div className="top-card-insights">
-          <Avatar src="https://avatars.githubusercontent.com/u/7872329?v=4" />
+          <Avatar>
+            {getIssue.user.username.charAt(0).toUpperCase()}
+            {getIssue.user.username
+              .charAt(Math.floor(getIssue.user.username.length / 3))
+              .toUpperCase()}
+          </Avatar>
           <div className="top-card-insights-left">
-            <h3>Ben Awad</h3>
-            <button>Delete</button>
+            <h3>{getIssue.user.username}</h3>
+            {username === getIssue.user.username ? (
+              <button>Delete</button>
+            ) : (
+              <button>{getIssue.category}</button>
+            )}
           </div>
         </div>
         <div className="teams-insights">
           <h2>Team</h2>
           <div className="teams_list_insights">
-            <div className="team_insights">B</div>
+            <div className="team_insights">
+              {getIssue.team.name.charAt(0).toUpperCase()}
+            </div>
             <div>
-              <h3>Biotechs</h3>
+              <h3>{getIssue.team.name}</h3>
             </div>
           </div>
           <h2>Contributors</h2>
-          <AvatarGroup max={4}>
-            <Avatar
-              alt="Remy Sharp"
-              src="https://material-ui.com//static/images/avatar/1.jpg"
-            />
-            <Avatar
-              alt="Travis Howard"
-              src="https://material-ui.com//static/images/avatar/2.jpg"
-            />
-            <Avatar
-              alt="Cindy Baker"
-              src="https://material-ui.com//static/images/avatar/3.jpg"
-            />
-            <Avatar
-              alt="Agnes Walker"
-              src="https://material-ui.com//static/images/avatar/4.jpg"
-            />
-            <Avatar
-              alt="Trevor Henderson"
-              src="https://material-ui.com//static/images/avatar/5.jpg"
-            />
-          </AvatarGroup>
+          <h4 style={{ color: "#c9d1d9" }}>
+            The people who particapate in your discussion and publish finds are
+            contributors
+          </h4>
         </div>
       </div>
       <div className="insights-left-panel">
         <div className="insights-panel-header">
-          <h1>July 21, 2021 – July 28, 2021</h1>
+          <h1>
+            {dayjs(getIssue.created_at).format("MMMM DD, YYYY")} –
+            {dayjs(timeNow).format("MMMM DD, YYYY")}
+          </h1>
         </div>
         <div className="insights-panel-content">
           <h3>Overview</h3>
           <div className="stats-panel-insights">
-            <h2>20K Contributors</h2>
-            <h2>200K Discussions</h2>
-            <h2>500K Finds</h2>
+            <h2>{getIssue.cCount} Contributors</h2>
+            <h2>{getIssue.dCount} Discussions</h2>
+            <h2>{getIssue.fCount} Finds</h2>
           </div>
         </div>
       </div>
@@ -65,4 +72,29 @@ function Insights() {
   );
 }
 
-export default Insights;
+const getIssueQuery = gql`
+  query ($issueId: ID!) {
+    getIssue(issueId: $issueId) {
+      team {
+        name
+      }
+      user {
+        username
+      }
+      fCount
+      dCount
+      cCount
+      created_at
+      category
+    }
+  }
+`;
+
+export default graphql(getIssueQuery, {
+  options: (props) => ({
+    variables: {
+      issueId: props.issueId,
+    },
+    fetchPolicy: "network-only",
+  }),
+})(Insights);

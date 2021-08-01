@@ -14,8 +14,23 @@
 }
 
 .logo__header {
-  margin-top: 5px;
-  margin-left: 4px;
+  display: flex;
+}
+
+.logo__header > img {
+  width: 56px;
+  height: 50px;
+  margin: 5px;
+}
+.logo__header > h3 {
+  margin-top: 8px;
+  color: #f50057;
+  font-size: 30px;
+}
+
+.logo__header > h3 > .neox-version {
+  color: #fff;
+  font-size: 10px;
 }
 
 .header__right {

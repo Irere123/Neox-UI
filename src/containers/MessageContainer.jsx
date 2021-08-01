@@ -1,12 +1,11 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Avatar } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
-import micIcon from "../images/mic.svg";
 import Message from "../components/kousa/Message";
 
 const newChannelMessageSubscription = gql`
@@ -57,7 +56,7 @@ class MessageContainer extends React.Component {
 
         return {
           ...prev,
-          messages: [...prev.messages, subscriptionData.data.newChannelMessage],
+          messages: [subscriptionData.data.newChannelMessage, ...prev.messages],
         };
       },
     });
@@ -92,7 +91,7 @@ class MessageContainer extends React.Component {
                 <h4>
                   {m.user.username}
                   <span className="message_timestamp">
-                    {moment(m.created_at).format("MMMM DD YYYY HH:mm")}
+                    {dayjs(m.created_at).format("MMMM DD YYYY HH:mm A")}
                   </span>
                 </h4>
 

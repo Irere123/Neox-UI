@@ -20,7 +20,7 @@
   padding: 10px 20px;
   width: 120px;
   border-radius: 10px;
-  box-shadow: var(--paper-shadow);
+  box-shadow: var(--deep-paper-shadow);
   color: #d3d3d3;
   font-size: 17px;
   margin-top: 10px;
@@ -42,8 +42,8 @@
   background-color: var(--secondary-bg-color);
   padding: 10px 20px;
   border-radius: 11px;
-  box-shadow: var(--paper-shadow);
-  height: 330px;
+  box-shadow: var(--deep-paper-shadow);
+  height: 290px;
   width: 270px;
   display: grid;
   grid-template-rows: 70px 1fr 60px;
@@ -52,10 +52,11 @@
 
 .discovery-card-header {
   display: grid;
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 70px 1fr;
 }
 
 .user-details-card-header > h2 {
+  text-transform: capitalize;
   font-size: 24px;
 }
 
@@ -93,25 +94,11 @@
   border-radius: 999px;
 }
 
-.discovery-card-footer > span:first-child {
-  cursor: pointer;
-  color: green;
-  font-size: 17px;
-}
-.discovery-card-footer > span:last-child {
-  cursor: pointer;
-  color: #f50057;
-  font-size: 17px;
-}
-
-.discovery-card-footer > span:hover:last-child {
-  background-color: #f50057;
-  color: #d3d3d3;
-}
-
-.discovery-card-footer > span:hover:first-child {
-  background-color: green;
-  color: #d3d3d3;
+.discovery-card-header > .MuiAvatar-root {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f50057;
+  background-color: transparent;
 }
 
 /* Media Queries */
@@ -157,88 +144,4 @@
     height: 310px;
     min-width: 200px;
   }
-}
-
-/* Publish Modal */
-
-.publishModal {
-  height: 315px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  width: 500px;
-  outline: none;
-  margin: 0 auto;
-  margin-bottom: 15px;
-  margin-top: 100px;
-  background-color: #161b22;
-}
-
-.publishModal_content > h1 {
-  color: #d3d3d3;
-  display: flex;
-  justify-content: center;
-}
-
-.publishModal__header {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  margin-bottom: 30px;
-}
-
-.publishModal__header > .close-icon > .MuiSvgIcon-root {
-  margin-left: 4px;
-}
-
-.publishModal__header > .close-icon:hover {
-  background-color: var(--primary-border-color);
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-}
-
-.publishModal__header > h1 {
-  color: #d3d3d3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.publishModal__center {
-  display: flex;
-  flex-direction: column;
-}
-
-.publishModal__center > label {
-  color: #d3d3d3;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.publishModal__center > textarea {
-  background-color: transparent;
-  border: 1px solid var(--primary-border-color);
-  outline: none;
-  border-radius: 4px;
-  color: #d3d3d3;
-}
-
-.publishModal__btn {
-  display: flex;
-  align-content: stretch;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 10px;
-}
-
-.publishModal__btn > button {
-  background-color: #323d4d;
-  border: none;
-  outline: none;
-  padding: 10px;
-  width: 90px;
-  color: #d3d3d3;
-  font-size: 16px;
-  border-radius: 11px;
-  box-shadow: var(--secondary-paper-shadow);
 }

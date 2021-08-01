@@ -1,47 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { MeetingRoom, Settings, Dashboard } from '@material-ui/icons';
-import { Avatar } from '@material-ui/core';
+import React from "react";
+import { Link } from "react-router-dom";
+import { MeetingRoom, FeedbackOutlined, Dashboard } from "@material-ui/icons";
+import { Avatar } from "@material-ui/core";
 
 function MenuDropdown({ username }) {
   return (
     <React.Fragment>
-      <Link to={`/${username}`} className='menu-item'>
-        <div className='icon-left'>
+      <Link to={`/${username}`} className="menu-item">
+        <div className="icon-left">
           <Avatar />
         </div>
-        <div className='menu-item-word'>
+        <div className="menu-item-word">
           <h3>{username}</h3>
         </div>
       </Link>
-      <Link to='/dashboard' className='menu-item'>
-        <div className='icon-left'>
+      <Link to="/dashboard" className="menu-item">
+        <div className="icon-left">
           <Dashboard />
         </div>
-        <div className='menu-item-word'>
+        <div className="menu-item-word">
           <h3>Dashboard</h3>
         </div>
       </Link>
-      <Link to='#something' className='menu-item'>
-        <div className='icon-left'>
-          <Settings />
+      <Link to="#something" className="menu-item">
+        <div className="icon-left">
+          <FeedbackOutlined />
         </div>
-        <div className='menu-item-word'>
-          <h3>Settings</h3>
+        <div className="menu-item-word">
+          <h3>Feedback</h3>
         </div>
       </Link>
       <Link
-        to='/'
-        className='menu-item'
+        to="/"
+        className="menu-item"
         onClick={() => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('refreshToken');
+          localStorage.removeItem("token");
+          localStorage.removeItem("refreshToken");
         }}
       >
-        <div className='icon-left'>
+        <div className="icon-left">
           <MeetingRoom />
         </div>
-        <div className='menu-item-word'>
+        <div className="menu-item-word">
           <h3>Log out</h3>
         </div>
       </Link>

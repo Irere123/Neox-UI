@@ -27,14 +27,16 @@ class DirectMessageModal extends React.Component {
 
   render() {
     const {
-      data: { getTeamMembers = [] },
       open,
       onClose,
       resetForm,
       handleSubmit,
       isSubmitting,
       currentUserId,
+      data: { getTeamMembers = [] },
     } = this.props;
+
+    console.log(getTeamMembers);
 
     return (
       <Modal

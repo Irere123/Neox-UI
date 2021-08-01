@@ -4,9 +4,9 @@ import { graphql } from "react-apollo";
 
 import "../../styles/kallen/Finds.css";
 import Loader from "../Loader";
-import PublishModal from "./PublishModal";
+import PublishModal from "./modals/PublishModal";
 import { allFindsQuery } from "../../graphql/issue";
-import FindCard from "./FindCard";
+import FindCard from "./cards/FindCard";
 
 function Finds({ data: { loading, allFinds }, issueId, userId }) {
   const [open, setOpen] = useState(false);
