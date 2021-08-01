@@ -1,0 +1,107 @@
+.membersModal {
+  height: 350px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: 400px;
+  outline: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  background-color: #161b22;
+  box-shadow: var(--deep-paper-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.MembersModal__header {
+  display: flex;
+  flex-direction: row;
+}
+.MembersModal__header > h2 {
+  color: #d3d3d3;
+  font-family: "Inter";
+}
+
+.MembersModal__header > .close-icon {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1;
+}
+
+.MembersModal__header > .close-icon > .icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MembersModal__header > .close-icon > .icon:hover {
+  background-color: var(--primary-border-color);
+}
+
+.MembersModal__searchBar {
+  display: flex;
+  margin-top: 10px;
+  border: 1px solid var(--primary-border-color);
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.MembersModal__searchBar > input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 300px;
+  color: #d3d3d3;
+  font-size: 18px;
+}
+
+.members__list {
+  margin-top: 5px;
+  overflow-y: auto;
+}
+
+.members__list > h4 {
+  color: #d3d3d3;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.memberName__card {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.addPeople__button {
+  display: flex;
+  background-color: var(--primary-border-color);
+  width: 160px;
+  border-radius: 999px;
+}
+
+.addPeople__button > * {
+  margin: 6px;
+  color: #d3d3d3;
+}
+
+.memberAdmin__card {
+  display: flex;
+}
+
+.memberAdmin__card > .userDetails__info > p:first-child {
+  font-size: 18px;
+}
+
+.adminMember__card > div > div.MuiAvatar-root {
+  background-color: transparent;
+}
+
+div.members__list > div > div > div.MuiAvatar-root {
+  background-color: transparent;
+  border: 2px solid #fd4d4d;
+  font-size: 20px;
+}

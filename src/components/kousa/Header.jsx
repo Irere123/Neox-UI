@@ -2,9 +2,21 @@ import React, { useState } from "react";
 import { Group } from "@material-ui/icons";
 import { Modal, Fade, Avatar } from "@material-ui/core";
 import Members from "./Members";
+import { graphql } from "react-apollo";
 
-function Header({ channelName }) {
+import { getTeamMembersQuery } from "../../graphql/team";
+
+function Header({
+  channelName,
+  team,
+  username,
+  data: { loading, getTeamMembers },
+}) {
   const [open, setOpen] = useState(false);
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <>
@@ -17,7 +29,7 @@ function Header({ channelName }) {
           <div className="members-btn">
             <Avatar variant="rounded" onClick={() => setOpen(!open)}>
               <Group />
-              <h4>20K</h4>
+              <h4> {getTeamMembers.length}</h4>
             </Avatar>
           </div>
         </div>
@@ -25,7 +37,13 @@ function Header({ channelName }) {
       {open && (
         <Modal open={open} onClose={() => setOpen(!open)}>
           <Fade in={open}>
-            <Members onClose={() => setOpen(!open)} />
+            <Members
+              onClose={() => setOpen(!open)}
+              isAdmin={team.admin}
+              teamName={team.name}
+              members={getTeamMembers}
+              username={username}
+            />
           </Fade>
         </Modal>
       )}
@@ -33,4 +51,11 @@ function Header({ channelName }) {
   );
 }
 
-export default Header;
+export default graphql(getTeamMembersQuery, {
+  options: ({ team }) => ({
+    variables: {
+      teamId: team.id,
+    },
+    fetchPolicy: "network-only",
+  }),
+})(Header);

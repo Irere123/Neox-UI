@@ -73,7 +73,7 @@ export default compose(
             variables: { discussionId },
             data: {
               ...data,
-              allReplies: [reply, ...data.allReplies],
+              allReplies: [...data.allReplies, reply],
             },
           });
         },

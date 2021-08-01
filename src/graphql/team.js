@@ -28,6 +28,7 @@ export const getTeamMembersQuery = gql`
     getTeamMembers(teamId: $teamId) {
       id
       username
+      email
     }
   }
 `;

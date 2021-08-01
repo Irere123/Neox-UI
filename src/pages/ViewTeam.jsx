@@ -54,7 +54,14 @@ function ViewTeam({
           username={username}
           currentUserId={currentUserId}
         />
-        {channel && <HeaderBar channelName={channel.name} />}
+        {channel && (
+          <HeaderBar
+            channelName={channel.name}
+            team={team}
+            username={username}
+            currentUserId={currentUserId}
+          />
+        )}
         {channel && (
           <MessageContainer channelId={channel.id} channelName={channel.name} />
         )}
