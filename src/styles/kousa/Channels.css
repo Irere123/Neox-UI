@@ -16,6 +16,15 @@
 .team_name_header {
   padding-top: 20px;
   color: #dee3ea;
+  display: flex;
+  text-transform: uppercase;
+}
+
+.team_name_header > span {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1;
+  align-items: center;
 }
 
 .username {

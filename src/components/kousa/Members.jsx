@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-import { Close, PersonAdd, Search } from "@material-ui/icons";
+import { Close, Search } from "@material-ui/icons";
 
 import "../../styles/kousa/Members.css";
 
@@ -15,10 +15,7 @@ function Members({ onClose, teamName, isAdmin, members, username }) {
           </div>
         </div>
       </div>
-      <div className="MembersModal__searchBar">
-        <Search />
-        <input type="text" placeholder="Search for members" />
-      </div>
+
       <div className="members__list">
         <h4>Members</h4>
 

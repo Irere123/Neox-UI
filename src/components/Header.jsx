@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
-import { IconButton, ClickAwayListener } from "@material-ui/core";
+import { IconButton, ClickAwayListener, Modal } from "@material-ui/core";
 import {
   ExpandMore,
   Explore,
@@ -11,12 +11,18 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { Link } from "react-router-dom";
 
 import MenuDropdown from "./MenuDropdown";
+import CommingSoon from "./CommingSoon";
 
 function Header({ username }) {
   const [open, setOpen] = useState(false);
+  const [openSoon, setOpenSoon] = useState(false);
 
   const handleClickAway = () => {
     setOpen(false);
+  };
+
+  const handleClickAwaySoon = () => {
+    setOpenSoon(false);
   };
 
   return (
@@ -37,7 +43,7 @@ function Header({ username }) {
             <ForumOutlined />
           </IconButton>
         </Link>
-        <IconButton>
+        <IconButton onClick={() => setOpenSoon(!openSoon)}>
           <Explore />
         </IconButton>
         <IconButton onClick={() => setOpen(!open)}>
@@ -49,9 +55,20 @@ function Header({ username }) {
         </IconButton>
         {open && (
           <ClickAwayListener onClickAway={handleClickAway}>
-            <div className="dropdown" onBlur={() => setOpen(!open)}>
+            <div className="dropdown">
               <MenuDropdown username={username} />
             </div>
+          </ClickAwayListener>
+        )}
+        {openSoon && (
+          <ClickAwayListener onClickAway={handleClickAwaySoon}>
+            <Modal open={openSoon} onClose={() => setOpenSoon(!openSoon)}>
+              <div className="comming_soon_container">
+                <div className="comming__soon">
+                  <CommingSoon onClose={() => setOpenSoon(!openSoon)} />
+                </div>
+              </div>
+            </Modal>
           </ClickAwayListener>
         )}
       </div>

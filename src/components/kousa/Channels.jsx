@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { AddCircle as Icon } from "@material-ui/icons";
+import { AddCircle as Icon, Close, ExpandMore } from "@material-ui/icons";
 
 import "../../styles/kousa/Channels.css";
-import image from "../../images/coolGuy.png";
 
 const channel = ({ id, name }, teamId) => (
   <Link key={`channel-${id}`} to={`/view-team/${teamId}/${id}`}>
@@ -32,10 +31,19 @@ function Channels({
   isOwner,
   onDirectMessageClick,
 }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="channel__wrapper">
       <div className="push_left">
-        <h1 className="team_name_header">{teamName}</h1>
+        <h1 className="team_name_header">
+          {teamName}
+          <span>
+            <span onClick={() => setOpen(!open)}>
+              {!open ? <ExpandMore /> : <Close />}
+            </span>
+          </span>
+        </h1>
         <h3 className="username">{username}</h3>
       </div>
 
@@ -61,6 +69,12 @@ function Channels({
             </li>
           </ul>
         </Link>
+      )}
+
+      {open && (
+        <div>
+          <h1>Team Guy</h1>
+        </div>
       )}
     </div>
   );

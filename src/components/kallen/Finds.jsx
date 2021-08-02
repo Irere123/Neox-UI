@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Modal } from "@material-ui/core";
 import { graphql } from "react-apollo";
+import { EmojiObjects } from "@material-ui/icons";
 
 import "../../styles/kallen/Finds.css";
 import Loader from "../Loader";
 import PublishModal from "./modals/PublishModal";
 import { allFindsQuery } from "../../graphql/issue";
 import FindCard from "./cards/FindCard";
+import NothingToFetchMessage from "./NothingToFetchMessage";
 
 function Finds({ data: { loading, allFinds }, issueId, userId }) {
   const [open, setOpen] = useState(false);
@@ -28,9 +30,15 @@ function Finds({ data: { loading, allFinds }, issueId, userId }) {
             <button className="btn_publish">Publish</button>
           </div>
         </div>
-        <div className="no-issues">
-          <h2>There are no findings for this issue yet..</h2>
+        <div className="no__finds__toFetch">
+          <NothingToFetchMessage
+            message="There are no finds on this issue yet"
+            title="No finds"
+            icon={<EmojiObjects />}
+            iconName="Finds"
+          />
         </div>
+
         {open && (
           <Modal open={open} onClose={() => setOpen(!open)}>
             <PublishModal

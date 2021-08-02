@@ -101,6 +101,15 @@
   background-color: transparent;
 }
 
+.no-issues {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  color: #d3d3d3;
+  font-style: italic;
+}
+
 /* Media Queries */
 
 @media (max-width: 1050px) {

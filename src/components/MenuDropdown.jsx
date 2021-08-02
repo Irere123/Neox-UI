@@ -6,9 +6,12 @@ import { Avatar } from "@material-ui/core";
 function MenuDropdown({ username }) {
   return (
     <React.Fragment>
-      <Link to={`/${username}`} className="menu-item">
+      <Link to={`/#${username}`} className="menu-item">
         <div className="icon-left">
-          <Avatar />
+          <Avatar>
+            {username.charAt(0).toUpperCase()}
+            {username.charAt(Math.floor(username.length / 3)).toUpperCase()}
+          </Avatar>
         </div>
         <div className="menu-item-word">
           <h3>{username}</h3>

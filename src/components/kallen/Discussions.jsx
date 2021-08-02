@@ -8,6 +8,7 @@ import AddDiscussionModal from "./modals/AddDiscussionModal";
 import DiscussionCard from "./cards/DiscussionCard";
 import Loader from "../Loader";
 import { allDiscussionsQuery } from "../../graphql/issue";
+import NothingToFetchMessage from "./NothingToFetchMessage";
 
 function Discussions({ data: { loading, allDiscussions }, issueId, userId }) {
   const [open, setOpen] = useState(false);

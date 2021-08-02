@@ -1,19 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import decode from 'jwt-decode';
+import React from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import decode from "jwt-decode";
 
-import './index.css';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import CreateTeam from './pages/CreateTeam';
-import ViewTeam from './pages/ViewTeam';
-import Home from './pages/Home';
-import Issue from './pages/Issue.jsx';
-import DashBoard from './pages/Dashboard.jsx';
+import "./index.css";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import CreateTeam from "./pages/CreateTeam";
+import ViewTeam from "./pages/ViewTeam";
+import Home from "./pages/Home";
+import Issue from "./pages/Issue.jsx";
+import DashBoard from "./pages/Dashboard.jsx";
 
 const isAuthenticated = () => {
-  const token = localStorage.getItem('token');
-  const refreshToken = localStorage.getItem('refreshToken');
+  const token = localStorage.getItem("token");
+  const refreshToken = localStorage.getItem("refreshToken");
   try {
     decode(token);
     const { exp } = decode(refreshToken);
@@ -28,7 +28,16 @@ const isAuthenticated = () => {
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: '/' }} />)} />
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/" }} />
+      )
+    }
+  />
 );
 
 /* This Route will be used in production */
@@ -41,13 +50,17 @@ export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact component={Login} />
-        <Route path='/register' exact component={Register} />
-        <PrivateRoute path='/create-team' exact component={CreateTeam} />
-        <PrivateRoute path='/home' exact component={Home} />
-        <PrivateRoute path='/issue/:issueId' exact component={Issue} />
-        <PrivateRoute path='/dashboard' exact component={DashBoard} />
-        <PrivateRoute path='/view-team/:teamId?/:channelId?' exact component={ViewTeam} />
+        <Route path="/" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <PrivateRoute path="/create-team" exact component={CreateTeam} />
+        <PrivateRoute path="/home" exact component={Home} />
+        <PrivateRoute path="/issue/:issueId" exact component={Issue} />
+        <PrivateRoute path="/dashboard" exact component={DashBoard} />
+        <PrivateRoute
+          path="/view-team/:teamId?/:channelId?"
+          exact
+          component={ViewTeam}
+        />
       </Switch>
     </BrowserRouter>
   );

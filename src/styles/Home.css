@@ -97,6 +97,7 @@
   background-color: #161b22;
   display: grid;
   grid-template-rows: 100px 1fr 60px;
+  overflow: hidden;
 }
 
 .issue-card-header > .MuiAvatar-root {
@@ -112,6 +113,11 @@
   display: grid;
   padding-top: 5px;
   grid-template-columns: 1fr 60px;
+  z-index: 1;
+}
+
+.issue-card-content {
+  overflow: hidden;
 }
 
 .hashtag {
@@ -158,8 +164,9 @@
 }
 
 .sponsor-card {
+  overflow: hidden;
   width: 220px;
-  height: 330px;
+  height: 220px;
   padding: 12px;
   margin-top: 10px;
   border-radius: 11px;
@@ -237,15 +244,6 @@
   color: #d3d3d3;
   font-size: 18px;
   padding-bottom: 7px;
-}
-
-.no-issues {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  color: #d3d3d3;
-  font-style: italic;
 }
 
 .description__input > textarea {

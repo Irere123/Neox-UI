@@ -52,7 +52,7 @@ function AddDiscussionModal({
         </div>
         <div className="discussionModal__btn">
           <button type="submit" onClick={handleSubmit} disabled={isSubmitting}>
-            Publish
+            Create
           </button>
         </div>
       </div>
