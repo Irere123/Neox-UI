@@ -91,7 +91,7 @@ class MessageContainer extends React.Component {
                 <h4>
                   {m.user.username}
                   <span className="message_timestamp">
-                    {dayjs(m.created_at).format("MMMM DD YYYY HH:mm A")}
+                    {dayjs(m.created_at).format("MMMM DD HH:mm A")}
                   </span>
                 </h4>
 

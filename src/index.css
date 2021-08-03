@@ -58,7 +58,7 @@ body {
   height: 88vh;
   width: 99vw;
   position: fixed;
-  grid-template-columns: 90px 200px 1fr;
+  grid-template-columns: 90px 215px 1fr;
   grid-template-rows: auto 1fr auto;
 }
 
@@ -107,4 +107,16 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #323d4d;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 750px) {
+  .viewteam_layout {
+    grid-template-columns: 0px 0px 1fr;
+  }
+  .team__wrapper {
+    display: none;
+  }
+  .channel__wrapper {
+    display: none;
+  }
 }

@@ -155,3 +155,15 @@
     display: none !important;
   }
 }
+
+@media (max-width: 500px) {
+  .logo__header > h3 > .neox-version {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .logo__header > h3 {
+    display: none;
+  }
+}

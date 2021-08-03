@@ -385,8 +385,29 @@
   }
 }
 
+@media (max-width: 500px) {
+  .homepage_team_list {
+    display: none;
+  }
+
+  .homepage_team__wrapper > h2 {
+    display: none;
+  }
+}
+
 @media (max-width: 413px) {
   .issue-cards-home {
     padding-left: 2px;
+  }
+}
+
+@media (max-width: 340px) {
+  .issue-cards-home {
+    grid-template-columns: repeat(1, 250px);
+  }
+
+  .issue-card {
+    width: 250px;
+    height: 380px;
   }
 }
