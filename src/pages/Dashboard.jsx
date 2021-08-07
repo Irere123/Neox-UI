@@ -56,8 +56,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div className="emoji-awards">
-                <span className="cool-rare">123 Cool</span>
-                <span className="crown-rare">13 Crowns</span>
+                <span className="cool-rare"> 123 Cool</span>
+                <span className="crown-rare"> 13 Crowns</span>
               </div>
             </div>
 
@@ -70,8 +70,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div>
-                <span>115 Cool</span>
-                <span>8 Crowns</span>
+                <span> 115 Cool</span>
+                <span> 8 Crowns</span>
               </div>
             </div>
             <div className="user-card-rare">
@@ -83,8 +83,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div>
-                <span>110 Cool</span>
-                <span>5 Crowns</span>
+                <span> 110 Cool</span>
+                <span> 5 Crowns</span>
               </div>
             </div>
           </div>
