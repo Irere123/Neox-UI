@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Channels from '../components/kousa/Channels';
-import Teams from '../components/kousa/Teams';
-import AddChannelModal from '../components/kousa/AddChannelModal';
-import InvitePeopleModal from '../components/kousa/InvitePeopleModal';
-import DirectMessageModal from '../components/kousa/DirectMessageModal';
+import Channels from "../components/kousa/Channels";
+import Teams from "../components/kousa/Teams";
+import AddChannelModal from "../components/kousa/AddChannelModal";
+import InvitePeopleModal from "../components/kousa/InvitePeopleModal";
+import DirectMessageModal from "../components/kousa/DirectMessageModal";
 
 export default class Sidebar extends React.Component {
   state = {
@@ -43,7 +43,11 @@ export default class Sidebar extends React.Component {
   render() {
     const { teams, team, username, currentUserId } = this.props;
 
-    const { openInvitePeopleModal, openAddChannelModal, openDirectMessageModal } = this.state;
+    const {
+      openInvitePeopleModal,
+      openAddChannelModal,
+      openDirectMessageModal,
+    } = this.state;
 
     const regularChannels = [];
     const dmChannels = [];
@@ -56,12 +60,10 @@ export default class Sidebar extends React.Component {
       }
     });
 
-    console.log(regularChannels);
-
     return [
-      <Teams key='team-sidebar' teams={teams} />,
+      <Teams key="team-sidebar" teams={teams} />,
       <Channels
-        key='channels-sidebar'
+        key="channels-sidebar"
         teamId={team.id}
         teamName={team.name}
         isOwner={team.admin}
@@ -77,15 +79,20 @@ export default class Sidebar extends React.Component {
         teamId={team.id}
         onClose={this.toggleAddChannelModal}
         open={openAddChannelModal}
-        key='sidebar-add-channel-modal'
+        key="sidebar-add-channel-modal"
       />,
-      <InvitePeopleModal teamId={team.id} onClose={this.toggleInvitePeopleModal} open={openInvitePeopleModal} key='invite-people-modal' />,
+      <InvitePeopleModal
+        teamId={team.id}
+        onClose={this.toggleInvitePeopleModal}
+        open={openInvitePeopleModal}
+        key="invite-people-modal"
+      />,
       <DirectMessageModal
         currentUserId={currentUserId}
         teamId={team.id}
         onClose={this.toggleDirectMessageModal}
         open={openDirectMessageModal}
-        key='sidebar-direct-message-modal'
+        key="sidebar-direct-message-modal"
       />,
     ];
   }

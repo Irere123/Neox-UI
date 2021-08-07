@@ -7,8 +7,7 @@ const FileUpload = ({ children, disableClick, mutate, channelId }) => (
   <DropZone
     className="ignore"
     onDrop={async ([file]) => {
-      const response = await mutate({ variables: { file, channelId } });
-      console.log(response);
+      await mutate({ variables: { file, channelId } });
     }}
     disableClick={disableClick}
   >
