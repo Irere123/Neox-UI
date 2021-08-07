@@ -40,17 +40,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-/* This Route will be used in production */
-
-// const RedirectRoute = ({ component: Component, ...rest }) => (
-//   <Route {...rest} render={(props) => (isAuthenticated() ? <Redirect to={{ pathname: '/view-team' }} /> : <Component {...props} />)} />
-// );
+const RedirectRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuthenticated() ? (
+        <Redirect to={{ pathname: "/view-team" }} />
+      ) : (
+        <Component {...props} />
+      )
+    }
+  />
+);
 
 export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Login} />
+        <RedirectRoute path="/" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={Home} />
