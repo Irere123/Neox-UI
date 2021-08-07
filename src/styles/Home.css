@@ -401,7 +401,20 @@
   }
 }
 
+@media (max-width: 400px) {
+  .issue-cards-home {
+    padding-left: 10px;
+  }
+}
+
 @media (max-width: 340px) {
+  .issue-card {
+    width: 270px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 330px) {
   .issue-cards-home {
     grid-template-columns: repeat(1, 250px);
   }

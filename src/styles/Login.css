@@ -65,7 +65,7 @@
 }
 
 .card-login > .card-content > h2 {
-  margin-left: 115px;
+  text-align: center;
   color: #fff;
 }
 
@@ -168,5 +168,32 @@
   .login-layout {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 570px) {
+  .card-login {
+    width: 400px;
+  }
+  .el__input_login {
+    width: 350px;
+  }
+}
+
+@media (max-width: 545px) {
+  .card-login {
+    width: 350px;
+  }
+  .el__input_login {
+    width: 300px;
+  }
+}
+
+@media (max-width: 405px) {
+  .card-login {
+    width: 300px;
+  }
+  .el__input_login {
+    width: 250px;
   }
 }
