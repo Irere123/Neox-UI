@@ -14,8 +14,6 @@ function Insights({ data: { loading, getIssue }, username }) {
     return null;
   }
 
-  console.log(getIssue);
-
   return (
     <div className="insights-layout">
       <div className="card-insights">

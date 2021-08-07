@@ -11,7 +11,6 @@ import SendMessage from "../components/kousa/SendMessage";
 import HeaderBar from "../components/kousa/Header";
 import { meQuery } from "../graphql/team";
 import Loader from "../components/Loader";
-import RightSidebar from "../containers/RightSidebar";
 
 function ViewTeam({
   mutate,
@@ -56,6 +55,10 @@ function ViewTeam({
         />
         {channel && (
           <HeaderBar
+            teams={teams.map((t) => ({
+              id: t.id,
+              letter: t.name.charAt(0).toUpperCase(),
+            }))}
             channelName={channel.name}
             team={team}
             username={username}

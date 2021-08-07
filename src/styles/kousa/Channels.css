@@ -30,6 +30,7 @@
 .username {
   color: #5d7290;
   font-size: 18px;
+  text-transform: capitalize;
 }
 
 .sidebar_list {

@@ -20,7 +20,7 @@ class DirectMessageModal extends React.Component {
   handleSelectChange = (selectedOption) => {
     const { setFieldValue } = this.props;
 
-    this.setState({ selectedOption }, () => console.log("selected"));
+    this.setState({ selectedOption });
     const value = selectedOption.map((v) => v.value);
     setFieldValue("members", value);
   };
@@ -35,8 +35,6 @@ class DirectMessageModal extends React.Component {
       currentUserId,
       data: { getTeamMembers = [] },
     } = this.props;
-
-    console.log(getTeamMembers);
 
     return (
       <Modal

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { AddCircle as Icon, Close, ExpandMore } from "@material-ui/icons";
+import { AddCircle as Icon } from "@material-ui/icons";
 
 import "../../styles/kousa/Channels.css";
 
@@ -31,8 +31,6 @@ function Channels({
   isOwner,
   onDirectMessageClick,
 }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="channel__wrapper">
       <div className="push_left">
@@ -62,12 +60,6 @@ function Channels({
             </li>
           </ul>
         </Link>
-      )}
-
-      {open && (
-        <div>
-          <h1>Team Guy</h1>
-        </div>
       )}
     </div>
   );

@@ -33,7 +33,6 @@ class CreateTeam extends React.Component {
     }
 
     const { history } = this.props;
-    console.log(history);
     const { ok, errors, team } = response.data.createTeam;
 
     if (ok) {

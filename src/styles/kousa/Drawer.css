@@ -1,0 +1,30 @@
+.drawer-sidebar {
+  display: flex;
+  flex-direction: row;
+}
+
+.drawer-sidebar > .teams {
+  margin: 10px;
+}
+
+.channels__header {
+  margin-left: 10px;
+}
+
+.drawer-sidebar > .channels {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.channels__header > .channels_team_name_header {
+  color: #d3d3d3;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  .sidebar_list > .sidebar_list_item {
+    font-size: 16px;
+  }
+}
