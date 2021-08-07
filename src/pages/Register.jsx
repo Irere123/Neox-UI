@@ -138,7 +138,9 @@ class Register extends React.Component {
         </div>
         <div className="footer__banner">
           <p>&nabla; Irere Emmy</p>
-          <p>&copy; Copyright {dayjs(now).format("YYYY")}</p>
+          <p className="copyright">
+            &copy; Copyright {dayjs(now).format("YYYY")}
+          </p>
           <Link to="/">
             <h4>Sign In</h4>
           </Link>

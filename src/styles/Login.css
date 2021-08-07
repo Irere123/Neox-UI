@@ -197,3 +197,33 @@
     width: 250px;
   }
 }
+
+@media (max-width: 360px) {
+  .copyright {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .copyright {
+    display: none;
+  }
+
+  .card-login {
+    width: 315px;
+  }
+
+  .el__input_login {
+    width: 285px;
+  }
+}
+
+@media (max-width: 280px) {
+  .card-login {
+    width: 250px;
+  }
+
+  .el__input_login {
+    width: 200px;
+  }
+}

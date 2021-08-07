@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Group } from "@material-ui/icons";
-import { Modal, Fade, Avatar } from "@material-ui/core";
+import { Group, Ballot } from "@material-ui/icons";
+import { Modal, Fade, Avatar, Tooltip } from "@material-ui/core";
 import Members from "./Members";
 import { graphql } from "react-apollo";
 
@@ -22,6 +22,11 @@ function Header({
     <>
       <div className="titlebar__header">
         <div className="titlebar__header__content">
+          <div className="button-toggle-sidebar">
+            <Tooltip arrow disableFocusListener title="Open Sidebar">
+              <Ballot />
+            </Tooltip>
+          </div>
           <h2 style={{ fontFamily: "Inter", fontSize: "19px" }}>
             # {channelName}
           </h2>

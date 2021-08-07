@@ -81,20 +81,18 @@ class CreateTeam extends React.Component {
             placeholder="Team name..."
           />
         </div>
-        <div className="button">
-          <button type="submit" onClick={this.onSubmit}>
-            Create
-          </button>
+        <div className="button" onClick={this.onSubmit}>
+          <button type="submit">Create</button>
         </div>
         <div className="did_you_know">
           <div className="paper-content">
-            <h1>Did You Know?</h1>
+            <h1>Did You Know ?</h1>
             <h4>
               Did you know why you have to create a team here, at neox
               everything is based on teams that why you need to create a team
-              inorder to communicate with your team
+              inorder to communicate with your friends and family
             </h4>
-            <h3>-Neox Team</h3>
+            <h3>- Neox Team</h3>
           </div>
         </div>
         {errorsList.length ? (

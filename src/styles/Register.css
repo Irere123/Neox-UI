@@ -74,7 +74,7 @@
 }
 
 .card > .card-content > h2 {
-  margin-left: 115px;
+  text-align: center;
   color: #fff;
 }
 
@@ -170,5 +170,83 @@
   .register-layout {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    width: 430px;
+  }
+
+  .el__input_register {
+    width: 370px;
+  }
+}
+
+@media (max-width: 414px) {
+  .copyright {
+    display: none;
+  }
+
+  .card {
+    width: 330px;
+  }
+
+  .el__input_register {
+    width: 295px;
+  }
+}
+
+@media (max-width: 411px) {
+  .card {
+    width: 355px;
+  }
+
+  .el__input_register {
+    width: 325px;
+  }
+}
+
+@media (max-width: 375px) {
+  .copyright {
+    display: none;
+  }
+
+  .card {
+    width: 300px;
+  }
+
+  .el__input_register {
+    width: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    width: 300px;
+  }
+
+  .el__input_register {
+    width: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 315px;
+  }
+
+  .el__input_register {
+    width: 285px;
+  }
+}
+
+@media (max-width: 280px) {
+  .card {
+    width: 250px;
+  }
+
+  .el__input_register {
+    width: 200px;
   }
 }

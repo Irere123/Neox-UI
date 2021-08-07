@@ -86,7 +86,7 @@ class Login extends React.Component {
         </div>
         <div className="card-login">
           <div className="card-content">
-            <h2>Sign in to your account</h2>
+            <h2>Sign In to your account</h2>
 
             <div className="el__input_login">
               <Email />
@@ -123,7 +123,9 @@ class Login extends React.Component {
         </div>
         <div className="footer__banner__login">
           <p>&nabla; Irere Emmy</p>
-          <p>&copy; Copyright {dayjs(now).format("YYYY")}</p>
+          <p className="copyright">
+            &copy; Copyright {dayjs(now).format("YYYY")}
+          </p>
           <Link to="/register">
             <h4>Create Account</h4>
           </Link>

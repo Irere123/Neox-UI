@@ -76,6 +76,14 @@ body {
   display: flex;
 }
 
+.titlebar__header__content > h2 {
+  margin-top: 10px;
+}
+
+.titlebar__header__content > .button-toggle-sidebar {
+  display: none;
+}
+
 .titlebar__header__content > .members-btn {
   display: flex;
   justify-content: flex-end;
@@ -118,5 +126,11 @@ select:-webkit-autofill:focus {
   }
   .channel__wrapper {
     display: none;
+  }
+
+  .titlebar__header__content > .button-toggle-sidebar {
+    display: block;
+    margin-top: 5px;
+    margin-right: 5px;
   }
 }

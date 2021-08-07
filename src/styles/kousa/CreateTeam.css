@@ -20,9 +20,9 @@ p {
 .team__input {
   display: flex;
   height: 30px;
-  width: 55%;
+  width: 60%;
   padding: 10px 20px;
-  border-radius: 30px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
   margin: 0 auto;
   margin-bottom: 15px;
@@ -52,14 +52,17 @@ p {
 
 .button {
   display: flex;
-  height: 30px;
+  height: 20px;
   padding: 10px 20px;
-  border-radius: 23px;
-  width: 120px;
+  border-radius: 6px;
+  width: 100px;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 20px;
-  background-color: #323d4d;
+  background-color: #161b22;
+  box-shadow: var(--deep-paper-shadow);
+  justify-content: center;
+  align-items: center;
 }
 
 .button > button {
@@ -69,14 +72,18 @@ p {
   flex: 1;
   border: none;
   font-size: 20px;
-  background-color: #323d4d;
+  background-color: #161b22;
 }
 
 .circle1,
 .circle3,
 .circle2 {
   background: white;
-  background: linear-gradient(140.73deg, rgba(66, 66, 66, 0.19) 12.91%, rgba(92, 103, 100, 0) 75.21%);
+  background: linear-gradient(
+    140.73deg,
+    rgba(66, 66, 66, 0.19) 12.91%,
+    rgba(92, 103, 100, 0) 75.21%
+  );
   height: 15rem;
   width: 15rem;
   position: absolute;
@@ -106,10 +113,102 @@ p {
   background-color: var(--secondary-bg-color);
   padding: 10px 20px;
   border-radius: 10px;
-  width: 200px;
+  width: 210px;
+  margin: 0;
 }
 
 .paper-content {
   display: grid;
   grid-template-rows: 50px 1fr;
+}
+
+/* Media Queries */
+
+@media (max-width: 900px) {
+  .team__input {
+    width: 95%;
+  }
+}
+
+@media (max-width: 730px) {
+  .create__team__info > h1 {
+    margin-top: 20px;
+    font-size: 50px;
+  }
+
+  .create__team__info > p {
+    font-size: 30px;
+    color: lightgray;
+  }
+}
+
+@media (max-width: 600px) {
+  .circle1,
+  .circle3,
+  .circle2 {
+    display: none;
+  }
+
+  .team__input {
+    border-radius: 6px;
+    padding-right: 10px;
+  }
+
+  .did_you_know {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  .create__team__info > h1 {
+    margin-top: 20px;
+    font-size: 40px;
+  }
+
+  .create__team__info > p {
+    font-size: 25px;
+    color: lightgray;
+  }
+}
+
+@media (max-width: 330px) {
+  .create__team__info > h1 {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  .create__team__info > p {
+    font-size: 20px;
+    color: lightgray;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .team__input {
+    width: 97%;
+    padding-right: 0;
+  }
+
+  .team__input > .MuiSvgIcon-root {
+    display: none;
+  }
+
+  .team__input > input {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .team__input {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .team__input > .MuiSvgIcon-root {
+    display: none;
+  }
+
+  .team__input > input {
+    margin-left: 0;
+  }
 }
