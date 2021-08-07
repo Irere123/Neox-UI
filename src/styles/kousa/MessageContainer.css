@@ -27,7 +27,7 @@ div {
 }
 
 .message__info {
-  margin-left: 20px;
+  margin-left: 10px;
   padding-bottom: 10px;
 }
 
@@ -38,21 +38,22 @@ div {
 
 .message_timestamp {
   color: #5d7290;
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 18px;
 }
 
 .message__info > h4 {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: capitalize;
 }
 
 .message > .MuiAvatar-root {
-  width: 50px;
-  height: 50px;
+  width: 37px;
+  height: 37px;
   border: 3px solid #f50057;
   background-color: transparent;
+  font-size: 20px;
 }
 
 .card-message {
@@ -82,4 +83,18 @@ div {
 
 .card-description > h4 {
   color: #d3d3d3c2;
+}
+
+.load_messages_container {
+  display: flex;
+  justify-content: center;
+}
+
+.load_messages_button {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  width: 110px;
+  padding: 5px 10px;
+  color: #b2bdcd;
+  border-radius: 999px;
 }

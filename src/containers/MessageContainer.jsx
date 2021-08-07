@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Avatar } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
 import Message from "../components/kousa/Message";
@@ -24,6 +24,10 @@ const newChannelMessageSubscription = gql`
 `;
 
 class MessageContainer extends React.Component {
+  state = {
+    hasMoreItems: true,
+  };
+
   componentWillMount() {
     this.unsubscribe = this.subscribe(this.props.channelId);
   }
@@ -64,8 +68,7 @@ class MessageContainer extends React.Component {
 
   render() {
     const {
-      channelName,
-      data: { loading, messages },
+      data: { loading, messages, fetchMore },
       channelId,
     } = this.props;
 
@@ -91,7 +94,7 @@ class MessageContainer extends React.Component {
                 <h4>
                   {m.user.username}
                   <span className="message_timestamp">
-                    {dayjs(m.created_at).format("MMMM DD HH:mm A")}
+                    {dayjs(m.created_at).format("MMM D HH:mm A")}
                   </span>
                 </h4>
 
@@ -99,6 +102,43 @@ class MessageContainer extends React.Component {
               </div>
             </div>
           ))}
+
+          {this.state.hasMoreItems && messages.length >= 15 && (
+            <div className="load_messages_container">
+              <button
+                className="load_messages_button"
+                type="button"
+                onClick={() => {
+                  fetchMore({
+                    variables: {
+                      channelId,
+                      cursor: messages[messages.length - 1].created_at,
+                    },
+
+                    updateQuery: (previousResult, { fetchMoreResult }) => {
+                      if (!fetchMoreResult) {
+                        return previousResult;
+                      }
+
+                      if (fetchMoreResult.messages.length < 15) {
+                        this.setState({ hasMoreItems: false });
+                      }
+
+                      return {
+                        ...previousResult,
+                        messages: [
+                          ...previousResult.messages,
+                          ...fetchMoreResult.messages,
+                        ],
+                      };
+                    },
+                  });
+                }}
+              >
+                Older Messages
+              </button>
+            </div>
+          )}
         </div>
       </React.Fragment>
     );
@@ -106,8 +146,8 @@ class MessageContainer extends React.Component {
 }
 
 const messagesQuery = gql`
-  query ($channelId: Int!) {
-    messages(channelId: $channelId) {
+  query ($cursor: String, $channelId: Int!) {
+    messages(cursor: $cursor, channelId: $channelId) {
       id
       text
       user {
