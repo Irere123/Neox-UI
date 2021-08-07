@@ -82,7 +82,7 @@ class Login extends React.Component {
               Neox, Fast Dark Secure Free Better Ask Chat Collaborate all in one
               amazing place together with Neox, your rocket to the galaxies....
             </p>
-            <h3>#Collaborative Communication🚀🚀</h3>
+            <h3>#Collaborative Communication</h3>
           </div>
         </div>
         <div className="card-login">

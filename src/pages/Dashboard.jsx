@@ -29,8 +29,8 @@ function Dashboard({ data: { loading, me } }) {
             suscipit?
           </p>
           <div className="emoji-awards">
-            <span className="cool">😎🎉 150x Cool</span>
-            <span className="crown">🤴 20 Crowns</span>
+            <span className="cool">150x Cool</span>
+            <span className="crown">20 Crowns</span>
           </div>
         </div>
         <div className="rare-contributors">
@@ -38,7 +38,7 @@ function Dashboard({ data: { loading, me } }) {
             <div className="your-score">
               <h1>Your Score</h1>
               <h2>#24 Bob</h2>
-              <h3 className="cool">😎56x Cool</h3>
+              <h3 className="cool">56x Cool</h3>
             </div>
             <div className="other-users">
               <h3>More Users</h3>
@@ -56,8 +56,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div className="emoji-awards">
-                <span className="cool-rare">😎 123 Cool</span>
-                <span className="crown-rare">🤴 13 Crowns</span>
+                <span className="cool-rare">123 Cool</span>
+                <span className="crown-rare">13 Crowns</span>
               </div>
             </div>
 
@@ -70,8 +70,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div>
-                <span>😎 115 Cool</span>
-                <span>🤴 8 Crowns</span>
+                <span>115 Cool</span>
+                <span>8 Crowns</span>
               </div>
             </div>
             <div className="user-card-rare">
@@ -83,8 +83,8 @@ function Dashboard({ data: { loading, me } }) {
                 quasi accusamus ipsam libero repudiandae.
               </p>
               <div>
-                <span>😎 110 Cool</span>
-                <span>🤴 5 Crowns</span>
+                <span>110 Cool</span>
+                <span>5 Crowns</span>
               </div>
             </div>
           </div>
