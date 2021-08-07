@@ -1,7 +1,7 @@
 # Neox - Collaborative communication
 
 Neox supports Dark theme, collaborative communication, problem solving and chat system
-[https://neoxrw.netlify.com](https://neoxrw.netlify.com)
+
 
 ## SPEC
 
