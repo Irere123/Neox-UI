@@ -2,7 +2,6 @@ import React from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Avatar } from "@material-ui/core";
-import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import dayjs from "dayjs";
 
 import "../../styles/kallen/Insights.css";

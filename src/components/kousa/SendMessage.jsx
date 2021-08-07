@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { withFormik } from "formik";
-import {
-  MessageOutlined as MessageIcon,
-  AddAPhoto,
-  SentimentSatisfiedOutlined as EmojiIcon,
-} from "@material-ui/icons";
+import { MessageOutlined as MessageIcon, AddAPhoto } from "@material-ui/icons";
 
 import FileUpload from "../FileUpload";
 import "../../styles/kousa/SendMessage.css";

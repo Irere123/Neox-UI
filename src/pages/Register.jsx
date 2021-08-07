@@ -11,6 +11,7 @@ import logoImg from "../images/logo.svg";
 
 const now = dayjs();
 
+// eslint-disable jsx-a11y/accessible-emoji
 class Register extends React.Component {
   state = {
     username: "",

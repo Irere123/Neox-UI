@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-import { Close, Search } from "@material-ui/icons";
+import { Close } from "@material-ui/icons";
 
 import "../../styles/kousa/Members.css";
 

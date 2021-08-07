@@ -13,6 +13,7 @@ import "../styles/Login.css";
 import logoImg from "../images/logo.svg";
 
 const now = dayjs();
+// eslint-disable jsx-a11y/accessible-emoji
 class Login extends React.Component {
   constructor(props) {
     super(props);

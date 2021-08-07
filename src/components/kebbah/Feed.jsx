@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import dayjs from "dayjs";
 
@@ -26,7 +25,7 @@ function Feed({ data: { loading, allIssues } }) {
             alignItems: "center",
           }}
         >
-          There are no issues to solve🔍 yet...
+          There are no issues to solve yet...
         </h1>
       </div>
     );

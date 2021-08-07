@@ -1,5 +1,4 @@
 import React from "react";
-import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
 import Header from "../components/Header";
@@ -7,6 +6,7 @@ import "../styles/Dashboard.css";
 import { meQuery } from "../graphql/team";
 import Loader from "../components/Loader";
 
+// eslint-disable jsx-a11y/accessible-emoji
 function Dashboard({ data: { loading, me } }) {
   if (loading) {
     return <Loader />;
