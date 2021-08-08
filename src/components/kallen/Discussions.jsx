@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal } from "@material-ui/core";
-import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
 import "../../styles/kallen/Discussions.css";
@@ -8,7 +7,6 @@ import AddDiscussionModal from "./modals/AddDiscussionModal";
 import DiscussionCard from "./cards/DiscussionCard";
 import Loader from "../Loader";
 import { allDiscussionsQuery } from "../../graphql/issue";
-import NothingToFetchMessage from "./NothingToFetchMessage";
 
 function Discussions({ data: { loading, allDiscussions }, issueId, userId }) {
   const [open, setOpen] = useState(false);
@@ -21,6 +19,7 @@ function Discussions({ data: { loading, allDiscussions }, issueId, userId }) {
     <div className="discussions-layout">
       <div className="discussions-header">
         <h2>Discussions</h2>
+
         <button type="button" onClick={() => setOpen(!open)}>
           New discussion
         </button>

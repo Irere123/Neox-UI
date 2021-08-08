@@ -1,14 +1,14 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-import { Close, Search } from "@material-ui/icons";
+import { Close } from "@material-ui/icons";
 
 import "../../styles/kousa/Members.css";
 
-function Members({ onClose, teamName, isAdmin, members, username }) {
+function Members({ onClose, teamName, members, username }) {
   return (
     <div className="membersModal">
       <div className="MembersModal__header">
-        <h2>{teamName} Members</h2>
+        <h2>Members</h2>
         <div className="close-icon">
           <div className="icon" onClick={onClose}>
             <Close />

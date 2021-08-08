@@ -55,3 +55,15 @@
 .no_data_card_content > p {
   font-size: 20px;
 }
+
+@media only screen and (max-width: 540px) {
+  .no_data_to_fetch_card > div {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .no_data_to_fetch_card > div {
+    width: 230px;
+  }
+}

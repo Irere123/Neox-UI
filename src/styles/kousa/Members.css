@@ -105,3 +105,51 @@ div.members__list > div > div > div.MuiAvatar-root {
   border: 2px solid #fd4d4d;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 750px) {
+  .MembersModal__header > .close-icon > .icon {
+    background-color: var(--primary-border-color);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .membersModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .membersModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .membersModal {
+    width: 310px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .membersModal {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .membersModal {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .membersModal {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .membersModal {
+    width: 200px;
+  }
+}

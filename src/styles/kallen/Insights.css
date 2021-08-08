@@ -1,7 +1,8 @@
 .insights-layout {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: 400px 700px;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
 }
 
 .top-card-insights > .MuiAvatar-root {
@@ -108,8 +109,40 @@
   background-color: transparent;
 }
 
-@media (max-width: 1115px) {
+@media only screen and (max-width: 900px) {
+  .insights-panel-header > h1 {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
   .insights-layout {
-    grid-template-columns: 400px 1fr;
+    flex-direction: column;
+  }
+
+  .card-insights {
+    display: none;
+  }
+
+  .insights-panel-header > h1 {
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (max-width: 411px) {
+  .insights-panel-header > h1 {
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .insights-panel-header > h1 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .insights-panel-header > h1 {
+    font-size: 18px;
   }
 }

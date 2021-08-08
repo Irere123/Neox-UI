@@ -395,15 +395,28 @@
   }
 }
 
-@media (max-width: 413px) {
+@media (max-width: 414px) {
   .issue-cards-home {
-    padding-left: 2px;
+    padding-left: 20px;
+  }
+  .issue-card {
+    width: 350px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 411px) {
   .issue-cards-home {
     padding-left: 10px;
+  }
+
+  .issue-card {
+    width: 360px;
+  }
+}
+
+@media (max-width: 375px) {
+  .issue-card {
+    width: 330px;
   }
 }
 
@@ -422,5 +435,11 @@
   .issue-card {
     width: 250px;
     height: 380px;
+  }
+}
+
+@media (max-width: 320px) {
+  .issue-card {
+    width: 270px;
   }
 }

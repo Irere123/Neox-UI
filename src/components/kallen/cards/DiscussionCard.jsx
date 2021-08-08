@@ -47,7 +47,12 @@ function DiscussionCard({ discussion, userId }) {
                 <span className="discussion-username">
                   {discussion.user.username}
                 </span>
-                discussed {dayjs(discussion.created_at).fromNow()}
+                <span className="discussed__high">
+                  discussed {dayjs(discussion.created_at).fromNow()}
+                </span>
+                <span className="discussed__low">
+                  {dayjs(discussion.created_at).fromNow()}
+                </span>
               </h3>
             </div>
             <div className="discussion-card-center">
