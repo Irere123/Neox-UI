@@ -66,7 +66,11 @@ function ViewTeam({
           />
         )}
         {channel && (
-          <MessageContainer channelId={channel.id} channelName={channel.name} />
+          <MessageContainer
+            channelId={channel.id}
+            channelName={channel.name}
+            isDm={channel.dm}
+          />
         )}
         {channel && (
           <SendMessage

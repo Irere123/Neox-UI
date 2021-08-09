@@ -17,7 +17,7 @@ function MenuDropdown({ username }) {
           <h3>{username}</h3>
         </div>
       </Link>
-      <Link to="/dashboard" className="menu-item">
+      <Link to="#dashboard" className="menu-item">
         <div className="icon-left">
           <Dashboard />
         </div>
