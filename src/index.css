@@ -133,4 +133,13 @@ select:-webkit-autofill:focus {
     margin-top: 5px;
     margin-right: 5px;
   }
+
+  .titlebar__header {
+    margin-left: 0;
+    border-bottom: 1px solid #161b22;
+  }
+
+  .titlebar__header__content > .members-btn {
+    margin-right: 5px;
+  }
 }

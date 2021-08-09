@@ -10,6 +10,7 @@ import ViewTeam from "./pages/ViewTeam";
 import Home from "./pages/Home";
 import Issue from "./pages/Issue.jsx";
 import DashBoard from "./pages/Dashboard.jsx";
+import Invites from "./pages/Invites.jsx";
 
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
@@ -62,6 +63,7 @@ export default () => {
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={Home} />
         <PrivateRoute path="/issue/:issueId" exact component={Issue} />
+        <PrivateRoute path="/invites" exact component={Invites} />
         <PrivateRoute path="/dashboard" exact component={DashBoard} />
         <PrivateRoute
           path="/view-team/:teamId?/:channelId?"

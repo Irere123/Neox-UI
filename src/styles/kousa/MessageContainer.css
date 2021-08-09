@@ -98,3 +98,47 @@ div {
   color: #b2bdcd;
   border-radius: 999px;
 }
+
+.no-messages {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.no-messages-container {
+  display: flex;
+}
+
+.no-messages-container > * {
+  margin: 5px;
+}
+
+.no-messages-container > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.no-messages-info > div > h3 {
+  color: #b2bdcd;
+  font-size: 20px;
+}
+
+.no-messages-info > div > h3 > span {
+  margin-left: 5px;
+  color: #1264a3;
+}
+
+.no-messages-info > div > p {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 750px) {
+  .messages {
+    padding-left: 0px;
+  }
+
+  .no-messages {
+    display: none;
+  }
+}

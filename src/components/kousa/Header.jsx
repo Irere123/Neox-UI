@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Group, Ballot } from "@material-ui/icons";
-import { Modal, Fade, Avatar, Tooltip } from "@material-ui/core";
+import { Modal, Fade, Avatar, Tooltip, Drawer } from "@material-ui/core";
 import Members from "./Members";
 import { graphql } from "react-apollo";
 
 import { getTeamMembersQuery } from "../../graphql/team";
+import DrawerContent from "./DrawerContent";
 
 function Header({
+  teams,
   channelName,
   team,
+  currentUserId,
   username,
   data: { loading, getTeamMembers },
 }) {
   const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   if (loading) {
     return null;
@@ -22,7 +26,10 @@ function Header({
     <>
       <div className="titlebar__header">
         <div className="titlebar__header__content">
-          <div className="button-toggle-sidebar">
+          <div
+            className="button-toggle-sidebar"
+            onClick={() => setOpenDrawer(!open)}
+          >
             <Tooltip arrow disableFocusListener title="Open Sidebar">
               <Ballot />
             </Tooltip>
@@ -52,6 +59,15 @@ function Header({
           </Fade>
         </Modal>
       )}
+      <Drawer open={openDrawer} onClose={() => setOpenDrawer(!openDrawer)}>
+        <DrawerContent
+          teams={teams}
+          team={team}
+          username={username}
+          currentUserId={currentUserId}
+          onItemClick={() => setOpenDrawer(!openDrawer)}
+        />
+      </Drawer>
     </>
   );
 }

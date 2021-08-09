@@ -3,6 +3,12 @@
   margin-left: 20px;
 }
 
+.discussions-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  color: #d3d3d3;
+}
+
 .discussions-header > button {
   background-color: var(--secondary-bg-color);
   border: none;
@@ -18,14 +24,13 @@
 }
 
 .discussions-header {
-  display: grid;
-  grid-template-columns: 690px 70px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .discussions-header > h2 {
   color: #d3d3d3;
   font-size: 30px;
+  margin-top: 10px;
 }
 
 /* Card */
@@ -37,6 +42,8 @@
   border-radius: 5px;
   box-shadow: var(--secondary-paper-shadow);
   margin-top: 20px;
+  padding-right: 15px;
+  overflow: hidden;
 }
 
 .discussion-card-header > h2 {
@@ -82,27 +89,6 @@
   border-radius: 999px;
 }
 
-.status-button-closed {
-  display: flex;
-  background-color: #f50057;
-  width: 93px;
-  height: 33px;
-  outline: none;
-  border: none;
-  color: #d3d3d3;
-  font-size: 18px;
-  border-radius: 999px;
-}
-
-.status-button-closed > button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: #d3d3d3;
-  font-size: 18px;
-  border-radius: 999px;
-}
-
 .discussion-card-status > .discussed-people {
   background-color: transparent;
   border: 1px solid var(--primary-border-color);
@@ -124,6 +110,7 @@
 .discussion-card-content {
   display: flex;
   padding: 10px;
+  overflow: hidden;
 }
 
 .discussion-card-content > .MuiAvatar-root {
@@ -202,14 +189,53 @@
   );
 }
 
+.discussed__low {
+  display: none;
+}
+
 /* Media Quaries */
 
 @media (max-width: 1000px) {
   .discussion-card {
     width: 90%;
-    padding-right: 20px;
   }
   .reply__input {
     width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  .discussion-card-status > h3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .discussions-layout {
+    margin-left: 0;
+  }
+
+  .discussions-header > h2 {
+    display: none;
+  }
+
+  .discussions-header > div {
+    flex: 0;
+  }
+
+  .discussions-header > button {
+    margin-left: 0;
+  }
+
+  .discussed__high {
+    display: none;
+  }
+
+  .discussed__low {
+    display: inline-block;
+  }
+
+  .discussion-card-content {
+    padding: 2px;
   }
 }

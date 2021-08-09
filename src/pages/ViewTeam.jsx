@@ -55,6 +55,10 @@ function ViewTeam({
         />
         {channel && (
           <HeaderBar
+            teams={teams.map((t) => ({
+              id: t.id,
+              letter: t.name.charAt(0).toUpperCase(),
+            }))}
             channelName={channel.name}
             team={team}
             username={username}
@@ -62,7 +66,11 @@ function ViewTeam({
           />
         )}
         {channel && (
-          <MessageContainer channelId={channel.id} channelName={channel.name} />
+          <MessageContainer
+            channelId={channel.id}
+            channelName={channel.name}
+            isDm={channel.dm}
+          />
         )}
         {channel && (
           <SendMessage

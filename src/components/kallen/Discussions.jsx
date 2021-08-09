@@ -19,6 +19,7 @@ function Discussions({ data: { loading, allDiscussions }, issueId, userId }) {
     <div className="discussions-layout">
       <div className="discussions-header">
         <h2>Discussions</h2>
+
         <button type="button" onClick={() => setOpen(!open)}>
           New discussion
         </button>

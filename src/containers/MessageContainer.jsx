@@ -7,6 +7,7 @@ import { Avatar } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
 import Message from "../components/kousa/Message";
+import MicIcon from "../images/mic.svg";
 
 const newChannelMessageSubscription = gql`
   subscription ($channelId: Int!) {
@@ -68,12 +69,55 @@ class MessageContainer extends React.Component {
 
   render() {
     const {
+      isDm,
+      channelName,
       data: { loading, messages, fetchMore },
       channelId,
     } = this.props;
 
     if (loading) {
       return null;
+    }
+
+    if (!messages.length) {
+      return (
+        <>
+          <div className="messags">
+            <div className="no-messages">
+              <div className="no-messages-container">
+                <img src={MicIcon} alt="Microphone" />
+                <div className="no-messages-info">
+                  {!isDm ? (
+                    <div>
+                      <h3>
+                        You're looking at the
+                        <span>#{channelName} </span>
+                        channel
+                      </h3>
+                      <p>
+                        This is one channel that will include every one of your
+                        channel members. it's a great place for wide team
+                        conversations
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <h3>
+                        You're looking at your private chat with
+                        <span>{channelName}</span>
+                      </h3>
+                      <p>
+                        This is your private chat with {channelName} you can
+                        chat with {channelName} and have fun together
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      );
     }
 
     return (

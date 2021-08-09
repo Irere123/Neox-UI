@@ -43,7 +43,7 @@ function ReplyCard({ data: { loading, allReplies }, discussionId, userId }) {
                         <span className="discussion-username">
                           {reply.user.username}
                         </span>
-                        replied {dayjs(reply.created_at).fromNow()}
+                        {dayjs(reply.created_at).fromNow()}
                       </h3>
                     </div>
                     <div className="discussion-card-center">
