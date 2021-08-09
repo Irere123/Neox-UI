@@ -229,8 +229,8 @@
 }
 
 .addIssueModal__center {
-  display: grid;
-  grid-template-rows: 100px 110px 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .description__input,
@@ -283,6 +283,7 @@
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 
 .addIssueModal__btn > button {
@@ -441,5 +442,74 @@
 @media (max-width: 320px) {
   .issue-card {
     width: 270px;
+  }
+}
+
+.addIssueModal_content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal Media Queries */
+
+@media only screen and (max-width: 750px) {
+  .addIssueModal__header > .close-icon > .icon {
+    background-color: var(--primary-border-color);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .addIssueModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (width: 540px) {
+  .addIssueModal {
+    height: 460px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .addIssueModal {
+    height: 460px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .addIssueModal {
+    width: 350px;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .addIssueModal {
+    width: 310px;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .addIssueModal {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .addIssueModal {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .addIssueModal {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .addIssueModal {
+    width: 200px;
   }
 }
