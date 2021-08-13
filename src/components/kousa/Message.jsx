@@ -29,7 +29,7 @@ const Message = ({ message: { url, text, filetype } }) => {
       );
     }
   }
-  return <p>{text}</p>;
+  return <p className="message-text-only">{text}</p>;
 };
 
 export default Message;

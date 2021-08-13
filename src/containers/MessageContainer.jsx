@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Avatar } from "@material-ui/core";
+import { Avatar, Badge } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
 import Message from "../components/kousa/Message";
@@ -146,7 +146,6 @@ class MessageContainer extends React.Component {
               </div>
             </div>
           ))}
-
           {this.state.hasMoreItems && messages.length >= 15 && (
             <div className="load_messages_container">
               <button
