@@ -198,6 +198,72 @@ p {
   }
 }
 
+.next__button_create_team {
+  background-color: #323d4d;
+  color: #d3d3d3;
+  padding: 10px;
+  font-size: 17px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  text-align: center;
+  width: 100px;
+  box-shadow: var(--deep-paper-shadow);
+  margin-bottom: 10px;
+}
+
+.learn__more__button {
+  background-color: #323d4d;
+  color: #d3d3d3;
+  padding: 10px;
+  font-size: 17px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: var(--deep-paper-shadow);
+}
+
+.first__page__create_team {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading__first_page {
+  color: #d3d3d3;
+  font-size: 30px;
+}
+
+.heading__first_page > h2 > span {
+  color: #f50057;
+  font-size: 50px;
+}
+
+.first_page_content {
+  font-size: 20px;
+}
+
+.intro__to__neox {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.intro__to__neox > h3 {
+  color: #f50057;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+.how_it_works > h3 {
+  color: #f50057;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
 @media only screen and (max-width: 280px) {
   .team__input {
     width: 100%;

@@ -15,23 +15,6 @@ function Feed({ data: { loading, allIssues } }) {
     return <Loader />;
   }
 
-  if (!allIssues.length) {
-    return (
-      <div className="issue-cards-home">
-        <h1
-          style={{
-            color: "#d3d3d3",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          There are no issues to solve🔍 yet...
-        </h1>
-      </div>
-    );
-  }
-
   return (
     <div>
       <div className="issue-cards-home">
