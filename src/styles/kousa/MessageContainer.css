@@ -48,9 +48,18 @@ div {
   text-transform: capitalize;
 }
 
+.MuiBadge-colorSecondary {
+  background-color: lightgreen !important;
+}
+
+.MuiBadge-anchorOriginBottomRightRectangle {
+  right: 10 !important;
+  bottom: 0 !important;
+}
+
 .message > .MuiAvatar-root {
-  width: 37px;
-  height: 37px;
+  width: 40px;
+  height: 40px;
   border: 3px solid #f50057;
   background-color: transparent;
   font-size: 20px;

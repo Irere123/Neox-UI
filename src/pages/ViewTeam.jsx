@@ -70,6 +70,7 @@ function ViewTeam({
             channelId={channel.id}
             channelName={channel.name}
             isDm={channel.dm}
+            username={username}
           />
         )}
         {channel && (

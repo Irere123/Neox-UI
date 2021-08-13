@@ -1,3 +1,7 @@
+.message-text-only {
+  width: 350px;
+}
+
 .image-message {
   margin-top: 10px;
 }
@@ -20,4 +24,11 @@
 
 .audio-message {
   margin-top: 10px;
+}
+
+@media only screen and (max-width: 460px) {
+  .message-text-only {
+    width: 250px;
+    min-width: none;
+  }
 }
