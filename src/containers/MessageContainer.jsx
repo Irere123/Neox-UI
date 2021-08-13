@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Avatar } from "@material-ui/core";
+import { Avatar, Badge } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
 import Message from "../components/kousa/Message";
@@ -122,16 +122,25 @@ class MessageContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="messages">
-          {messages.map((m) => (
+        {messages.map((m) => {
+          <div className="messages">
             <div className="message" key={`message-${m.id}`}>
               {m.text && (
-                <Avatar>
-                  {m.user.username.charAt(0).toUpperCase()}
-                  {m.user.username
-                    .charAt(Math.floor(m.user.username.length / 3))
-                    .toUpperCase()}
-                </Avatar>
+                <Badge
+                  variant="dot"
+                  color="secondary"
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                >
+                  <Avatar>
+                    {m.user.username.charAt(0).toUpperCase()}
+                    {m.user.username
+                      .charAt(Math.floor(m.user.username.length / 3))
+                      .toUpperCase()}
+                  </Avatar>
+                </Badge>
               )}
 
               <div className="message__info">
@@ -145,45 +154,44 @@ class MessageContainer extends React.Component {
                 <Message message={m} />
               </div>
             </div>
-          ))}
+            {this.state.hasMoreItems && messages.length >= 15 && (
+              <div className="load_messages_container">
+                <button
+                  className="load_messages_button"
+                  type="button"
+                  onClick={() => {
+                    fetchMore({
+                      variables: {
+                        channelId,
+                        cursor: messages[messages.length - 1].created_at,
+                      },
 
-          {this.state.hasMoreItems && messages.length >= 15 && (
-            <div className="load_messages_container">
-              <button
-                className="load_messages_button"
-                type="button"
-                onClick={() => {
-                  fetchMore({
-                    variables: {
-                      channelId,
-                      cursor: messages[messages.length - 1].created_at,
-                    },
+                      updateQuery: (previousResult, { fetchMoreResult }) => {
+                        if (!fetchMoreResult) {
+                          return previousResult;
+                        }
 
-                    updateQuery: (previousResult, { fetchMoreResult }) => {
-                      if (!fetchMoreResult) {
-                        return previousResult;
-                      }
+                        if (fetchMoreResult.messages.length < 15) {
+                          this.setState({ hasMoreItems: false });
+                        }
 
-                      if (fetchMoreResult.messages.length < 15) {
-                        this.setState({ hasMoreItems: false });
-                      }
-
-                      return {
-                        ...previousResult,
-                        messages: [
-                          ...previousResult.messages,
-                          ...fetchMoreResult.messages,
-                        ],
-                      };
-                    },
-                  });
-                }}
-              >
-                Older Messages
-              </button>
-            </div>
-          )}
-        </div>
+                        return {
+                          ...previousResult,
+                          messages: [
+                            ...previousResult.messages,
+                            ...fetchMoreResult.messages,
+                          ],
+                        };
+                      },
+                    });
+                  }}
+                >
+                  Older Messages
+                </button>
+              </div>
+            )}
+          </div>;
+        })}
       </React.Fragment>
     );
   }
