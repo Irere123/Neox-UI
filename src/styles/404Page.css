@@ -1,0 +1,95 @@
+.pageNotFound__layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__pageNotFound {
+  background-color: var(--secondary-bg-color);
+  width: 30%;
+  height: 400px;
+  margin-top: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: var(--deep-paper-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.pageNotFound__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageNotFound__content > .link__back > a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+.goBack__Button {
+  background-color: var(--primary-border-color);
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  border-radius: 6px;
+  margin: 10px;
+}
+
+.goBack__Button:hover {
+  transform: scale(1.1);
+}
+
+.pageNotFound__content > h1 {
+  color: #d3d3d3;
+  font-size: 70px;
+  text-align: center;
+}
+
+.pageNotFound__content > h2 {
+  color: #f50057;
+  text-align: center;
+}
+
+.pageNotFound__content > h3 {
+  color: #d3d3d3;
+  text-align: center;
+}
+
+.Neox__logo {
+  color: #f50057;
+  text-align: center;
+  font-size: 100px;
+  text-shadow: 7px 7px #d3d3d3;
+}
+
+.link__back {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 850px) {
+  .card__pageNotFound {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .card__pageNotFound {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .card__pageNotFound {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .card__pageNotFound {
+    width: 90%;
+  }
+}

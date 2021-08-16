@@ -42,6 +42,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
+/* --Disabled in Development---
+
 const RedirectRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -55,12 +57,13 @@ const RedirectRoute = ({ component: Component, ...rest }) => (
   />
 );
 
+*/
+
 export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="*" component={PageNotFound} />
-        <RedirectRoute path="/" exact component={Login} />
+        <Route path="/" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={Home} />
@@ -72,6 +75,7 @@ export default () => {
           exact
           component={ViewTeam}
         />
+        <Route path="*" exact component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );
