@@ -7,7 +7,7 @@ import { getMainDefinition } from "apollo-utilities";
 import createFileLink from "./createFileLink";
 
 const httpLink = createFileLink({
-  uri: "https://api-neox.herokuapp.com/graphql",
+  uri: "http://localhost:8081/graphql",
 });
 
 const middlewareLink = setContext(() => ({
@@ -44,7 +44,7 @@ const httpLinkWithMiddleware = afterwareLink.concat(
 );
 
 export const wsLink = new WebSocketLink({
-  uri: "wss://api-neox.herokuapp.com/subscriptions",
+  uri: "ws://localhost:8081/subscriptions",
   options: {
     reconnect: true,
     lazy: true,
