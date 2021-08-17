@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border: 1px solid var(--primary-border-color);
 }
 
 .MembersModal__header {
@@ -36,10 +37,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--primary-border-color);
+  cursor: pointer;
 }
 
 .MembersModal__header > .close-icon > .icon:hover {
-  background-color: var(--primary-border-color);
+  transform: scale(1.1);
 }
 
 .MembersModal__searchBar {

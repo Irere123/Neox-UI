@@ -6,6 +6,12 @@
     #161b22 -35.54%,
     rgba(66, 66, 66, 0) 99.04%
   );
+  display: flex;
+}
+
+.channelList__container {
+  display: flex;
+  flex-direction: column;
 }
 
 .image-channel {
@@ -27,12 +33,6 @@
   align-items: center;
 }
 
-.username {
-  color: #5d7290;
-  font-size: 18px;
-  text-transform: capitalize;
-}
-
 .sidebar_list {
   width: 100%;
   list-style: none;
@@ -49,15 +49,9 @@
   color: #5d7290;
 }
 
-.invite-link {
-  padding-left: 10px;
-  font-size: 20px;
-  color: #b2bdcd;
-}
-
 .sidebar_list_header {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 120px 1fr;
   padding-left: 10px;
   font-size: 25px;
   color: #dee3ea;
@@ -82,4 +76,61 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+.channelsList__flex {
+  display: flex;
+  flex: 0.8;
+  flex-direction: column;
+}
+
+.team__settings {
+  display: flex;
+  flex: 0.17;
+  background-color: #26282c;
+  width: 215px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0px 10px 0px 0px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: row;
+  padding-top: 13px;
+}
+
+.inviteStuff {
+  padding: 13px;
+}
+
+.inviteStuff > * {
+  margin: 3px;
+}
+
+.inviteStuff > .MuiSvgIcon-root {
+  width: 30px;
+  height: 30px;
+}
+
+.userInfo_settings {
+  color: #d3d3d3;
+  padding-left: 4px;
+}
+
+.userInfo_settings > p {
+  color: #d3d3d3;
+}
+
+.userInfo_settings > h4 {
+  text-transform: capitalize;
+}
+
+.profileInfo > .MuiAvatar-root {
+  border: 3px solid #f50057;
+  background-color: transparent;
+}
+
+.link {
+  cursor: pointer;
 }

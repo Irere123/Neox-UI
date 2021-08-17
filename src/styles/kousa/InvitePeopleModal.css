@@ -2,39 +2,54 @@
   height: 280px;
   padding: 10px 20px;
   border-radius: 12px;
-  width: 500px;
+  width: 420px;
   outline: none;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 100px;
   background-color: #161b22;
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow: var(--deep-paper-shadow);
+  border: 1px solid var(--primary-border-color);
 }
 
 .card__InvitePeople {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 
 .cardHeader__InvitePeople {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  color: lightgray;
 }
 
-.cardHeader__InvitePeople > h1 {
-  color: lightgray;
+.headerTitle_Invite {
+  text-align: center;
+}
+
+.cardHeader__InvitePeople > .close-icon {
+  background-color: var(--primary-border-color);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.cardHeader__InvitePeople > .close-icon > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardHeader__InvitePeople > .close-icon:hover {
+  transform: scale(1.1);
 }
 
 .input__InvitePeople {
   display: flex;
-  height: 30px;
-  width: var(--input-size);
-  padding: 10px 20px;
-  border-radius: 11px;
+  height: 20px;
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
   border: 1px solid var(--border-color);
-  margin: 0 auto;
   margin-bottom: 15px;
   margin-top: 20px;
   background-color: transparent;
@@ -43,7 +58,6 @@
 .input__InvitePeople > input {
   flex: 1;
   padding: 10px 20px;
-  margin-top: 3px;
   border: none;
   color: #323d4d;
   font-size: 20px;
@@ -63,24 +77,47 @@
 .btn__InvitePeople {
   display: flex;
   height: 40px;
-  width: 150px;
+  width: 120px;
   color: lightgray;
   cursor: pointer;
   padding: 10px 15px;
-  border-radius: 11px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
   margin: 0 auto;
   margin-bottom: 10px;
   margin-top: 10px;
   background-color: transparent;
   justify-content: center;
-  font-size: 15px;
+  align-items: center;
+  font-size: 20px;
 }
 
-.buttons__InvitePeople {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.ErrorMessage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
+
+.ErrorMessage > p {
+  color: rgb(245, 75, 75);
+  font-size: 18px;
+}
+
+.ErrorMessage > span {
+  display: flex;
+  justify-content: center;
+}
+
+.ErrorMessage > span > .MuiSvgIcon-root {
+  color: rgb(245, 75, 75);
+}
+
+.headerTitle_Invite > h1 {
+  font-family: "Inter";
+}
+
+/* DM CARD */
 
 .card__DM {
   height: 180px;
@@ -92,9 +129,10 @@
   margin-bottom: 15px;
   margin-top: 100px;
   background-color: #161b22;
-  box-shadow: var(--paper-shadow);
+  box-shadow: var(--deep-paper-shadow);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--primary-border-color);
 }
 
 .cardHeader__DM {
@@ -105,17 +143,21 @@
 
 .cardHeader__DM > .close-icon {
   margin-top: 8px;
-}
-
-.cardHeader__DM > .close-icon > .MuiSvgIcon-root {
-  margin-left: 4px;
-}
-
-.cardHeader__DM > .close-icon:hover {
   background-color: var(--primary-border-color);
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.cardHeader__DM > .close-icon > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardHeader__DM > .close-icon:hover {
+  transform: scale(1.1);
 }
 
 .cardHeader__DM > h1 {

@@ -62,12 +62,20 @@
   text-align: center;
   font-size: 100px;
   text-shadow: 7px 7px #d3d3d3;
+  animation: bounce 0.6s infinite alternate;
+  transform: translate3d(0);
 }
 
 .link__back {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+}
+
+@keyframes bounce {
+  to {
+    transform: translate3d(0, -16px, 0);
+  }
 }
 
 @media only screen and (max-width: 850px) {

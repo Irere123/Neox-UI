@@ -6,7 +6,7 @@ import { Avatar } from "@material-ui/core";
 function MenuDropdown({ username }) {
   return (
     <React.Fragment>
-      <Link to={`/#${username}`} className="menu-item">
+      <Link to={`#${username}`} className="menu-item">
         <div className="icon-left">
           <Avatar>
             {username.charAt(0).toUpperCase()}

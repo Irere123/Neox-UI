@@ -8,9 +8,9 @@ import { withRouter } from "react-router-dom";
 import gql from "graphql-tag";
 import findIndex from "lodash/findIndex";
 
-import "../../styles/kousa/InvitePeopleModal.css";
-import { getTeamMembersQuery } from "../../graphql/team";
-import { meQuery } from "../../graphql/team";
+import "../../../styles/kousa/InvitePeopleModal.css";
+import { getTeamMembersQuery } from "../../../graphql/team";
+import { meQuery } from "../../../graphql/team";
 
 class DirectMessageModal extends React.Component {
   state = {
@@ -47,7 +47,9 @@ class DirectMessageModal extends React.Component {
         <div className="card__DM">
           <div className="cardHeader__DM">
             <div className="close-icon" onClick={onClose}>
-              <Close />
+              <span>
+                <Close />
+              </span>
             </div>
             <h1>Start a chat</h1>
           </div>

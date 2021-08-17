@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
-import "../../styles/kousa/Members.css";
+import "../../../styles/kousa/Members.css";
 
 function Members({ onClose, teamName, members, username }) {
   return (
@@ -17,8 +17,6 @@ function Members({ onClose, teamName, members, username }) {
       </div>
 
       <div className="members__list">
-        <h4>Members</h4>
-
         <div className="members__names">
           {members.map((member) => (
             <div className="memberName__card">

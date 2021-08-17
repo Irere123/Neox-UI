@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Group, Ballot } from "@material-ui/icons";
 import { Modal, Fade, Avatar, Tooltip, Drawer } from "@material-ui/core";
-import Members from "./Members";
+import Members from "./modals/Members";
 import { graphql } from "react-apollo";
 
 import { getTeamMembersQuery } from "../../graphql/team";

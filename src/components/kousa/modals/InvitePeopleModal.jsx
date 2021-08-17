@@ -3,42 +3,58 @@ import { Modal } from "@material-ui/core";
 import { withFormik } from "formik";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
-import { Email } from "@material-ui/icons";
+import { Close, Warning } from "@material-ui/icons";
 
-import "../../styles/kousa/InvitePeopleModal.css";
-import normalizeErrors from "../../normalizeErrors";
+import "../../../styles/kousa/InvitePeopleModal.css";
+import normalizeErrors from "../../../normalizeErrors";
 
 const InvitePeopleModal = ({
   open,
   onClose,
   values,
   handleChange,
-  setErrors,
   resetForm,
   handleBlur,
   handleSubmit,
   isSubmitting,
-  teamId,
   touched,
   errors,
 }) => (
   <Modal open={open} onClose={onClose}>
     <div className="card__InvitePeople">
       <div className="cardHeader__InvitePeople">
-        <h1>Add People to your team</h1>
+        <div
+          className="close-icon"
+          onClick={(e) => {
+            resetForm();
+            onClose(e);
+          }}
+        >
+          <div>
+            <Close />
+          </div>
+        </div>
+        <div className="headerTitle_Invite">
+          <h1>Send Invitation</h1>
+        </div>
       </div>
       <div className="input__InvitePeople">
-        <Email />
         <input
-          value={values.email}
+          value={values.username}
           onChange={handleChange}
           onBlur={handleBlur}
-          name="email"
+          name="username"
           type="text"
-          placeholder="name@gmail.com"
+          placeholder="What is name of your friend ?"
         />
       </div>
-      {touched.email && errors.email ? errors.email[0] : null}
+      {touched.username ? (
+        <div className="ErrorMessage">
+          <span>{errors.username ? <Warning /> : null}</span>
+          <p className="error">{errors.username ? errors.username[0] : null}</p>
+        </div>
+      ) : null}
+
       <div className="buttons__InvitePeople">
         <button
           className="btn__InvitePeople"
@@ -47,24 +63,14 @@ const InvitePeopleModal = ({
         >
           Invite
         </button>
-        <button
-          className="btn__InvitePeople"
-          disabled={isSubmitting}
-          onClick={(e) => {
-            resetForm();
-            onClose(e);
-          }}
-        >
-          Cancel
-        </button>
       </div>
     </div>
   </Modal>
 );
 
 const addTeamMemberMutation = gql`
-  mutation ($email: String!, $teamId: Int!) {
-    addTeamMember(email: $email, teamId: $teamId) {
+  mutation ($username: String!, $teamId: Int!) {
+    addTeamMember(username: $username, teamId: $teamId) {
       ok
       errors {
         path
@@ -77,7 +83,7 @@ const addTeamMemberMutation = gql`
 export default compose(
   graphql(addTeamMemberMutation),
   withFormik({
-    mapPropsToValues: () => ({ email: "" }),
+    mapPropsToValues: () => ({ username: "" }),
     handleSubmit: async (
       values,
       {
@@ -88,7 +94,7 @@ export default compose(
       }
     ) => {
       const response = await mutate({
-        variables: { teamId, email: values.email },
+        variables: { teamId, username: values.username },
       });
       const { ok, errors } = response.data.addTeamMember;
       if (ok) {
@@ -101,9 +107,10 @@ export default compose(
         const filteredErrors = errors.filter(
           (e) => e.message !== "user_id must be unique"
         );
+
         if (!errorsLength !== filteredErrors.length) {
           filteredErrors.push({
-            path: "email",
+            path: "username",
             message: "This user is already part of the team",
           });
         }

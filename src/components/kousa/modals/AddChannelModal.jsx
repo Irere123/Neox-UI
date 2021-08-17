@@ -3,13 +3,13 @@ import { Modal } from "@material-ui/core";
 import { withFormik } from "formik";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
-import { Title } from "@material-ui/icons";
 import findIndex from "lodash/findIndex";
 import Select from "react-select";
+import { Close } from "@material-ui/icons";
 
-import "../../styles/kousa/AddChannelModal.css";
-import { meQuery } from "../../graphql/team";
-import { getTeamMembersQuery } from "../../graphql/team";
+import "../../../styles/kousa/AddChannelModal.css";
+import { meQuery } from "../../../graphql/team";
+import { getTeamMembersQuery } from "../../../graphql/team";
 
 class AddChannelModal extends React.Component {
   state = {
@@ -51,17 +51,31 @@ class AddChannelModal extends React.Component {
       >
         <div className="card__addChannel">
           <div className="cardHeader__addChannel">
-            <h1>Add Channel</h1>
+            <div className="headerTitle_Invite">
+              <span>
+                <h1>Create channel</h1>
+              </span>
+            </div>
+            <div
+              className="close-icon"
+              onClick={(e) => {
+                resetForm();
+                onClose(e);
+              }}
+            >
+              <div>
+                <Close />
+              </div>
+            </div>
           </div>
           <div className="input__addChannel">
-            <Title />
             <input
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
               name="name"
               type="text"
-              placeholder="Channel Name"
+              placeholder="Channel name"
             />
           </div>
           <div className="checkbox-AddChannel">
@@ -77,6 +91,7 @@ class AddChannelModal extends React.Component {
             />
             <label>Private</label>
           </div>
+          <br />
           {!this.state.checked && (
             <Select
               onChange={this.handleSelectChange}
@@ -99,17 +114,6 @@ class AddChannelModal extends React.Component {
               disabled={isSubmitting}
             >
               Create Channel
-            </button>
-            <button
-              className="btn__addChannel"
-              disabled={isSubmitting}
-              onClick={(e) => {
-                this.setState({ checked: true });
-                resetForm();
-                onClose(e);
-              }}
-            >
-              Cancel
             </button>
           </div>
         </div>
