@@ -42,8 +42,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-/* --Disabled in Development---
-
 const RedirectRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -56,8 +54,6 @@ const RedirectRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
-
-*/
 
 export default () => {
   return (
