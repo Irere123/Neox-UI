@@ -59,7 +59,7 @@ export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Login} />
+        <RedirectRoute path="/" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={Home} />
