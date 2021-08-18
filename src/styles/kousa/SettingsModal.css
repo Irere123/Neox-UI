@@ -1,0 +1,61 @@
+.SettingsModal {
+  margin: 0 auto;
+  background-color: #161b22;
+  width: 500px;
+  height: 200px;
+  margin-top: 60px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid var(--primary-border-color);
+}
+
+.SettingsModal__header > .close-icon {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1;
+  background-color: var(--primary-border-color);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.SettingsModal__header > .close-icon:hover {
+  transform: scale(1.1);
+}
+
+.SettingsModal__content {
+  margin-top: 20px;
+  height: 320px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.SettingsModal__content > .Settings {
+  text-align: center;
+}
+
+.SettingsModal__content > .Settings > h2 {
+  color: #d3d3d3;
+  text-align: center;
+}
+
+.deleteButton {
+  background-color: transparent;
+  padding: 6px 20px;
+  margin-top: 20px;
+  color: #f50057;
+  font-size: 18px;
+  border: 1px solid #f50057;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  transform: scale(1.04);
+}

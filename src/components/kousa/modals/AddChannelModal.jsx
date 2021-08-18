@@ -59,6 +59,7 @@ class AddChannelModal extends React.Component {
             <div
               className="close-icon"
               onClick={(e) => {
+                this.setState({ checked: true });
                 resetForm();
                 onClose(e);
               }}

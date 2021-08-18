@@ -20,10 +20,10 @@
 }
 
 .team_name_header {
-  padding-top: 20px;
   color: #dee3ea;
   display: flex;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 .team_name_header > span {
@@ -133,4 +133,10 @@ h6 {
 
 .link {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  .channel__wrapper {
+    display: none;
+  }
 }
