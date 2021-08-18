@@ -31,4 +31,31 @@
     width: 250px;
     min-width: none;
   }
+
+  .video-message {
+    margin-top: 0px;
+  }
+
+  .video-message > video {
+    width: 300px;
+    height: 190px;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .video-message {
+    margin-top: 10px;
+  }
+  .video-message > video {
+    width: 230px;
+    height: 130px;
+    border-radius: 10px;
+  }
+
+  .image-message > img {
+    border-radius: 10px;
+    width: 230px;
+    height: 130px;
+  }
 }

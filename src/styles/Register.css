@@ -10,6 +10,7 @@
 .register-layout {
   display: grid;
   grid-template-columns: 600px 1fr;
+  position: fixed;
 }
 
 .banner {
@@ -28,6 +29,7 @@
   font-size: 100px;
   margin-top: 100px;
 }
+
 .logo__register > img {
   color: var(--txt-color);
   font-size: 100px;
@@ -47,7 +49,7 @@
   border-radius: 50%;
 }
 
-/* Sign In Card */
+/* Sign Up Card */
 .card {
   height: 410px;
   padding: 10px 20px;
@@ -62,6 +64,7 @@
     var(--bg-color) 2.65%,
     rgba(66, 66, 66, 0) 99.37%
   );
+  margin-left: 100px;
 }
 
 .list {
@@ -170,6 +173,12 @@
   .register-layout {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 725px) {
+  .card {
+    margin-left: 0px;
   }
 }
 

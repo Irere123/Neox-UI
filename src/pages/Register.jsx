@@ -82,7 +82,7 @@ class Register extends React.Component {
         <div className="banner">
           <div className="logo__register">
             <img className="logo-img" src={logoImg} alt="" />
-            <h1>Neox</h1>
+            <h1>NEOX</h1>
           </div>
           <div className="about__neox__text">
             <p>
@@ -92,6 +92,7 @@ class Register extends React.Component {
             <h3>#Collaborative Communication🚀🚀</h3>
           </div>
         </div>
+
         <div className="card">
           <div className="card-content">
             <h2>Create new account</h2>
@@ -135,7 +136,16 @@ class Register extends React.Component {
               </button>
             </div>
           </div>
-          {errorList.length ? <Message error list={errorList} /> : null}
+          {errorList.length ? (
+            <div className="ErrorCard__Toast show">
+              {errorList.map((error) => (
+                <p>
+                  <span>●</span>
+                  {error}
+                </p>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="footer__banner">
           <p>&nabla; Irere Emmy</p>

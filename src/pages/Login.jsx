@@ -119,7 +119,17 @@ class Login extends React.Component {
                 Sign In
               </button>
             </div>
-            {errorsList.length ? <Message error list={errorsList} /> : null}
+            {errorsList.length ? (
+              <div className="ErrorCard__Toast show">
+                <h3>Something went wrong</h3>
+                {errorsList.map((error) => (
+                  <p key={error}>
+                    <span>●</span>
+                    {error}
+                  </p>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="footer__banner__login">
