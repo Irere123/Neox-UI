@@ -59,3 +59,19 @@
 .deleteButton:hover {
   transform: scale(1.04);
 }
+
+.leaveTeam__button {
+  background-color: transparent;
+  padding: 6px 20px;
+  margin-top: 20px;
+  color: lightgreen;
+  font-size: 18px;
+  border: 1px solid lightgreen;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.leaveTeam__button:hover {
+  transform: scale(1.04);
+}

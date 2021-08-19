@@ -1,7 +1,6 @@
 import React from "react";
-import { Email, Lock } from "@material-ui/icons";
+import { Lock, Person } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { Message } from "semantic-ui-react";
 import { extendObservable } from "mobx";
 import { observer } from "mobx-react";
 import gql from "graphql-tag";
@@ -18,17 +17,17 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     extendObservable(this, {
-      email: "",
+      username: "",
       password: "",
       errors: {},
     });
   }
 
   onSubmit = async () => {
-    const { email, password } = this;
+    const { username, password } = this;
 
     const response = await this.props.mutate({
-      variables: { email, password },
+      variables: { username, password },
     });
 
     const { ok, token, refreshToken, errors } = response.data.login;
@@ -55,9 +54,9 @@ class Login extends React.Component {
 
   render() {
     const {
-      email,
+      username,
       password,
-      errors: { emailError, passwordError },
+      errors: { usernameError, passwordError },
     } = this;
 
     const errorsList = [];
@@ -66,8 +65,8 @@ class Login extends React.Component {
       errorsList.push(passwordError);
     }
 
-    if (emailError) {
-      errorsList.push(emailError);
+    if (usernameError) {
+      errorsList.push(usernameError);
     }
 
     return (
@@ -90,14 +89,14 @@ class Login extends React.Component {
             <h2>Sign In to your account</h2>
 
             <div className="el__input_login">
-              <Email />
+              <Person />
               <input
                 onError
-                value={email}
+                value={username}
                 onChange={this.onChange}
-                name="email"
-                type="email"
-                placeholder="Email"
+                name="username"
+                type="text"
+                placeholder="Username"
               />
             </div>
             <div className="el__input_login">
@@ -147,8 +146,8 @@ class Login extends React.Component {
 }
 
 const loginMutation = gql`
-  mutation ($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation ($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
       ok
       token
       refreshToken
