@@ -89,6 +89,11 @@ body {
   justify-content: flex-end;
   flex: 1 1;
   margin-right: 50px;
+  cursor: pointer;
+}
+
+.neox_HomePage {
+  color: #f50057;
 }
 
 #root > div > div.viewteam_layout > div.titlebar__header > div > div > div {

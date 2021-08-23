@@ -74,7 +74,7 @@ class Login extends React.Component {
         <div className="banner">
           <div className="logo__login">
             <img className="logo-img" src={logoImg} alt="" />
-            <h1>Neox</h1>
+            <h1>NEOX</h1>
           </div>
           <div className="about__neox__text">
             <p>

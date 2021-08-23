@@ -3,7 +3,6 @@ import { Email, Lock, Person } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Message } from "semantic-ui-react";
 import dayjs from "dayjs";
 
 import "../styles/Register.css";

@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import { Avatar, Badge } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 
 import "../styles/kousa/MessageContainer.css";
 import Message from "../components/kousa/Message";
