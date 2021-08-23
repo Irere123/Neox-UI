@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AddCircle as Icon,
+  Facebook,
   PersonAdd,
   SettingsOutlined,
 } from "@material-ui/icons";
@@ -82,7 +83,7 @@ function Channels({
               </Avatar>
               <div className="userInfo_settings">
                 <h4>{username}</h4>
-                <p style={{ fontStyle: "italic" }}>@{username}</p>
+                <p>@{username}</p>
               </div>
             </div>
             <div className="inviteStuff">
@@ -106,8 +107,16 @@ function Channels({
               </Avatar>
               <div className="userInfo_settings">
                 <h4>{username}</h4>
-                <p style={{ fontStyle: "italic" }}>@{username}</p>
+                <p>@{username}</p>
               </div>
+            </div>
+            <div className="inviteStuff">
+              <span
+                className="link"
+                onClick={() => setOpenSettings(!openSettings)}
+              >
+                <SettingsOutlined />
+              </span>
             </div>
           </div>
         )}
@@ -122,6 +131,7 @@ function Channels({
             teamName={teamName}
             creator={teamCreator}
             teamId={teamId}
+            isAdmin={isOwner}
           />
         </Modal>
       )}

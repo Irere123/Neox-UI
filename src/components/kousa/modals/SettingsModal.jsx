@@ -3,8 +3,9 @@ import { Close } from "@material-ui/icons";
 
 import "../../../styles/kousa/SettingsModal.css";
 import DeleteButton from "../DeleteButton";
+import LeaveTeamButton from "../LeaveTeamButton";
 
-function SettingsModal({ onClose, teamName, creator, teamId }) {
+function SettingsModal({ onClose, teamName, teamId, isAdmin }) {
   return (
     <div className="SettingsModal">
       <div className="SettingsModal__header">
@@ -18,9 +19,14 @@ function SettingsModal({ onClose, teamName, creator, teamId }) {
         <div className="Settings">
           <h2>Settings</h2>
           <p>
-            {teamName} was created by {creator} by now it has 230 people
+            You're looking at {teamName.slice(1, 13)} team. Here you can manage
+            the settings of {teamName.slice(1, 13)} team.
           </p>
-          <DeleteButton teamId={teamId} onClose={onClose} />
+          {isAdmin ? (
+            <DeleteButton teamId={teamId} onClose={onClose} />
+          ) : (
+            <LeaveTeamButton teamId={teamId} onClose={onClose} />
+          )}
         </div>
       </div>
     </div>
