@@ -12,6 +12,7 @@ import Issue from "./pages/Issue.jsx";
 import DashBoard from "./pages/Dashboard.jsx";
 import Invites from "./pages/Invites.jsx";
 import PageNotFound from "./pages/PageNotFound";
+import Main from "./pages/Main";
 
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
@@ -64,6 +65,7 @@ export default () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Login} />
+        <Route path="/main" exact component={Main} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={Home} />

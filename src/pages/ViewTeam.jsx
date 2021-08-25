@@ -19,7 +19,6 @@ function ViewTeam({
     params: { teamId, channelId },
   },
 }) {
-  console.log(loading);
   if (loading || !me) {
     return <Loader />;
   }
