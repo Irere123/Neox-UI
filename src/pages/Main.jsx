@@ -1,11 +1,32 @@
 import React from "react";
+import { graphql } from "react-apollo";
 
-function Main() {
+import "../styles/MainPage.css";
+import Header from "../components/Header";
+import Sidebar from "../components/main/Sidebar";
+import MainPageContainer from "../containers/MainPageContainer";
+import { meQuery } from "../graphql/team";
+
+function Main({ data: { me, loading } }) {
+  if (loading) {
+    return null;
+  }
+
+  const { username } = me;
+
   return (
-    <div>
-      <h1>Main</h1>
-    </div>
+    <>
+      <Header username={username} />
+      <div className="mainPage__layout">
+        <div className="mainPageSidebar">
+          <Sidebar />
+        </div>
+        <div className="mainPageMain__container">
+          <MainPageContainer />
+        </div>
+      </div>
+    </>
   );
 }
 
-export default Main;
+export default graphql(meQuery)(Main);
