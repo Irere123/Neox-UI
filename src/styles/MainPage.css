@@ -1,7 +1,8 @@
 .mainPage__layout {
   display: grid;
   grid-template-columns: 370px 1fr;
-  margin-left: 20px;
+  margin-left: 10px;
+  position: fixed;
 }
 
 .mainPageSidebar {
@@ -99,4 +100,65 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.MainPage__content__container {
+  margin-top: 40px;
+}
+
+.posts {
+  overflow-y: auto;
+}
+
+.MainPage__content__container > .posts > * {
+  margin-bottom: 20px;
+}
+
+.ContentCard__maiPage {
+  background-color: var(--secondary-bg-color);
+  max-width: 550px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: #d3d3d3;
+}
+
+.ContentCard__maiPage_header {
+  display: flex;
+}
+
+.ContentCard__maiPage_header > * {
+  margin-right: 20px;
+}
+
+.ContentCard__maiPage > .ContentCard__maiPage_header > .MuiAvatar-root {
+  background-color: transparent;
+  border: 2px solid #f50057;
+}
+
+.ContentCard__maiPage_content {
+  padding: 10px;
+  font-size: 17px;
+}
+
+.ContentCard__maiPage_footer {
+  background-color: var(--primary-border-color);
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ContentCard__maiPage_footer_icon_word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 100ms ease-in-out;
+}
+
+.ContentCard__maiPage_footer_icon_word > .MuiSvgIcon-root:hover {
+  transform: scale(1.2);
 }
