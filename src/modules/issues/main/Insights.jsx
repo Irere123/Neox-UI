@@ -8,7 +8,7 @@ import "../../../styles/issuePage/Insights.css";
 
 const timeNow = dayjs();
 
-function Insights({ data: { loading, getIssue }, username }) {
+function Insights({ data: { loading, getIssue } }) {
   if (loading) {
     return null;
   }
@@ -25,11 +25,8 @@ function Insights({ data: { loading, getIssue }, username }) {
           </Avatar>
           <div className="top-card-insights-left">
             <h3>{getIssue.user.username}</h3>
-            {username === getIssue.user.username ? (
-              <button>Delete</button>
-            ) : (
-              <button>{getIssue.category}</button>
-            )}
+
+            <button>{getIssue.category}</button>
           </div>
         </div>
         <div className="teams-insights">
@@ -72,6 +69,7 @@ function Insights({ data: { loading, getIssue }, username }) {
 const getIssueQuery = gql`
   query ($issueId: ID!) {
     getIssue(issueId: $issueId) {
+      id
       team {
         name
       }

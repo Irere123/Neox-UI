@@ -38,7 +38,7 @@ function a11yProps(index) {
   };
 }
 
-function IssueContainer({ issueId, userId, username }) {
+function IssueContainer({ issueId, userId, username, history }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -58,7 +58,7 @@ function IssueContainer({ issueId, userId, username }) {
         <Discussions issueId={issueId} userId={userId} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Insights issueId={issueId} username={username} />
+        <Insights issueId={issueId} username={username} history={history} />
       </TabPanel>
     </div>
   );

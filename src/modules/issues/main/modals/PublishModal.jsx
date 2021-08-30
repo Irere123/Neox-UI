@@ -80,6 +80,11 @@ export default compose(
       values,
       { props: { mutate, onClose, userId, issueId }, setSubmitting, resetForm }
     ) => {
+      if (!values.description || !values.description.trim()) {
+        setSubmitting(false);
+        return;
+      }
+
       await mutate({
         variables: {
           userId,

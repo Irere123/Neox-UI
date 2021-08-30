@@ -12,6 +12,7 @@ function Issue({
   match: {
     params: { issueId },
   },
+  history,
 }) {
   if (loading) {
     return <Loader />;
@@ -23,7 +24,12 @@ function Issue({
     <div>
       <Header username={username} />
       <div className="issue-layout">
-        <IssueController issueId={issueId} userId={id} username={username} />
+        <IssueController
+          issueId={issueId}
+          userId={id}
+          username={username}
+          history={history}
+        />
       </div>
     </div>
   );

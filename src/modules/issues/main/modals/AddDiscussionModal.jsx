@@ -99,6 +99,16 @@ export default compose(
       values,
       { props: { mutate, onClose, userId, issueId }, setSubmitting, resetForm }
     ) => {
+      if (!values.discussion || !values.discussion.trim()) {
+        setSubmitting(false);
+        return;
+      }
+
+      if (!values.name || !values.name.trim()) {
+        setSubmitting(false);
+        return;
+      }
+
       await mutate({
         variables: {
           userId,
