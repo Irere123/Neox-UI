@@ -9,7 +9,7 @@ import Sidebar from "../../controllers/SidebarController";
 import MessageController from "../../controllers/MessageController";
 import SendMessage from "../../modules/viewteam/mainComponents/SendMessage";
 import HeaderBar from "../../modules/viewteam/mainComponents/Header";
-import { meQuery } from "../graphql/team";
+import { meQuery } from "../../graphql/team";
 import Loader from "../../components/Loader";
 
 function ViewTeam({

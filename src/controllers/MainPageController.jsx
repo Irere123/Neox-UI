@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/MainPage.css";
+import "../styles/Home.css";
 import Header from "../modules/home/Header";
 import PostCard from "../modules/home/Content";
 

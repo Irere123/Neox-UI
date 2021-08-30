@@ -4,8 +4,8 @@ import { withFormik } from "formik";
 import { graphql, compose } from "react-apollo";
 import gql from "graphql-tag";
 
-import { allFindsQuery } from "../../../graphql/issue";
-import "../../../styles/kallen/Modals.css";
+import { allFindsQuery } from "../../../../graphql/issue";
+import "../../../../styles/issuePage/Modals.css";
 
 function PublishModal({
   onClose,

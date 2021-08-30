@@ -2,7 +2,7 @@ import React from "react";
 
 import ClassChatController from "../../controllers/ClassChatController";
 import ClassController from "../../controllers/ClassController";
-import "../styles/class/Class.css";
+import "../../styles/classPage/Class.css";
 
 function Class() {
   return (

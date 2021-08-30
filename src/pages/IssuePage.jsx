@@ -4,7 +4,7 @@ import { graphql } from "react-apollo";
 import { meQuery } from "../graphql/team";
 import Header from "../components/Header";
 import IssueController from "../controllers/IssueController";
-import "../styles/IssuePage.css";
+import "../styles/IssuesPage.css";
 import Loader from "../components/Loader";
 
 function Issue({

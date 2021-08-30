@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Title } from "@material-ui/icons";
 
-import "../styles/kousa/CreateTeam.css";
+import "../../styles/viewteamPage/CreateTeam.css";
 
 class CreateTeam extends React.Component {
   constructor(props) {

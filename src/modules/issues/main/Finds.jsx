@@ -3,11 +3,11 @@ import { Modal } from "@material-ui/core";
 import { graphql } from "react-apollo";
 import { EmojiObjects } from "@material-ui/icons";
 
-import "../../styles/kallen/Finds.css";
+import "../../../styles/issuePage/Finds.css";
 import Loader from "../../../components/Loader";
-import PublishModal from "../../../components/kallen/modals/PublishModal";
+import PublishModal from "./modals/PublishModal";
 import { allFindsQuery } from "../../../graphql/issue";
-import FindCard from "../../../components/kallen/cards/FindCard";
+import FindCard from "./cards/FindCard";
 import NothingToFetchMessage from "./NothingToFetchMessage";
 
 function Finds({ data: { loading, allFinds }, issueId, userId }) {

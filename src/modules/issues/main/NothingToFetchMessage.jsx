@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../styles/kousa/NothingFoundCard.css";
+import "../../../styles/issuePage/NothingFoundCard.css";
 
 function NothingToFetchMessage({ message, title, icon, iconName }) {
   return (

@@ -10,7 +10,7 @@ import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 
 import InputReply from "./InputReply";
-import { allRepliesQuery } from "../../../graphql/issue";
+import { allRepliesQuery } from "../../../../graphql/issue";
 
 function ReplyCard({ data: { loading, allReplies }, discussionId, userId }) {
   if (loading) {

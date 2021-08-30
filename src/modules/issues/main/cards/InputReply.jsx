@@ -2,7 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
 import { withFormik } from "formik";
-import { allRepliesQuery } from "../../../graphql/issue";
+import { allRepliesQuery } from "../../../../graphql/issue";
 
 const ENTER_KEY = 13;
 

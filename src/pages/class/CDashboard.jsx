@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/CDashboard.css";
+import "../../styles/classPage/CDashboard.css";
 import Cards from "../../modules/class/dashboard/Cards";
 import Header from "../../modules/class/dashboard/Header";
 

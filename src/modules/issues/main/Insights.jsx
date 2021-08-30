@@ -4,7 +4,7 @@ import { graphql } from "react-apollo";
 import { Avatar } from "@material-ui/core";
 import dayjs from "dayjs";
 
-import "../../styles/kallen/Insights.css";
+import "../../../styles/issuePage/Insights.css";
 
 const timeNow = dayjs();
 

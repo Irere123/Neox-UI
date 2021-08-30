@@ -9,7 +9,7 @@ import Invites from "./pages/viewteam/Invites";
 import CreateTeam from "./pages/viewteam/CreateTeam";
 import ViewTeam from "./pages/viewteam/ViewTeam";
 import IssuesPage from "./pages/IssuesPage";
-import IssuePage from "./pages/IssuesPage";
+import IssuePage from "./pages/IssuePage";
 import DashBoard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import Home from "./pages/Home";
