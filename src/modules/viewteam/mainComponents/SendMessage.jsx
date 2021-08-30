@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik } from "formik";
 import { MessageOutlined as MessageIcon, AddAPhoto } from "@material-ui/icons";
 
-import FileUpload from "../FileUpload";
+import FileUpload from "../../../components/FileUpload";
 import "../../styles/kousa/SendMessage.css";
 
 const ENTER_KEY = 13;

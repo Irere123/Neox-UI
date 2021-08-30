@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Group, Ballot } from "@material-ui/icons";
 import { Modal, Fade, Avatar, Tooltip, Drawer } from "@material-ui/core";
-import Members from "./modals/Members";
+import Members from "../modals/Members";
 import { graphql } from "react-apollo";
 
-import { getTeamMembersQuery } from "../../graphql/team";
-import DrawerContent from "./DrawerContent";
+import { getTeamMembersQuery } from "../../../graphql/team";
+import DrawerContent from "../../../components/kousa/DrawerContent";
 
 function Header({
   teams,

@@ -3,10 +3,10 @@ import { Modal } from "@material-ui/core";
 import { graphql } from "react-apollo";
 
 import "../../styles/kallen/Discussions.css";
-import AddDiscussionModal from "./modals/AddDiscussionModal";
-import DiscussionCard from "./cards/DiscussionCard";
-import Loader from "../Loader";
-import { allDiscussionsQuery } from "../../graphql/issue";
+import AddDiscussionModal from "../../../components/kallen/modals/AddDiscussionModal";
+import DiscussionCard from "../../../components/kallen/cards/DiscussionCard";
+import Loader from "../../../components/Loader";
+import { allDiscussionsQuery } from "../../../graphql/issue";
 
 function Discussions({ data: { loading, allDiscussions }, issueId, userId }) {
   const [open, setOpen] = useState(false);

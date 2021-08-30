@@ -4,8 +4,8 @@ import { graphql } from "react-apollo";
 import dayjs from "dayjs";
 
 import { Avatar } from "@material-ui/core";
-import Loader from "../Loader";
-import { allIssuesQuery } from "../../graphql/issue";
+import Loader from "../../../components/Loader";
+import { allIssuesQuery } from "../../../graphql/issue";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 

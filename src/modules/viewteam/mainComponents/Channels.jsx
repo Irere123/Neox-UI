@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AddCircle as Icon,
-  Facebook,
   PersonAdd,
   SettingsOutlined,
 } from "@material-ui/icons";
 import { Avatar, Modal } from "@material-ui/core";
 
 import "../../styles/kousa/Channels.css";
-import SettingsModal from "./modals/SettingsModal";
+import SettingsModal from "../modals/SettingsModal";
 
 const channel = ({ id, name }, teamId) => (
   <Link key={`channel-${id}`} to={`/view-team/${teamId}/${id}`}>

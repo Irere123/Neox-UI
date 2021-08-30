@@ -2,7 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
-import { meQuery } from "../../graphql/team";
+import { meQuery } from "../../../graphql/team";
 
 function DeleteButton({ teamId, mutate, onClose }) {
   return (

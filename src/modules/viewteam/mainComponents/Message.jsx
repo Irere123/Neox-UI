@@ -1,6 +1,6 @@
 import React from "react";
 
-import RenderText from "../RenderText";
+import RenderText from "../../../components/RenderText";
 import "../../styles/kousa/Message.css";
 
 const Message = ({ message: { url, text, filetype } }) => {

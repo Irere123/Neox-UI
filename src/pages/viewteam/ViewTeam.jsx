@@ -4,13 +4,13 @@ import gql from "graphql-tag";
 import findIndex from "lodash/findIndex";
 import { Redirect } from "react-router-dom";
 
-import Header from "../components/Header";
-import Sidebar from "../containers/Sidebar";
-import MessageContainer from "../containers/MessageContainer";
-import SendMessage from "../components/kousa/SendMessage";
-import HeaderBar from "../components/kousa/Header";
-import { meQuery } from "../graphql/team";
-import Loader from "../components/Loader";
+import Header from "../../components/Header";
+import Sidebar from "../../containers/Sidebar";
+import MessageContainer from "../../containers/MessageContainer";
+import SendMessage from "../../components/kousa/SendMessage";
+import HeaderBar from "../../components/kousa/Header";
+import { meQuery } from "../../graphql/team";
+import Loader from "../../components/Loader";
 
 function ViewTeam({
   mutate,

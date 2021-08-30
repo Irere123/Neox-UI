@@ -19,7 +19,7 @@ import { Chip } from "@material-ui/core";
 import {
   allIssuesQuery as issuesQuery,
   createIssueMutation,
-} from "../../graphql/issue";
+} from "../../../graphql/issue";
 
 function AddIssueModal({
   onClose,

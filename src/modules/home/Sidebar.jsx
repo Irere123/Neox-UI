@@ -5,6 +5,8 @@ import {
   ForumOutlined,
   Assignment,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+import { graphql } from "react-apollo";
 
 import "../../styles/MainPage.css";
 
@@ -29,7 +31,9 @@ function Sidebar() {
       <div className="sidebarLink__MainPage">
         <Healing />
         <div>
-          <h2>Class</h2>
+          <Link to="/class">
+            <h2>Class</h2>
+          </Link>
         </div>
       </div>
 
