@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
-import "../../../styles/kousa/Members.css";
+import "../../../styles/viewteamPage/Members.css";
 
 function Members({ onClose, teamName, members, username }) {
   return (

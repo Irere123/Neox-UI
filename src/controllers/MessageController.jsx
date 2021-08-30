@@ -5,8 +5,8 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Avatar } from "@material-ui/core";
 
-import "../styles/kousa/MessageContainer.css";
-import Message from "../components/kousa/Message";
+import "../styles/viewteamPage/MessageController.css";
+import Message from "../modules/viewteam/mainComponents/Message";
 import MicIcon from "../images/mic.svg";
 
 const newChannelMessageSubscription = gql`
@@ -24,7 +24,7 @@ const newChannelMessageSubscription = gql`
   }
 `;
 
-class MessageContainer extends React.Component {
+class MessageController extends React.Component {
   state = {
     hasMoreItems: true,
   };
@@ -210,4 +210,4 @@ export default graphql(messagesQuery, {
     },
     fetchPolicy: "network-only",
   }),
-})(MessageContainer);
+})(MessageController);

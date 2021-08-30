@@ -5,8 +5,8 @@ import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
 import { Close, Warning } from "@material-ui/icons";
 
-import "../../../styles/kousa/InvitePeopleModal.css";
-import normalizeErrors from "../../../normalizeErrors";
+import "../../../styles/viewteamPage/InvitePeopleModal.css";
+import normalizeErrors from "../../../utils/normalizeErrors";
 
 const InvitePeopleModal = ({
   open,

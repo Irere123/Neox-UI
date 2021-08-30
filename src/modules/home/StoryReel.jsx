@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../styles/MainPage.css";
+import "../../../styles/Home.css";
 
 const StoryReel = ({ userLogo }) => {
   return (

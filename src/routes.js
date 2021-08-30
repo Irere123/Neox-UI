@@ -8,11 +8,11 @@ import Login from "./pages/Login";
 import Invites from "./pages/viewteam/Invites";
 import CreateTeam from "./pages/viewteam/CreateTeam";
 import ViewTeam from "./pages/viewteam/ViewTeam";
-import Home from "./pages/Home";
-import Issue from "./pages/Issue.jsx";
-import DashBoard from "./pages/Dashboard.jsx";
+import IssuesPage from "./pages/IssuesPage";
+import IssuePage from "./pages/IssuesPage";
+import DashBoard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
-import Main from "./pages/Main";
+import Home from "./pages/Home";
 import CDashboard from "./pages/class/CDashboard";
 import Class from "./pages/class/Class";
 
@@ -51,13 +51,13 @@ export default () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Login} />
-        <Route path="/main" exact component={Main} />
+        <Route path="/main" exact component={Home} />
         <Route path="/class" exact component={CDashboard} />
         <Route path="/class/id" exact component={Class} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
-        <PrivateRoute path="/home" exact component={Home} />
-        <PrivateRoute path="/issue/:issueId" exact component={Issue} />
+        <PrivateRoute path="/home" exact component={IssuesPage} />
+        <PrivateRoute path="/issue/:issueId" exact component={IssuePage} />
         <PrivateRoute path="/invites" exact component={Invites} />
         <PrivateRoute path="/dashboard" exact component={DashBoard} />
         <PrivateRoute

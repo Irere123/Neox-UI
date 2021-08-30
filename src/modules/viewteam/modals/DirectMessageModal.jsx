@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 import gql from "graphql-tag";
 import findIndex from "lodash/findIndex";
 
-import "../../../styles/kousa/InvitePeopleModal.css";
+import "../../../styles/viewteamPage/DirectMessageModal.css";
 import { getTeamMembersQuery } from "../../../graphql/team";
 import { meQuery } from "../../../graphql/team";
 

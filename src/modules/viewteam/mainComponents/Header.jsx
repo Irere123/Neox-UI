@@ -5,7 +5,7 @@ import Members from "../modals/Members";
 import { graphql } from "react-apollo";
 
 import { getTeamMembersQuery } from "../../../graphql/team";
-import DrawerContent from "../../../components/kousa/DrawerContent";
+import DrawerContent from "./DrawerContent";
 
 function Header({
   teams,

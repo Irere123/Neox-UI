@@ -3,7 +3,7 @@ import { graphql } from "react-apollo";
 import Loader from "../../components/Loader";
 
 import { meQuery } from "../../graphql/team";
-import InvitesContainer from "../../containers/InvitesContainer";
+import InvitesContainer from "../../controllers/InvitesController";
 
 function Invites({ data: { loading, me } }) {
   if (loading) {

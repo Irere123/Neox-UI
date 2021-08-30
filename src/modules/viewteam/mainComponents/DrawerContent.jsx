@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/kousa/Drawer.css";
+import "../../../styles/viewteamPage/Drawer.css";
 import DrawerChannels from "./DrawerChannels";
 
 const teamMapped = ({ id, letter }) => (

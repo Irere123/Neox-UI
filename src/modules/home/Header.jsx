@@ -1,7 +1,7 @@
 import React from "react";
 
 import StoryReel from "./StoryReel";
-import "../../styles/MainPage.css";
+import "../../../styles/Home.css";
 
 function Header() {
   return (

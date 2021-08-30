@@ -1,7 +1,7 @@
 import React from "react";
 
 import RenderText from "../../../components/RenderText";
-import "../../styles/kousa/Message.css";
+import "../../../styles/viewteamPage/Message.css";
 
 const Message = ({ message: { url, text, filetype } }) => {
   if (url) {

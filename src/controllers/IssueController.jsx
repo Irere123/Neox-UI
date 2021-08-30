@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Tab, Tabs, Box, Typography } from "@material-ui/core";
 
-import Finds from "../components/kallen/Finds";
-import Discussions from "../components/kallen/Discussions";
-import Insights from "../components/kallen/Insights";
+import Finds from "../modules/issues/main/Finds";
+import Discussions from "../modules/issues/main/Discussions";
+import Insights from "../modules/issues/main/Insights";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

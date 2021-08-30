@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/kousa/Teams.css";
+import "../../../styles/viewteamPage/Teams.css";
 
 const team = ({ id, letter }) => (
   <Link to={`/view-team/${id}`} key={`team-${id}`}>

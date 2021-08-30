@@ -1,8 +1,8 @@
 import React from "react";
 
 import "../styles/MainPage.css";
-import Header from "../components/main/Header";
-import PostCard from "../components/main/Content";
+import Header from "../modules/home/Header";
+import PostCard from "../modules/home/Content";
 
 function MainPageContainer() {
   return (

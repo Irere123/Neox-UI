@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@material-ui/core";
 import { Comment, Favorite, Share } from "@material-ui/icons";
 
-import "../../styles/MainPage.css";
+import "../../../styles/Home.css";
 
 function Content({ username, createdAt }) {
   return (

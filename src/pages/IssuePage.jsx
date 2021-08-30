@@ -3,8 +3,8 @@ import { graphql } from "react-apollo";
 
 import { meQuery } from "../graphql/team";
 import Header from "../components/Header";
-import IssueContainer from "../containers/IssueContainer";
-import "../styles/Issue.css";
+import IssueController from "../controllers/IssueController";
+import "../styles/IssuePage.css";
 import Loader from "../components/Loader";
 
 function Issue({
@@ -23,7 +23,7 @@ function Issue({
     <div>
       <Header username={username} />
       <div className="issue-layout">
-        <IssueContainer issueId={issueId} userId={id} username={username} />
+        <IssueController issueId={issueId} userId={id} username={username} />
       </div>
     </div>
   );

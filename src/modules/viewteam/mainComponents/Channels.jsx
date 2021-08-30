@@ -7,7 +7,7 @@ import {
 } from "@material-ui/icons";
 import { Avatar, Modal } from "@material-ui/core";
 
-import "../../styles/kousa/Channels.css";
+import "../../../styles/viewteamPage/Channels.css";
 import SettingsModal from "../modals/SettingsModal";
 
 const channel = ({ id, name }, teamId) => (

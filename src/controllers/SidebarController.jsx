@@ -1,10 +1,10 @@
 import React from "react";
 
-import Channels from "../components/kousa/Channels";
-import Teams from "../components/kousa/Teams";
-import AddChannelModal from "../components/kousa/modals/AddChannelModal";
-import InvitePeopleModal from "../components/kousa/modals/InvitePeopleModal";
-import DirectMessageModal from "../components/kousa/modals/DirectMessageModal";
+import Channels from "../modules/viewteam/mainComponents/Channels";
+import Teams from "../modules/viewteam/mainComponents/Teams";
+import AddChannelModal from "../modules/viewteam/modals/AddChannelModal";
+import InvitePeopleModal from "../modules/viewteam/modals/InvitePeopleModal";
+import DirectMessageModal from "../modules/viewteam/modals/DirectMessageModal";
 
 export default class Sidebar extends React.Component {
   state = {

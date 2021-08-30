@@ -1,9 +1,9 @@
 import React from "react";
 import { Close } from "@material-ui/icons";
 
-import "../../../styles/kousa/SettingsModal.css";
-import DeleteButton from "../DeleteButton";
-import LeaveTeamButton from "../LeaveTeamButton";
+import "../../../styles/viewteamPage/SettingsModal.css";
+import DeleteButton from "../mainComponents/DeleteButton";
+import LeaveTeamButton from "../mainComponents/LeaveTeamButton";
 
 function SettingsModal({ onClose, teamName, teamId, isAdmin }) {
   return (

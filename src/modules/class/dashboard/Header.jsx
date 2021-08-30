@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/CDashboard.css";
+import "../../../styles/classPage/CDashboard.css";
 
 function Header() {
   return (

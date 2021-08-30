@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "react-apollo";
 import dayjs from "dayjs";
 import { Avatar } from "@material-ui/core";
-import AcceptButton from "../components/invites/AcceptButton";
-import DeclineButton from "../components/invites/DeclineButton";
+import AcceptButton from "../modules/viewteam/inviteComponents/AcceptButton";
+import DeclineButton from "../modules/viewteam/inviteComponents/DeclineButton";
 
 import { getInvitesQuery } from "../graphql/request";
 

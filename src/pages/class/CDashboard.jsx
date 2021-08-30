@@ -1,8 +1,8 @@
 import React from "react";
 
 import "../styles/CDashboard.css";
-import Cards from "../../components/class/Cards";
-import Header from "../../components/class/Header";
+import Cards from "../../modules/class/dashboard/Cards";
+import Header from "../../modules/class/dashboard/Header";
 
 function CDashboard() {
   return (

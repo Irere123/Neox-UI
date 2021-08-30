@@ -1,14 +1,14 @@
 import React from "react";
 
-import ClassChatContainer from "../../containers/ClassChatContainer";
-import ClassContainer from "../../containers/ClassContainer";
+import ClassChatController from "../../controllers/ClassChatController";
+import ClassController from "../../controllers/ClassController";
 import "../styles/class/Class.css";
 
 function Class() {
   return (
     <div className="InternalClassPage__layout">
-      <ClassContainer />
-      <ClassChatContainer />
+      <ClassController />
+      <ClassChatController />
     </div>
   );
 }

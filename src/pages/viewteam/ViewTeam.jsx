@@ -5,11 +5,11 @@ import findIndex from "lodash/findIndex";
 import { Redirect } from "react-router-dom";
 
 import Header from "../../components/Header";
-import Sidebar from "../../containers/Sidebar";
-import MessageContainer from "../../containers/MessageContainer";
-import SendMessage from "../../components/kousa/SendMessage";
-import HeaderBar from "../../components/kousa/Header";
-import { meQuery } from "../../graphql/team";
+import Sidebar from "../../controllers/SidebarController";
+import MessageController from "../../controllers/MessageController";
+import SendMessage from "../../modules/viewteam/mainComponents/SendMessage";
+import HeaderBar from "../../modules/viewteam/mainComponents/Header";
+import { meQuery } from "../graphql/team";
 import Loader from "../../components/Loader";
 
 function ViewTeam({
@@ -66,7 +66,7 @@ function ViewTeam({
           />
         )}
         {channel && (
-          <MessageContainer
+          <MessageController
             channelId={channel.id}
             channelName={channel.name}
             isDm={channel.dm}

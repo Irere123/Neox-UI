@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { graphql } from "react-apollo";
 
-import "../../styles/MainPage.css";
+import "../../../styles/Home.css";
 
 function Sidebar() {
   return (

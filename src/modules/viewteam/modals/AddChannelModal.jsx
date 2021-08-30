@@ -7,7 +7,7 @@ import findIndex from "lodash/findIndex";
 import Select from "react-select";
 import { Close } from "@material-ui/icons";
 
-import "../../../styles/kousa/AddChannelModal.css";
+import "../../../styles/viewteamPage/AddChannelModal.css";
 import { meQuery } from "../../../graphql/team";
 import { getTeamMembersQuery } from "../../../graphql/team";
 
