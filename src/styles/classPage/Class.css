@@ -2,3 +2,63 @@
   display: grid;
   grid-template-columns: 1fr 400px;
 }
+
+.ClassChat__card {
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+  padding: 20px 10px;
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--primary-border-color);
+  height: 85vh;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.ClassChatHeader {
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.ClassChatHeader > * {
+  margin: 6px;
+}
+
+.ClassChatHeader > .MuiSvgIcon-root {
+  font-size: 25px;
+}
+
+.ClassChatHeader > .MuiSvgIcon-root:hover {
+  transform: scale(1.2);
+}
+
+.ClassChatMessages {
+  flex: 0.8;
+}
+
+.ClassChatMessage__input {
+  display: flex;
+  justify-content: baseline;
+}
+
+.ClassChatMessage__icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.ClassChatMessage__input {
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 4px;
+}
+
+.ClassChatMessage__input > input {
+  background-color: transparent;
+  font-size: 17px;
+  color: #d3d3d3;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
