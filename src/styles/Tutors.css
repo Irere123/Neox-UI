@@ -1,0 +1,6 @@
+.tutorsPage__layout {
+  display: grid;
+  grid-template-columns: 370px 1fr;
+  margin-left: 10px;
+  position: fixed;
+}

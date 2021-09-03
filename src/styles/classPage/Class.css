@@ -1,6 +1,7 @@
 .InternalClassPage__layout {
   display: grid;
   grid-template-columns: 1fr 400px;
+  overflow-y: hidden;
 }
 
 .ClassChat__card {
@@ -9,8 +10,8 @@
   padding: 20px 10px;
   background-color: var(--secondary-bg-color);
   border: 1px solid var(--primary-border-color);
-  height: 85vh;
-  margin-top: 20px;
+  height: 83vh;
+  margin-top: 45px;
   border-radius: 5px;
 }
 
@@ -61,4 +62,39 @@
   border: none;
   outline: none;
   margin-left: 5px;
+}
+
+.classPage__navIcons {
+  display: flex;
+  background-color: var(--secondary-bg-color);
+  width: 140px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--paper-shadow);
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:hover {
+  transform: scale(1.1);
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:nth-child(1) {
+  margin-right: 15px;
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:nth-child(2) {
+  margin-right: 15px;
+}
+
+.whiteBoard__container {
+  margin-top: 20px;
+}
+
+.whiteboard {
+  background-color: #d3d3d3;
+  max-width: 55rem;
+  height: 35rem;
+  margin-right: 20px;
+  border-radius: 3px;
 }

@@ -6,7 +6,7 @@ import "../../styles/Home.css";
 function Header() {
   return (
     <div>
-      <h2 className="Trending">Trending</h2>
+      <h2 className="Trending">Your Feed</h2>
       <div className="stories">
         <StoryReel userLogo="BO" />
         <StoryReel userLogo="JB" />

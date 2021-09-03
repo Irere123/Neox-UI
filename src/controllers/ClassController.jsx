@@ -1,9 +1,15 @@
 import React from "react";
 
+import Navbar from "../modules/class/main/Navbar";
+import WhiteBoard from "../modules/class/main/WhiteBoard";
+
 function ClassContainer() {
   return (
     <div>
-      <h1>Container</h1>
+      <Navbar />
+      <div className="whiteBoard__container">
+        <WhiteBoard />
+      </div>
     </div>
   );
 }

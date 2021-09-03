@@ -2,8 +2,11 @@ import React from "react";
 
 function WhiteBoard() {
   return (
-    <div>
-      <h1>White Board</h1>
+    <div className="whiteboard">
+      <div className="whiteboard__board"></div>
+      <div className="whiteboard__tools">
+        <div></div>
+      </div>
     </div>
   );
 }

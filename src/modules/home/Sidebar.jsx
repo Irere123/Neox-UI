@@ -23,7 +23,9 @@ function Sidebar() {
       <div className="sidebarLink__MainPage">
         <PeopleOutlined />
         <div>
-          <h2>Friends</h2>
+          <Link to="/tutors">
+            <h2>Tutors</h2>
+          </Link>
         </div>
       </div>
 
@@ -39,14 +41,18 @@ function Sidebar() {
       <div className="sidebarLink__MainPage">
         <ForumOutlined />
         <div>
-          <h2>Teams</h2>
+          <Link to="/view-team">
+            <h2>Teams</h2>
+          </Link>
         </div>
       </div>
 
       <div className="sidebarLink__MainPage">
         <Assignment />
         <div>
-          <h2>Works</h2>
+          <Link to="/works">
+            <h2>Works</h2>
+          </Link>
         </div>
       </div>
     </div>

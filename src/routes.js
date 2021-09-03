@@ -15,6 +15,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Home from "./pages/Home";
 import CDashboard from "./pages/class/CDashboard";
 import Class from "./pages/class/Class";
+import Tutors from "./pages/class/Tutors";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -54,6 +55,7 @@ export default () => {
         <Route path="/main" exact component={Home} />
         <Route path="/class" exact component={CDashboard} />
         <Route path="/class/id" exact component={Class} />
+        <Route path="/tutors" exact component={Tutors} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
         <PrivateRoute path="/home" exact component={IssuesPage} />
