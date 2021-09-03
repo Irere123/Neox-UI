@@ -1,33 +1,21 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import decode from "jwt-decode";
 
 import "./index.css";
+import { isAuthenticated } from "./utils/isAuthenticated";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import CreateTeam from "./pages/CreateTeam";
-import ViewTeam from "./pages/ViewTeam";
-import Home from "./pages/Home";
-import Issue from "./pages/Issue.jsx";
-import DashBoard from "./pages/Dashboard.jsx";
-import Invites from "./pages/Invites.jsx";
+import Invites from "./pages/viewteam/Invites";
+import CreateTeam from "./pages/viewteam/CreateTeam";
+import ViewTeam from "./pages/viewteam/ViewTeam";
+import IssuesPage from "./pages/IssuesPage";
+import IssuePage from "./pages/IssuePage";
+import DashBoard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
-
-const isAuthenticated = () => {
-  const token = localStorage.getItem("token");
-  const refreshToken = localStorage.getItem("refreshToken");
-  try {
-    decode(token);
-    const { exp } = decode(refreshToken);
-    if (Date.now() / 1000 > exp) {
-      return false;
-    }
-  } catch (err) {
-    return false;
-  }
-
-  return true;
-};
+import Home from "./pages/Home";
+import CDashboard from "./pages/class/CDashboard";
+import Class from "./pages/class/Class";
+import Tutors from "./pages/class/Tutors";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -60,10 +48,14 @@ export default () => {
     <BrowserRouter>
       <Switch>
         <RedirectRoute path="/" exact component={Login} />
+        <Route path="/main" exact component={Home} />
+        <Route path="/class" exact component={CDashboard} />
+        <Route path="/class/id" exact component={Class} />
+        <Route path="/tutors" exact component={Tutors} />
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/create-team" exact component={CreateTeam} />
-        <PrivateRoute path="/home" exact component={Home} />
-        <PrivateRoute path="/issue/:issueId" exact component={Issue} />
+        <PrivateRoute path="/home" exact component={IssuesPage} />
+        <PrivateRoute path="/issue/:issueId" exact component={IssuePage} />
         <PrivateRoute path="/invites" exact component={Invites} />
         <PrivateRoute path="/dashboard" exact component={DashBoard} />
         <PrivateRoute

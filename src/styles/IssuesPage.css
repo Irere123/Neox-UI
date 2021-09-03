@@ -1,0 +1,515 @@
+.homepage_layout {
+  display: grid;
+  grid-template-areas:
+    "topbar topbar ads"
+    "main main ads"
+    "main main ads";
+  overflow: hidden;
+}
+
+/* Teams Section(Header Section) */
+
+.header-items {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+}
+
+.left-layout-header {
+  grid-area: topbar;
+  position: sticky;
+  overflow: hidden;
+}
+
+.homepage_team__wrapper > h2 {
+  margin-left: 5px;
+  color: #d3d3d3;
+}
+
+.homepage_team_list {
+  width: 250px;
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+  padding-left: 0px;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.home_team_list_item {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background-color: #161b22;
+  color: #fff;
+  margin-top: 20px;
+  margin: auto;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 11px;
+}
+
+/* Right Layout an Left Layout */
+
+.left-layout {
+  grid-area: main;
+}
+
+.right-layout {
+  grid-area: ads;
+  margin-top: 50px;
+  position: sticky;
+}
+
+/* Issues Layout or Cards */
+.btn__newIssue {
+  display: flex;
+  height: 40px;
+  width: 130px;
+  color: lightgray;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 11px;
+  border: 1px solid #161b22;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #161b22;
+  justify-content: center;
+  font-size: 17px;
+  box-shadow: var(--secondary-paper-shadow);
+}
+
+.issue-cards-home {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(3, 330px);
+}
+
+.issue-card {
+  width: 300px;
+  height: 350px;
+  padding: 5px;
+  margin-top: 50px;
+  border-radius: 11px;
+  background-color: #161b22;
+  display: grid;
+  grid-template-rows: 100px 1fr 60px;
+  overflow: hidden;
+}
+
+.issue-card-header > .MuiAvatar-root {
+  padding: 10px !important;
+  width: 40px;
+  height: 40px;
+  background-color: var(--border-color) !important;
+}
+
+.issue-card-bottom {
+  background-color: var(--border-color);
+  border-radius: 11px;
+  display: grid;
+  padding-top: 5px;
+  grid-template-columns: 1fr 60px;
+  z-index: 1;
+}
+
+.issue-card-content {
+  overflow: hidden;
+}
+
+.hashtag {
+  font-size: 30px;
+  color: #d3d3d3;
+}
+
+.category-issue {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.issue-card-header {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  color: #d3d3d3;
+}
+
+.issue-card-info > h2 {
+  text-transform: capitalize;
+}
+
+.category-issue > h4 {
+  margin-top: 10px;
+  color: #d3d3d3;
+}
+
+.issue-card-content {
+  padding: 10px;
+  color: #d3d3d3;
+  font-size: 20px;
+}
+
+.issue-card-content > p {
+  width: 300px;
+}
+
+/* Sponsor Card */
+
+.sponsored {
+  color: #d3d3d3;
+}
+
+.sponsor-card {
+  overflow: hidden;
+  width: 220px;
+  height: 220px;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 11px;
+  background-color: #161b22;
+  color: #d3d3d3;
+}
+
+.sponsor-card > h1 {
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
+}
+
+.sponsor-card > h4 {
+  font-size: 18px;
+}
+
+/* Add Issue Modal */
+
+.addIssueModal {
+  height: 420px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: 500px;
+  outline: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  background-color: #161b22;
+}
+
+.addIssueModal_content > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+}
+
+.addIssueModal__header {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-bottom: 30px;
+}
+
+.addIssueModal__header > .close-icon > .MuiSvgIcon-root {
+  margin-left: 4px;
+}
+
+.addIssueModal__header > .close-icon:hover {
+  background-color: var(--primary-border-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.addIssueModal__header > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addIssueModal__center {
+  display: flex;
+  flex-direction: column;
+}
+
+.description__input,
+.category__input,
+.team__input_issue {
+  display: flex;
+  flex-direction: column;
+}
+
+.description__input > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-bottom: 7px;
+}
+
+.description__input > textarea {
+  background-color: transparent;
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 5px;
+  outline: none;
+  color: #323d4d;
+  font-size: 16px;
+  padding: 5px;
+}
+
+::placeholder {
+  padding: 20px;
+}
+
+.category__input > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.category__input > .chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category__input > .chips > * {
+  margin: 5px;
+}
+
+.addIssueModal__btn {
+  display: flex;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.addIssueModal__btn > button {
+  background-color: #323d4d;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 90px;
+  color: #d3d3d3;
+  font-size: 16px;
+  border-radius: 999px;
+  box-shadow: var(--secondary-paper-shadow);
+}
+
+.team__input_issue > label {
+  color: #d3d3d3;
+  font-size: 18px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.selectedCategory {
+  margin-left: 10px;
+  color: #f50057;
+}
+
+/* React select styles  */
+.css-yk16xz-control {
+  background-color: transparent !important;
+  border: 1px solid var(--primary-border-color) !important;
+  color: #323d4d !important;
+}
+
+.css-1pahdxg-control {
+  background-color: transparent !important;
+}
+
+.css-1pahdxg-control:hover {
+  outline: none !important;
+  border-color: var(--primary-border-color) !important;
+}
+
+.css-1uccc91-singleValue {
+  color: #323d4d !important;
+  font-size: 20px !important;
+}
+
+.css-1wa3eu0-placeholder {
+  color: #323d4d !important;
+  font-size: 18px !important;
+}
+
+.css-2613qy-menu {
+  background: var(--primary-bg-color) !important;
+}
+
+/* Media Queries */
+
+@media (max-width: 1260px) {
+  .issue-cards-home {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: repeat(2, 320px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .homepage_layout {
+    display: grid;
+    grid-template-areas:
+      "topbar topbar topbar"
+      "main main main"
+      "main main main";
+    overflow: hidden;
+  }
+
+  .right-layout {
+    display: none;
+  }
+
+  .sponsor-card {
+    display: none;
+  }
+
+  .issue-cards-home {
+    grid-template-columns: repeat(3, 330px);
+  }
+}
+
+@media (max-width: 995px) {
+  .issue-cards-home {
+    padding-left: 40px;
+    grid-template-columns: repeat(2, 330px);
+  }
+}
+
+@media (max-width: 650px) {
+  .issue-cards-home {
+    grid-template-columns: repeat(1, 330px);
+  }
+}
+
+@media (max-width: 500px) {
+  .homepage_team_list {
+    display: none;
+  }
+
+  .homepage_team__wrapper > h2 {
+    display: none;
+  }
+}
+
+@media (max-width: 414px) {
+  .issue-cards-home {
+    padding-left: 20px;
+  }
+  .issue-card {
+    width: 350px;
+  }
+}
+
+@media (max-width: 411px) {
+  .issue-cards-home {
+    padding-left: 10px;
+  }
+
+  .issue-card {
+    width: 360px;
+  }
+}
+
+@media (max-width: 375px) {
+  .issue-card {
+    width: 330px;
+  }
+}
+
+@media (max-width: 340px) {
+  .issue-card {
+    width: 270px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 330px) {
+  .issue-cards-home {
+    grid-template-columns: repeat(1, 250px);
+  }
+
+  .issue-card {
+    width: 250px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 320px) {
+  .issue-card {
+    width: 270px;
+  }
+}
+
+.addIssueModal_content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal Media Queries */
+
+@media only screen and (max-width: 750px) {
+  .addIssueModal__header > .close-icon > .icon {
+    background-color: var(--primary-border-color);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .addIssueModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (width: 540px) {
+  .addIssueModal {
+    height: 460px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .addIssueModal {
+    height: 460px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .addIssueModal {
+    width: 350px;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .addIssueModal {
+    width: 310px;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .addIssueModal {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .addIssueModal {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .addIssueModal {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .addIssueModal {
+    width: 200px;
+  }
+}

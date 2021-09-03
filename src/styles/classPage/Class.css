@@ -1,0 +1,100 @@
+.InternalClassPage__layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  overflow-y: hidden;
+}
+
+.ClassChat__card {
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+  padding: 20px 10px;
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--primary-border-color);
+  height: 83vh;
+  margin-top: 45px;
+  border-radius: 5px;
+}
+
+.ClassChatHeader {
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.ClassChatHeader > * {
+  margin: 6px;
+}
+
+.ClassChatHeader > .MuiSvgIcon-root {
+  font-size: 25px;
+}
+
+.ClassChatHeader > .MuiSvgIcon-root:hover {
+  transform: scale(1.2);
+}
+
+.ClassChatMessages {
+  flex: 0.8;
+}
+
+.ClassChatMessage__input {
+  display: flex;
+  justify-content: baseline;
+}
+
+.ClassChatMessage__icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.ClassChatMessage__input {
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 4px;
+}
+
+.ClassChatMessage__input > input {
+  background-color: transparent;
+  font-size: 17px;
+  color: #d3d3d3;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+.classPage__navIcons {
+  display: flex;
+  background-color: var(--secondary-bg-color);
+  width: 140px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--paper-shadow);
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:hover {
+  transform: scale(1.1);
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:nth-child(1) {
+  margin-right: 15px;
+}
+
+.classPage__navIcons > .MuiSvgIcon-root:nth-child(2) {
+  margin-right: 15px;
+}
+
+.whiteBoard__container {
+  margin-top: 20px;
+}
+
+.whiteboard {
+  background-color: #d3d3d3;
+  max-width: 55rem;
+  height: 35rem;
+  margin-right: 20px;
+  border-radius: 3px;
+}

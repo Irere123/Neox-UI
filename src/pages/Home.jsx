@@ -1,52 +1,32 @@
 import React from "react";
 import { graphql } from "react-apollo";
 
-import { meQuery } from "../graphql/team";
 import "../styles/Home.css";
 import Header from "../components/Header";
-import Feed from "../components/kebbah/Feed";
-import AdsWidget from "../components/kebbah/AdsWidget";
-import HeadBarBottom from "../components/kebbah/HeadBarBottom";
-import Loader from "../components/Loader";
+import Sidebar from "../modules/home/Sidebar";
+import MainPageContainer from "../controllers/MainPageController";
+import { meQuery } from "../graphql/team";
 
-function Home({ data: { loading, me } }) {
+function Main({ data: { me, loading } }) {
   if (loading) {
-    return <Loader />;
+    return null;
   }
 
-  const { id: userId, username, teams } = me;
-
-  const teamIds = teams.map((t) => ({
-    id: t.id,
-  }));
+  const { username } = me;
 
   return (
-    <div>
+    <>
       <Header username={username} />
-      <div className="homepage_layout">
-        <div
-          className="left-layout-header"
-          style={{ overflow: "hidden", position: "sticky" }}
-        >
-          <HeadBarBottom
-            teams={teams.map((t) => ({
-              id: t.id,
-              letter: t.name.charAt(0).toUpperCase(),
-            }))}
-            teamsName={teams}
-            userId={userId}
-            teamIds={teamIds.map(({ id }) => id)}
-          />
+      <div className="mainPage__layout">
+        <div className="mainPageSidebar">
+          <Sidebar />
         </div>
-        <div className="left-layout">
-          <Feed teams={teamIds.map(({ id }) => id)} />
-        </div>
-        <div className="right-layout">
-          <AdsWidget />
+        <div className="mainPageMain__container">
+          <MainPageContainer />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default graphql(meQuery)(Home);
+export default graphql(meQuery)(Main);

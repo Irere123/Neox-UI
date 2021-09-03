@@ -1,5 +1,5 @@
 import React from "react";
-import { Lock, Person } from "@material-ui/icons";
+import { Email, Lock } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { extendObservable } from "mobx";
 import { observer } from "mobx-react";
@@ -17,17 +17,17 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     extendObservable(this, {
-      username: "",
+      email: "",
       password: "",
       errors: {},
     });
   }
 
   onSubmit = async () => {
-    const { username, password } = this;
+    const { email, password } = this;
 
     const response = await this.props.mutate({
-      variables: { username, password },
+      variables: { email, password },
     });
 
     const { ok, token, refreshToken, errors } = response.data.login;
@@ -54,9 +54,9 @@ class Login extends React.Component {
 
   render() {
     const {
-      username,
+      email,
       password,
-      errors: { usernameError, passwordError },
+      errors: { emailError, passwordError },
     } = this;
 
     const errorsList = [];
@@ -65,8 +65,8 @@ class Login extends React.Component {
       errorsList.push(passwordError);
     }
 
-    if (usernameError) {
-      errorsList.push(usernameError);
+    if (emailError) {
+      errorsList.push(emailError);
     }
 
     return (
@@ -89,14 +89,14 @@ class Login extends React.Component {
             <h2>Sign In to your account</h2>
 
             <div className="el__input_login">
-              <Person />
+              <Email />
               <input
                 onError
-                value={username}
+                value={email}
                 onChange={this.onChange}
-                name="username"
-                type="text"
-                placeholder="Username"
+                name="email"
+                type="email"
+                placeholder="Email"
               />
             </div>
             <div className="el__input_login">
@@ -146,8 +146,8 @@ class Login extends React.Component {
 }
 
 const loginMutation = gql`
-  mutation ($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation ($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
       ok
       token
       refreshToken

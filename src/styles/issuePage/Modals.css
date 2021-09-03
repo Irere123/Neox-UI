@@ -1,0 +1,286 @@
+/* Publish Modal */
+
+.ModalContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.publishModal {
+  height: 315px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: 500px;
+  outline: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  background-color: #161b22;
+  border: 1px solid var(--primary-border-color);
+}
+
+.publishModal_content > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+}
+
+.publishModal__header {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-bottom: 30px;
+}
+
+.publishModal__header > .close-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.publishModal__header > .close-icon:hover {
+  transform: scale(1.1);
+}
+
+.publishModal__header > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.publishModal__center {
+  display: flex;
+  flex-direction: column;
+}
+
+.publishModal__center > label {
+  color: #d3d3d3;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.publishModal__center > textarea {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  outline: none;
+  border-radius: 4px;
+  color: #d3d3d3;
+}
+
+.publishModal__btn {
+  display: flex;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.publishModal__btn > button {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  outline: none;
+  padding: 10px;
+  width: 90px;
+  color: #d3d3d3;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 600ms ease-in-out;
+}
+
+.publishModal__btn > button:hover {
+  transform: scale(1.1);
+}
+
+/* New Discussion Modal */
+
+.discussionModal {
+  height: 365px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: 500px;
+  outline: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  background-color: #161b22;
+  border: 1px solid var(--primary-border-color);
+}
+
+.discussionModal_content > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+}
+
+.discussionModal__header {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-bottom: 30px;
+}
+
+.discussionModal__header > .close-icon {
+  background-color: var(--primary-border-color);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.discussionModal__header > .close-icon:hover {
+  transform: scale(1.1);
+}
+
+.discussionModal__header > h1 {
+  color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussionModal__center {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussionModal__center > label {
+  color: #d3d3d3;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.discussionModal__center > input {
+  background-color: transparent;
+  height: 30px;
+  border: 1px solid var(--primary-border-color);
+  outline: none;
+  border-radius: 4px;
+  color: #d3d3d3;
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.discussionModal__center > textarea {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  outline: none;
+  border-radius: 4px;
+  color: #d3d3d3;
+}
+
+.discussionModal__btn {
+  display: flex;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.discussionModal__btn > button {
+  background-color: transparent;
+  border: 1px solid var(--primary-border-color);
+  outline: none;
+  padding: 10px;
+  width: 90px;
+  color: #d3d3d3;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: transform 600ms ease-in-out;
+}
+
+.discussionModal__btn > button:hover {
+  transform: scale(1.1);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 750px) {
+  .publishModal__header > .close-icon > .icon {
+    background-color: var(--primary-border-color);
+  }
+
+  .discussion__header > .close-icon > .icon {
+    background-color: var(--primary-border-color);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .discussionModal {
+    height: 410px;
+  }
+  .publishModal {
+    width: 350px;
+  }
+
+  .discussionModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .publishModal {
+    width: 350px;
+  }
+  .discussionModal {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .publishModal {
+    width: 310px;
+  }
+
+  .discussionModal {
+    width: 310px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .publishModal {
+    width: 300px;
+  }
+
+  .discussionModal {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .publishModal {
+    width: 280px;
+  }
+
+  .discussionModal {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .publishModal {
+    width: 270px;
+  }
+
+  .discussionModal {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .publishModal {
+    width: 200px;
+  }
+
+  .discussionModal {
+    width: 200px;
+  }
+}
